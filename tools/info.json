@@ -584,7 +584,7 @@
                 23,
                 39
             ],
-            "group": "D",
+            "groups": "D",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/23px-Flag_of_Argentina.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/35px-Flag_of_Argentina.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/46px-Flag_of_Argentina.svg.png 2x', 'data-file-width': '800', 'data-file-height': '500'}"
         },
         "Australia": {
@@ -593,7 +593,7 @@
                 22,
                 38
             ],
-            "group": "C",
+            "groups": "C",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/35px-Flag_of_Australia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/46px-Flag_of_Australia.svg.png 2x', 'data-file-width': '1280', 'data-file-height': '640'}"
         },
         "Belgium": {
@@ -602,7 +602,7 @@
                 29,
                 45
             ],
-            "group": "G",
+            "groups": "G",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/23px-Flag_of_Belgium_%28civil%29.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/35px-Flag_of_Belgium_%28civil%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/45px-Flag_of_Belgium_%28civil%29.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
         },
         "Brazil": {
@@ -611,7 +611,7 @@
                 25,
                 41
             ],
-            "group": "E",
+            "groups": "E",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png', 'width': '22', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/33px-Flag_of_Brazil.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/43px-Flag_of_Brazil.svg.png 2x', 'data-file-width': '720', 'data-file-height': '504'}"
         },
         "Colombia": {
@@ -620,7 +620,7 @@
                 31,
                 48
             ],
-            "group": "H",
+            "groups": "H",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/23px-Flag_of_Colombia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/35px-Flag_of_Colombia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/45px-Flag_of_Colombia.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
         },
         "Costa Rica": {
@@ -629,7 +629,7 @@
                 25,
                 42
             ],
-            "group": "E",
+            "groups": "E",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/23px-Flag_of_Costa_Rica.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/35px-Flag_of_Costa_Rica.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/46px-Flag_of_Costa_Rica.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '600'}"
         },
         "Croatia": {
@@ -638,7 +638,7 @@
                 23,
                 40
             ],
-            "group": "D",
+            "groups": "D",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/23px-Flag_of_Croatia.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/35px-Flag_of_Croatia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/46px-Flag_of_Croatia.svg.png 2x', 'data-file-width': '1200', 'data-file-height': '600'}"
         },
         "Denmark": {
@@ -647,7 +647,7 @@
                 22,
                 37
             ],
-            "group": "C",
+            "groups": "C",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png', 'width': '20', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/31px-Flag_of_Denmark.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/40px-Flag_of_Denmark.svg.png 2x', 'data-file-width': '740', 'data-file-height': '560'}"
         },
         "Egypt": {
@@ -656,7 +656,7 @@
                 17,
                 34
             ],
-            "group": "A",
+            "groups": "A",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/23px-Flag_of_Egypt.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/35px-Flag_of_Egypt.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/45px-Flag_of_Egypt.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "England": {
@@ -665,7 +665,7 @@
                 30,
                 45
             ],
-            "group": "G",
+            "groups": "G",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/23px-Flag_of_England.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/35px-Flag_of_England.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/46px-Flag_of_England.svg.png 2x', 'data-file-width': '800', 'data-file-height': '480'}"
         },
         "France": {
@@ -674,7 +674,7 @@
                 21,
                 37
             ],
-            "group": "C",
+            "groups": "C",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/23px-Flag_of_France.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/35px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/45px-Flag_of_France.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Germany": {
@@ -683,7 +683,7 @@
                 27,
                 43
             ],
-            "group": "F",
+            "groups": "F",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/35px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/46px-Flag_of_Germany.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '600'}"
         },
         "Iceland": {
@@ -692,7 +692,7 @@
                 24,
                 40
             ],
-            "group": "D",
+            "groups": "D",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/21px-Flag_of_Iceland.svg.png', 'width': '21', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/32px-Flag_of_Iceland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/42px-Flag_of_Iceland.svg.png 2x', 'data-file-width': '800', 'data-file-height': '576'}"
         },
         "Iran": {
@@ -701,7 +701,7 @@
                 20,
                 35
             ],
-            "group": "B",
+            "groups": "B",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/23px-Flag_of_Iran.svg.png', 'width': '23', 'height': '13', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/35px-Flag_of_Iran.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/46px-Flag_of_Iran.svg.png 2x', 'data-file-width': '630', 'data-file-height': '360'}"
         },
         "Japan": {
@@ -710,7 +710,7 @@
                 32,
                 47
             ],
-            "group": "H",
+            "groups": "H",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/23px-Flag_of_Japan.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/35px-Flag_of_Japan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/45px-Flag_of_Japan.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Mexico": {
@@ -719,7 +719,7 @@
                 28,
                 44
             ],
-            "group": "F",
+            "groups": "F",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/23px-Flag_of_Mexico.svg.png', 'width': '23', 'height': '13', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/35px-Flag_of_Mexico.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/46px-Flag_of_Mexico.svg.png 2x', 'data-file-width': '840', 'data-file-height': '480'}"
         },
         "Morocco": {
@@ -728,7 +728,7 @@
                 19,
                 36
             ],
-            "group": "B",
+            "groups": "B",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/23px-Flag_of_Morocco.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/35px-Flag_of_Morocco.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/45px-Flag_of_Morocco.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Nigeria": {
@@ -737,7 +737,7 @@
                 24,
                 39
             ],
-            "group": "D",
+            "groups": "D",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/23px-Flag_of_Nigeria.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/35px-Flag_of_Nigeria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/46px-Flag_of_Nigeria.svg.png 2x', 'data-file-width': '800', 'data-file-height': '400'}"
         },
         "Panama": {
@@ -746,7 +746,7 @@
                 30,
                 46
             ],
-            "group": "G",
+            "groups": "G",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/23px-Flag_of_Panama.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/35px-Flag_of_Panama.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/45px-Flag_of_Panama.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
         },
         "Peru": {
@@ -755,7 +755,7 @@
                 21,
                 38
             ],
-            "group": "C",
+            "groups": "C",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/23px-Flag_of_Peru.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/35px-Flag_of_Peru.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/45px-Flag_of_Peru.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Poland": {
@@ -764,7 +764,7 @@
                 31,
                 47
             ],
-            "group": "H",
+            "groups": "H",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/23px-Flag_of_Poland.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/35px-Flag_of_Poland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/46px-Flag_of_Poland.svg.png 2x', 'data-file-width': '1280', 'data-file-height': '800'}"
         },
         "Portugal": {
@@ -773,7 +773,7 @@
                 19,
                 35
             ],
-            "group": "B",
+            "groups": "B",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/23px-Flag_of_Portugal.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/35px-Flag_of_Portugal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/45px-Flag_of_Portugal.svg.png 2x', 'data-file-width': '600', 'data-file-height': '400'}"
         },
         "Russia": {
@@ -782,7 +782,7 @@
                 17,
                 33
             ],
-            "group": "A",
+            "groups": "A",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/23px-Flag_of_Russia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/35px-Flag_of_Russia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/45px-Flag_of_Russia.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Saudi Arabia": {
@@ -791,7 +791,7 @@
                 18,
                 34
             ],
-            "group": "A",
+            "groups": "A",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/23px-Flag_of_Saudi_Arabia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/35px-Flag_of_Saudi_Arabia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/45px-Flag_of_Saudi_Arabia.svg.png 2x', 'data-file-width': '750', 'data-file-height': '500'}"
         },
         "Senegal": {
@@ -800,7 +800,7 @@
                 32,
                 48
             ],
-            "group": "H",
+            "groups": "H",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/23px-Flag_of_Senegal.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/35px-Flag_of_Senegal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/45px-Flag_of_Senegal.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Serbia": {
@@ -809,7 +809,7 @@
                 26,
                 41
             ],
-            "group": "E",
+            "groups": "E",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/23px-Flag_of_Serbia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/35px-Flag_of_Serbia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/45px-Flag_of_Serbia.svg.png 2x', 'data-file-width': '1350', 'data-file-height': '900'}"
         },
         "South Korea": {
@@ -818,7 +818,7 @@
                 28,
                 43
             ],
-            "group": "F",
+            "groups": "F",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/23px-Flag_of_South_Korea.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/35px-Flag_of_South_Korea.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/45px-Flag_of_South_Korea.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         },
         "Spain": {
@@ -827,7 +827,7 @@
                 20,
                 36
             ],
-            "group": "B",
+            "groups": "B",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/23px-Flag_of_Spain.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/35px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/45px-Flag_of_Spain.svg.png 2x', 'data-file-width': '750', 'data-file-height': '500'}"
         },
         "Sweden": {
@@ -836,7 +836,7 @@
                 27,
                 44
             ],
-            "group": "F",
+            "groups": "F",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/23px-Flag_of_Sweden.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/35px-Flag_of_Sweden.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/46px-Flag_of_Sweden.svg.png 2x', 'data-file-width': '1600', 'data-file-height': '1000'}"
         },
         "Switzerland": {
@@ -845,7 +845,7 @@
                 26,
                 42
             ],
-            "group": "E",
+            "groups": "E",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/16px-Flag_of_Switzerland.svg.png', 'width': '16', 'height': '16', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/24px-Flag_of_Switzerland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/32px-Flag_of_Switzerland.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '1000'}"
         },
         "Tunisia": {
@@ -854,7 +854,7 @@
                 29,
                 46
             ],
-            "group": "G",
+            "groups": "G",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/23px-Flag_of_Tunisia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/35px-Flag_of_Tunisia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/45px-Flag_of_Tunisia.svg.png 2x', 'data-file-width': '1200', 'data-file-height': '800'}"
         },
         "Uruguay": {
@@ -863,7 +863,7 @@
                 18,
                 33
             ],
-            "group": "A",
+            "groups": "A",
             "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/23px-Flag_of_Uruguay.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/35px-Flag_of_Uruguay.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/45px-Flag_of_Uruguay.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
         }
     }

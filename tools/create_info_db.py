@@ -19,11 +19,16 @@ def create_table(conn, create_table_sql):
         raise(e)
 
 def add_game(conn, game_id, game): 
-    sql = 'INSERT INTO games VALUES' + '('+('?,'*(len(game.keys())+1)).strip(',')+')'
+    sql = 'INSERT OR IGNORE INTO games VALUES' + '('+('?,'*(len(game.keys())+1)).strip(',')+')'
     cur = conn.cursor()
     cur.execute(sql, (int(game_id),) + tuple(game.values()))
     conn.commit()
 
+def add_team(conn, team_name, team): 
+    sql = 'INSERT OR IGNORE INTO teams VALUES' + '('+('?,'*(len(team.keys())+1)).strip(',')+')'
+    cur = conn.cursor()
+    cur.execute(sql, tuple((str(_) for _ in ((team_name,) + tuple(team.values())))))
+    conn.commit()
 
 if __name__ == '__main__':
     conn = create_connection("../db/wcg.db")
@@ -39,8 +44,20 @@ if __name__ == '__main__':
             games_table += f', {k} text'
         games_table += ');'
         create_table(conn, games_table)
+
         for game_id in info['games']:
             add_game(conn, game_id, info['games'][game_id])
+    
+        teams_table = f""" CREATE TABLE IF NOT EXISTS teams (country text PRIMARY KEY"""
+        for k in info['teams']['Portugal']:
+            teams_table += f', {k} text'
+        teams_table += ');'
+
+        create_table(conn, teams_table)  
+
+        for team_name in info['teams']:
+            add_team(conn, team_name, info['teams'][team_name])
+
         conn.close()
     else:
         raise("Error! cannot create the database connection.")

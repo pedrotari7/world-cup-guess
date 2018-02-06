@@ -64,7 +64,7 @@ for group in map(chr, range(ord('A'), ord('H')+1)):
         team = tr.find_all('td')[0]
         team_name = team.text.split('(')[0].strip()
         info['teams'][team_name]['logo'] = str(team.img.attrs)
-        info['teams'][team_name]['group'] = group
+        info['teams'][team_name]['groups'] = group
         info['teams'][team_name]['games'] = []
 
     for game in s.findAll(attrs={"class":"vevent"}):
