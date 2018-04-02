@@ -1,4 +1,3 @@
-
 import json
 import sqlite3
 from sqlite3 import Error
@@ -39,7 +38,7 @@ if __name__ == '__main__':
     tables = []
 
     if conn is not None:
-        games_table = f""" CREATE TABLE IF NOT EXISTS games (id integer PRIMARY KEY"""
+        games_table = 'CREATE TABLE IF NOT EXISTS games (id integer PRIMARY KEY'
         for k in info['games']['1']:
             games_table += f', {k} text'
         games_table += ');'
@@ -48,7 +47,7 @@ if __name__ == '__main__':
         for game_id in info['games']:
             add_game(conn, game_id, info['games'][game_id])
     
-        teams_table = f""" CREATE TABLE IF NOT EXISTS teams (country text PRIMARY KEY"""
+        teams_table = 'CREATE TABLE IF NOT EXISTS teams (country text PRIMARY KEY'
         for k in info['teams']['Portugal']:
             teams_table += f', {k} text'
         teams_table += ');'
