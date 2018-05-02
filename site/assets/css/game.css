@@ -1,0 +1,118 @@
+#game_title {
+    height: 5%;
+    font-size: 150%;
+    color:white;
+    font-weight: bold;
+    width: 96%;
+    text-align: center;
+    margin: 2%;
+}
+
+.textBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.groups {
+    margin: 2%;
+    background-color:rgba(0, 0, 0, 0);
+    /* background-color: #972a29; */
+    height: 3%;
+    width: 96%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.game {
+    margin: 2%;
+    background-color: #474748;
+    color: white;
+    /* background-color: #972a29; */
+    height: 5%;
+    width: 96%;
+    display: flex;
+    text-align:center;
+    border-radius: 25px;
+}
+
+.team_flag {
+    position: relative;
+    height: 100%;
+    width: 50px;
+}
+
+.team_flag_img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.game_team {
+    height: 100%;
+    width: 15%;
+    font-size: 100%;
+}
+
+.game_score_date {
+    height: 100%;
+    width: 25%;
+    text-align:center;
+    position: relative;
+}
+
+
+.game_score {
+    height: 50%;
+    width: 100%;
+    text-align:center;
+    position: relative;
+}
+
+.game_date {
+    height: 50%;
+    width: 100%;
+    text-align:center;
+    position: relative;
+}
+
+.group_A{
+    color: white;
+    background-color: #1C8564;
+}
+
+.group_B{
+    color: white;
+    background-color: #34275C;
+}
+
+.group_C{
+    color: white;
+    background-color: #B7315F;
+}
+
+.group_D{
+    color: white;
+    background-color: #DF6E43;
+}
+
+.group_E{
+    color: white;
+    background-color: #BE3E3D;
+}
+
+.group_F{
+    color: white;
+    background-color: #252C36;
+}
+
+.group_G{
+    color: white;
+    background-color: #674640;
+}
+
+.group_H{
+    color: white;
+    background-color: #12426C;
+}

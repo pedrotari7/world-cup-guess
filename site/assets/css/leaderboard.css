@@ -1,0 +1,69 @@
+#leaderboard_title {
+    height: 5%;
+    font-size: 150%;
+    color:white;
+    font-weight: bold;
+    width: 96%;
+    text-align: center;
+    margin: 2%;
+
+}
+
+#leaderboard_table{
+    width: 96%;
+    margin: 2%;
+    color:white;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    border-radius: 25px;
+}
+
+.label_th {
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+
+td {
+    vertical-align: middle;
+    display: table-cell;
+    height: 5%;
+    margin: 0;
+}
+
+td:first-child{
+    -moz-border-radius:25px 0 0 25px;
+    -webkit-border-radius:25px 0 0 25px;
+    border-radius: 25px 0 0 25px;
+}
+td:last-child{
+    -moz-border-radius:0 25px 25px 0;
+    -webkit-border-radius:0 25px 25px 0;
+    border-radius: 0 25px 25px 0;
+}
+
+.user_row {
+    background-color: black;
+}
+
+.user_profile_picture_img {
+    border-radius: 10px;
+    height: 60%;
+    width: 60%;
+    object-fit: contain;
+}
+
+.user_pos {
+    width: 5%;
+}
+
+.user_name {
+    width: 20%;
+}
+
+.user_points {
+    background-color: black;
+    color: white;
+}

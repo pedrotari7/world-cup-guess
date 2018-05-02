@@ -2,10 +2,11 @@
 
 <html>
 	<head>
-		<title>World Cup Guess</title>
+		<title>My Predictions</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/home.css" />		
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/predictions.css" />
 		<link rel="apple-touch-icon" sizes="57x57" href="resources/logos/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="resources/logos/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="resources/logos/apple-icon-72x72.png">
@@ -26,41 +27,34 @@
 
 		<meta name="google-signin-client_id" content="131138540192-cij5qbk5it1nui0k2i2e03d0gfuuirhp.apps.googleusercontent.com">
 
-
 	</head>
 	<body class="landing">
 
 		<!-- Header -->
 		<header id="header">
+			<img id="profile_picture" src="">
+			<a href=""> <p id="user_name"></p></a>
 			<a href="#nav">Menu</a>
 		</header>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
+                <li><a id="predictions" href="predictions.html">My Predictions</a></li>
+                <li><a id="leaderboard" href="leaderboard.html">Leaderboard</a></li>
+                <li><a id="schedule" href="schedule.html">Schedule</a></li>
 				<li><a href="#rules">Rules</a></li>
 			</ul>
 		</nav>
 
 		<!-- Banner -->
-			<section id="banner">
+        <section id="banner" class="flexcroll">
 
-				<div id="landing_logo_wrapper">
-					<img id="landing_logo" src="resources/images/landing_logo.png">
-				</div>
 
-				<div id="google"> 
-					<div id="my-signin2"</div>
-				</div>
-				<!-- <div id="facebook"> 
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-				</div> -->
-					
-				
-			</section>
+        </section>
 
-		<!-- Rules -->	
-		<div id="rules">
+		<!-- Rules -->
+		<div id="rules" class="flexcroll">
 			<a href="#" class="close_overlay">&times;</a>
 			<div style="height:100%">
 				<h3 style="text-align: center">
@@ -92,45 +86,33 @@
 					<li>In the group stages, the predictions have to be done in full before the start of the tournament.</li>
 					<li>For the final stages games, the predictions will be available once the matchup is known, and have to be submited up to 1 hour before the game.</li>
 					<li>The indivual awards predictions have to be subtimited before the start of the tournament.</li>
-				</ul>	
-			</div>			
-		</div>
+				</ul>
+			</div>
+        </div>
+
 		<div id="mask" onclick="document.location='';"></div>
 
-		<!-- Swish -->	
+		<!-- Swish -->
 		<div id="swish">
 			<a href="#" class="close_overlay">&times;</a>
 			<div style="height:100%">
 				<img id="swish_logo" src="resources/images/swish.png" style='height: 100%; width: 100%; object-fit: contain'>
-			</div>			
+			</div>
 		</div>
 		<div id="mask" onclick="document.location='';"></div>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="https://github.com/pedrotari7" target="_blank" class="icon fa-github">
-						<span class="label">Github</span>
-					</a></li>
-					<li><a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-alvito-5b73b46a" target="_blank" class="icon fa-linkedin">
-						<span class="label">LinkedIn</span>
-					</a></li>
-					<li><a href="#swish" class="icon fa-gift">
-						<span class="label">Swish</span>
-					</a></li>
-				</ul>
-
-			</div>
+			<link rel="import" href="templates/footer.html">
 		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/wcg.js"></script>			
-			<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/wcg.js"></script>
+		<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 	</body>
 </html>

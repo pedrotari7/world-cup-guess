@@ -97,3 +97,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#globals
+globals.json
+
+db
+
+.vscode

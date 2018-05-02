@@ -32,7 +32,7 @@ def update_info_game(info, game, stage):
         info['games'][number]['away_team'] = info['games'][number]['away_team'].split()[0] + ' ' + info['games'][number]['away_team'].split()[2]
     else:
         info['games'][number]['away_team'] = info['games'][number]['away_team'].split()[0] + ' ' + info['games'][number]['away_team'].split()[2]
- 
+
     game_date = tables[0].div.text
     game_day = game_date.split('(')[1].split(')')[0]
     game_time = game_date.split('\n')[1].split()[0]
@@ -63,7 +63,7 @@ for group in map(chr, range(ord('A'), ord('H')+1)):
     for tr in table.findChildren(['tr'])[1:]:
         team = tr.find_all('td')[0]
         team_name = team.text.split('(')[0].strip()
-        info['teams'][team_name]['logo'] = str(team.img.attrs)
+        info['teams'][team_name]['logo'] = json.dumps(str(team.img.attrs))
         info['teams'][team_name]['groups'] = group
         info['teams'][team_name]['games'] = []
 

@@ -7,18 +7,73 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 /* Reset */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6/*  */, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: "Roboto";
   }
 
 body{
   background-color: #972a29;
-}  
+}
+
+
+#profile_picture {
+  width: 40px;
+  position: fixed;
+  top: 1%;
+  left: 1%;
+}
+
+
+#user_name {
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 6%;
+  margin: 0;
+}
+
+#banner {
+  position: fixed;
+  top: 5%;
+  padding-bottom: 5%;
+  margin-bottom: 10%;
+  border-bottom: 10%;
+  width: 100%;
+  height: 90%;
+  overflow: auto;
+}
+
+/* Let's get this party started */
+.flexcroll::-webkit-scrollbar {
+  width: 15px;
+  margin: 5px;
+}
+
+/* Track */
+.flexcroll::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); */
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* Handle */
+.flexcroll::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #1E2832;
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); */
+}
+
+.flexcroll::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0)
+}
+
 
 
 #landing_logo_wrapper{
@@ -152,7 +207,7 @@ body{
 /* List */
 ol {
   list-style: decimal;
-  margin: 0 0 2em 0;
+  margin: 0 0 0 0;
   padding-left: 1.25em; }
   ol li {
     padding-left: 0.25em; }
@@ -247,11 +302,12 @@ ul {
 #footer {
   background-color: #1E2832;
   color: rgba(255, 255, 255, 0.75);
-  text-align: center; 
+  text-align: center;
   position: fixed;
   bottom: 0%;
   left: 0%;
   width: 100%;
+  height: 5%;
   }
   #footer input, #footer select, #footer textarea {
     color: #fff; }
@@ -277,7 +333,7 @@ ul {
     #footer a:active, #footer a:focus, #footer a:hover {
       color: #fff; }
   #footer .inner {
-    padding: 6em 0 4em 0;
+    padding: 5% 0 0 0;
     border-top: solid 1px rgba(255, 255, 255, 0.1);
     margin: 0 auto;
     width: 75%; }
@@ -313,7 +369,7 @@ ul {
 
 
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
 
   .team{
     width: 10%;
@@ -463,7 +519,7 @@ header p {
     background: #1E2832;
     color: rgba(255, 255, 255, 0.75);
     cursor: default;
-    height: 3.25em;
+    height: 5%;
     left: 0;
     line-height: 3.25em;
     position: fixed;
@@ -490,7 +546,7 @@ header p {
       padding: 0;
       position: absolute;
       top: 0; }
-  
+
       #header > h1 a {
         font-size: 1.25em; }
     #header a {
@@ -530,11 +586,11 @@ header p {
         float: left; }
       #header.alt a[href="#nav"] {
         margin-right: 0; }
-  
+
   @media screen and (max-width: 980px) {
     body {
       padding-top: 44px; }
-  
+
     #header {
       height: 44px;
       line-height: 44px; }

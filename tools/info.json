@@ -9,78 +9,6 @@
             "stadium": "Luzhniki Stadium",
             "stage": "Groups Stage"
         },
-        "2": {
-            "away_team": "Uruguay",
-            "city": " Yekaterinburg",
-            "date": "2018-06-15 22:00:00",
-            "home_team": "Egypt",
-            "score": "",
-            "stadium": "Central Stadium",
-            "stage": "Groups Stage"
-        },
-        "3": {
-            "away_team": "Spain",
-            "city": " Sochi",
-            "date": "2018-06-16 00:00:00",
-            "home_team": "Portugal",
-            "score": "",
-            "stadium": "Fisht Olympic Stadium",
-            "stage": "Groups Stage"
-        },
-        "4": {
-            "away_team": "Iran",
-            "city": " Saint Petersburg",
-            "date": "2018-06-15 21:00:00",
-            "home_team": "Morocco",
-            "score": "",
-            "stadium": "Krestovsky Stadium",
-            "stage": "Groups Stage"
-        },
-        "5": {
-            "away_team": "Australia",
-            "city": " Kazan",
-            "date": "2018-06-16 16:00:00",
-            "home_team": "France",
-            "score": "",
-            "stadium": "Kazan Arena",
-            "stage": "Groups Stage"
-        },
-        "6": {
-            "away_team": "Denmark",
-            "city": " Saransk",
-            "date": "2018-06-16 22:00:00",
-            "home_team": "Peru",
-            "score": "",
-            "stadium": "Mordovia Arena",
-            "stage": "Groups Stage"
-        },
-        "7": {
-            "away_team": "Iceland",
-            "city": " Moscow",
-            "date": "2018-06-16 19:00:00",
-            "home_team": "Argentina",
-            "score": "",
-            "stadium": "Otkrytiye Arena",
-            "stage": "Groups Stage"
-        },
-        "8": {
-            "away_team": "Nigeria",
-            "city": " Kaliningrad",
-            "date": "2018-06-16 23:00:00",
-            "home_team": "Croatia",
-            "score": "",
-            "stadium": "Kaliningrad Stadium",
-            "stage": "Groups Stage"
-        },
-        "9": {
-            "away_team": "Switzerland",
-            "city": " Rostov-on-Don",
-            "date": "2018-06-18 00:00:00",
-            "home_team": "Brazil",
-            "score": "",
-            "stadium": "Rostov Arena",
-            "stage": "Groups Stage"
-        },
         "10": {
             "away_team": "Serbia",
             "city": " Samara",
@@ -169,6 +97,15 @@
             "home_team": "Portugal",
             "score": "",
             "stadium": "Luzhniki Stadium",
+            "stage": "Groups Stage"
+        },
+        "2": {
+            "away_team": "Uruguay",
+            "city": " Yekaterinburg",
+            "date": "2018-06-15 22:00:00",
+            "home_team": "Egypt",
+            "score": "",
+            "stadium": "Central Stadium",
             "stage": "Groups Stage"
         },
         "20": {
@@ -261,6 +198,15 @@
             "stadium": "Otkrytiye Arena",
             "stage": "Groups Stage"
         },
+        "3": {
+            "away_team": "Spain",
+            "city": " Sochi",
+            "date": "2018-06-16 00:00:00",
+            "home_team": "Portugal",
+            "score": "",
+            "stadium": "Fisht Olympic Stadium",
+            "stage": "Groups Stage"
+        },
         "30": {
             "away_team": "Panama",
             "city": " Nizhny Novgorod",
@@ -347,6 +293,15 @@
             "city": " Saint Petersburg",
             "date": "2018-06-27 00:00:00",
             "home_team": "Nigeria",
+            "score": "",
+            "stadium": "Krestovsky Stadium",
+            "stage": "Groups Stage"
+        },
+        "4": {
+            "away_team": "Iran",
+            "city": " Saint Petersburg",
+            "date": "2018-06-15 21:00:00",
+            "home_team": "Morocco",
             "score": "",
             "stadium": "Krestovsky Stadium",
             "stage": "Groups Stage"
@@ -441,6 +396,15 @@
             "stadium": "Fisht Olympic Stadium",
             "stage": "Round of 16"
         },
+        "5": {
+            "away_team": "Australia",
+            "city": " Kazan",
+            "date": "2018-06-16 16:00:00",
+            "home_team": "France",
+            "score": "",
+            "stadium": "Kazan Arena",
+            "stage": "Groups Stage"
+        },
         "50": {
             "away_team": "Runners-up D",
             "city": " Kazan",
@@ -531,6 +495,15 @@
             "stadium": "Fisht Olympic Stadium",
             "stage": "Quarter-finals"
         },
+        "6": {
+            "away_team": "Denmark",
+            "city": " Saransk",
+            "date": "2018-06-16 22:00:00",
+            "home_team": "Peru",
+            "score": "",
+            "stadium": "Mordovia Arena",
+            "stage": "Groups Stage"
+        },
         "60": {
             "away_team": "Winners 56",
             "city": " Samara",
@@ -575,6 +548,33 @@
             "score": "",
             "stadium": "Luzhniki Stadium",
             "stage": "Final"
+        },
+        "7": {
+            "away_team": "Iceland",
+            "city": " Moscow",
+            "date": "2018-06-16 19:00:00",
+            "home_team": "Argentina",
+            "score": "",
+            "stadium": "Otkrytiye Arena",
+            "stage": "Groups Stage"
+        },
+        "8": {
+            "away_team": "Nigeria",
+            "city": " Kaliningrad",
+            "date": "2018-06-16 23:00:00",
+            "home_team": "Croatia",
+            "score": "",
+            "stadium": "Kaliningrad Stadium",
+            "stage": "Groups Stage"
+        },
+        "9": {
+            "away_team": "Switzerland",
+            "city": " Rostov-on-Don",
+            "date": "2018-06-18 00:00:00",
+            "home_team": "Brazil",
+            "score": "",
+            "stadium": "Rostov Arena",
+            "stage": "Groups Stage"
         }
     },
     "teams": {
@@ -585,7 +585,7 @@
                 39
             ],
             "groups": "D",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/23px-Flag_of_Argentina.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/35px-Flag_of_Argentina.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/46px-Flag_of_Argentina.svg.png 2x', 'data-file-width': '800', 'data-file-height': '500'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/23px-Flag_of_Argentina.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/35px-Flag_of_Argentina.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/46px-Flag_of_Argentina.svg.png 2x\", \"data-file-width\": \"800\", \"data-file-height\": \"500\"}"
         },
         "Australia": {
             "games": [
@@ -594,7 +594,7 @@
                 38
             ],
             "groups": "C",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/35px-Flag_of_Australia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/46px-Flag_of_Australia.svg.png 2x', 'data-file-width': '1280', 'data-file-height': '640'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png\", \"width\": \"23\", \"height\": \"12\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/35px-Flag_of_Australia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/46px-Flag_of_Australia.svg.png 2x\", \"data-file-width\": \"1280\", \"data-file-height\": \"640\"}"
         },
         "Belgium": {
             "games": [
@@ -603,7 +603,7 @@
                 45
             ],
             "groups": "G",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/23px-Flag_of_Belgium_%28civil%29.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/35px-Flag_of_Belgium_%28civil%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/45px-Flag_of_Belgium_%28civil%29.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/23px-Flag_of_Belgium_%28civil%29.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/35px-Flag_of_Belgium_%28civil%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/45px-Flag_of_Belgium_%28civil%29.svg.png 2x\", \"data-file-width\": \"450\", \"data-file-height\": \"300\"}"
         },
         "Brazil": {
             "games": [
@@ -612,7 +612,7 @@
                 41
             ],
             "groups": "E",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png', 'width': '22', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/33px-Flag_of_Brazil.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/43px-Flag_of_Brazil.svg.png 2x', 'data-file-width': '720', 'data-file-height': '504'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png\", \"width\": \"22\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/33px-Flag_of_Brazil.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/43px-Flag_of_Brazil.svg.png 2x\", \"data-file-width\": \"720\", \"data-file-height\": \"504\"}"
         },
         "Colombia": {
             "games": [
@@ -621,7 +621,7 @@
                 48
             ],
             "groups": "H",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/23px-Flag_of_Colombia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/35px-Flag_of_Colombia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/45px-Flag_of_Colombia.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/23px-Flag_of_Colombia.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/35px-Flag_of_Colombia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/45px-Flag_of_Colombia.svg.png 2x\", \"data-file-width\": \"450\", \"data-file-height\": \"300\"}"
         },
         "Costa Rica": {
             "games": [
@@ -630,7 +630,7 @@
                 42
             ],
             "groups": "E",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/23px-Flag_of_Costa_Rica.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/35px-Flag_of_Costa_Rica.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/46px-Flag_of_Costa_Rica.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/23px-Flag_of_Costa_Rica.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/35px-Flag_of_Costa_Rica.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/46px-Flag_of_Costa_Rica.svg.png 2x\", \"data-file-width\": \"1000\", \"data-file-height\": \"600\"}"
         },
         "Croatia": {
             "games": [
@@ -639,7 +639,7 @@
                 40
             ],
             "groups": "D",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/23px-Flag_of_Croatia.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/35px-Flag_of_Croatia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/46px-Flag_of_Croatia.svg.png 2x', 'data-file-width': '1200', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/23px-Flag_of_Croatia.svg.png\", \"width\": \"23\", \"height\": \"12\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/35px-Flag_of_Croatia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/46px-Flag_of_Croatia.svg.png 2x\", \"data-file-width\": \"1200\", \"data-file-height\": \"600\"}"
         },
         "Denmark": {
             "games": [
@@ -648,7 +648,7 @@
                 37
             ],
             "groups": "C",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png', 'width': '20', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/31px-Flag_of_Denmark.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/40px-Flag_of_Denmark.svg.png 2x', 'data-file-width': '740', 'data-file-height': '560'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png\", \"width\": \"20\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/31px-Flag_of_Denmark.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/40px-Flag_of_Denmark.svg.png 2x\", \"data-file-width\": \"740\", \"data-file-height\": \"560\"}"
         },
         "Egypt": {
             "games": [
@@ -657,7 +657,7 @@
                 34
             ],
             "groups": "A",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/23px-Flag_of_Egypt.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/35px-Flag_of_Egypt.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/45px-Flag_of_Egypt.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/23px-Flag_of_Egypt.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/35px-Flag_of_Egypt.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/45px-Flag_of_Egypt.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "England": {
             "games": [
@@ -666,7 +666,7 @@
                 45
             ],
             "groups": "G",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/23px-Flag_of_England.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/35px-Flag_of_England.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/46px-Flag_of_England.svg.png 2x', 'data-file-width': '800', 'data-file-height': '480'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/23px-Flag_of_England.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/35px-Flag_of_England.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/46px-Flag_of_England.svg.png 2x\", \"data-file-width\": \"800\", \"data-file-height\": \"480\"}"
         },
         "France": {
             "games": [
@@ -675,7 +675,7 @@
                 37
             ],
             "groups": "C",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/23px-Flag_of_France.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/35px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/45px-Flag_of_France.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/23px-Flag_of_France.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/35px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/45px-Flag_of_France.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Germany": {
             "games": [
@@ -684,7 +684,7 @@
                 43
             ],
             "groups": "F",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/35px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/46px-Flag_of_Germany.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/35px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/46px-Flag_of_Germany.svg.png 2x\", \"data-file-width\": \"1000\", \"data-file-height\": \"600\"}"
         },
         "Iceland": {
             "games": [
@@ -693,7 +693,7 @@
                 40
             ],
             "groups": "D",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/21px-Flag_of_Iceland.svg.png', 'width': '21', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/32px-Flag_of_Iceland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/42px-Flag_of_Iceland.svg.png 2x', 'data-file-width': '800', 'data-file-height': '576'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/21px-Flag_of_Iceland.svg.png\", \"width\": \"21\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/32px-Flag_of_Iceland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/42px-Flag_of_Iceland.svg.png 2x\", \"data-file-width\": \"800\", \"data-file-height\": \"576\"}"
         },
         "Iran": {
             "games": [
@@ -702,7 +702,7 @@
                 35
             ],
             "groups": "B",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/23px-Flag_of_Iran.svg.png', 'width': '23', 'height': '13', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/35px-Flag_of_Iran.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/46px-Flag_of_Iran.svg.png 2x', 'data-file-width': '630', 'data-file-height': '360'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/23px-Flag_of_Iran.svg.png\", \"width\": \"23\", \"height\": \"13\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/35px-Flag_of_Iran.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/46px-Flag_of_Iran.svg.png 2x\", \"data-file-width\": \"630\", \"data-file-height\": \"360\"}"
         },
         "Japan": {
             "games": [
@@ -711,7 +711,7 @@
                 47
             ],
             "groups": "H",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/23px-Flag_of_Japan.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/35px-Flag_of_Japan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/45px-Flag_of_Japan.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/23px-Flag_of_Japan.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/35px-Flag_of_Japan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/45px-Flag_of_Japan.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Mexico": {
             "games": [
@@ -720,7 +720,7 @@
                 44
             ],
             "groups": "F",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/23px-Flag_of_Mexico.svg.png', 'width': '23', 'height': '13', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/35px-Flag_of_Mexico.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/46px-Flag_of_Mexico.svg.png 2x', 'data-file-width': '840', 'data-file-height': '480'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/23px-Flag_of_Mexico.svg.png\", \"width\": \"23\", \"height\": \"13\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/35px-Flag_of_Mexico.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/46px-Flag_of_Mexico.svg.png 2x\", \"data-file-width\": \"840\", \"data-file-height\": \"480\"}"
         },
         "Morocco": {
             "games": [
@@ -729,7 +729,7 @@
                 36
             ],
             "groups": "B",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/23px-Flag_of_Morocco.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/35px-Flag_of_Morocco.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/45px-Flag_of_Morocco.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/23px-Flag_of_Morocco.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/35px-Flag_of_Morocco.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/45px-Flag_of_Morocco.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Nigeria": {
             "games": [
@@ -738,7 +738,7 @@
                 39
             ],
             "groups": "D",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/23px-Flag_of_Nigeria.svg.png', 'width': '23', 'height': '12', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/35px-Flag_of_Nigeria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/46px-Flag_of_Nigeria.svg.png 2x', 'data-file-width': '800', 'data-file-height': '400'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/23px-Flag_of_Nigeria.svg.png\", \"width\": \"23\", \"height\": \"12\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/35px-Flag_of_Nigeria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/46px-Flag_of_Nigeria.svg.png 2x\", \"data-file-width\": \"800\", \"data-file-height\": \"400\"}"
         },
         "Panama": {
             "games": [
@@ -747,7 +747,7 @@
                 46
             ],
             "groups": "G",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/23px-Flag_of_Panama.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/35px-Flag_of_Panama.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/45px-Flag_of_Panama.svg.png 2x', 'data-file-width': '450', 'data-file-height': '300'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/23px-Flag_of_Panama.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/35px-Flag_of_Panama.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/45px-Flag_of_Panama.svg.png 2x\", \"data-file-width\": \"450\", \"data-file-height\": \"300\"}"
         },
         "Peru": {
             "games": [
@@ -756,7 +756,7 @@
                 38
             ],
             "groups": "C",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/23px-Flag_of_Peru.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/35px-Flag_of_Peru.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/45px-Flag_of_Peru.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/23px-Flag_of_Peru.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/35px-Flag_of_Peru.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/45px-Flag_of_Peru.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Poland": {
             "games": [
@@ -765,7 +765,7 @@
                 47
             ],
             "groups": "H",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/23px-Flag_of_Poland.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/35px-Flag_of_Poland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/46px-Flag_of_Poland.svg.png 2x', 'data-file-width': '1280', 'data-file-height': '800'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/23px-Flag_of_Poland.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/35px-Flag_of_Poland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/46px-Flag_of_Poland.svg.png 2x\", \"data-file-width\": \"1280\", \"data-file-height\": \"800\"}"
         },
         "Portugal": {
             "games": [
@@ -774,7 +774,7 @@
                 35
             ],
             "groups": "B",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/23px-Flag_of_Portugal.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/35px-Flag_of_Portugal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/45px-Flag_of_Portugal.svg.png 2x', 'data-file-width': '600', 'data-file-height': '400'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/23px-Flag_of_Portugal.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/35px-Flag_of_Portugal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/45px-Flag_of_Portugal.svg.png 2x\", \"data-file-width\": \"600\", \"data-file-height\": \"400\"}"
         },
         "Russia": {
             "games": [
@@ -783,7 +783,7 @@
                 33
             ],
             "groups": "A",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/23px-Flag_of_Russia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/35px-Flag_of_Russia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/45px-Flag_of_Russia.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/23px-Flag_of_Russia.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/35px-Flag_of_Russia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/45px-Flag_of_Russia.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Saudi Arabia": {
             "games": [
@@ -792,7 +792,7 @@
                 34
             ],
             "groups": "A",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/23px-Flag_of_Saudi_Arabia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/35px-Flag_of_Saudi_Arabia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/45px-Flag_of_Saudi_Arabia.svg.png 2x', 'data-file-width': '750', 'data-file-height': '500'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/23px-Flag_of_Saudi_Arabia.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/35px-Flag_of_Saudi_Arabia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/45px-Flag_of_Saudi_Arabia.svg.png 2x\", \"data-file-width\": \"750\", \"data-file-height\": \"500\"}"
         },
         "Senegal": {
             "games": [
@@ -801,7 +801,7 @@
                 48
             ],
             "groups": "H",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/23px-Flag_of_Senegal.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/35px-Flag_of_Senegal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/45px-Flag_of_Senegal.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/23px-Flag_of_Senegal.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/35px-Flag_of_Senegal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/45px-Flag_of_Senegal.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Serbia": {
             "games": [
@@ -810,7 +810,7 @@
                 41
             ],
             "groups": "E",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/23px-Flag_of_Serbia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/35px-Flag_of_Serbia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/45px-Flag_of_Serbia.svg.png 2x', 'data-file-width': '1350', 'data-file-height': '900'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/23px-Flag_of_Serbia.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/35px-Flag_of_Serbia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/45px-Flag_of_Serbia.svg.png 2x\", \"data-file-width\": \"1350\", \"data-file-height\": \"900\"}"
         },
         "South Korea": {
             "games": [
@@ -819,7 +819,7 @@
                 43
             ],
             "groups": "F",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/23px-Flag_of_South_Korea.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/35px-Flag_of_South_Korea.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/45px-Flag_of_South_Korea.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/23px-Flag_of_South_Korea.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/35px-Flag_of_South_Korea.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/45px-Flag_of_South_Korea.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         },
         "Spain": {
             "games": [
@@ -828,7 +828,7 @@
                 36
             ],
             "groups": "B",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/23px-Flag_of_Spain.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/35px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/45px-Flag_of_Spain.svg.png 2x', 'data-file-width': '750', 'data-file-height': '500'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/23px-Flag_of_Spain.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/35px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/45px-Flag_of_Spain.svg.png 2x\", \"data-file-width\": \"750\", \"data-file-height\": \"500\"}"
         },
         "Sweden": {
             "games": [
@@ -837,7 +837,7 @@
                 44
             ],
             "groups": "F",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/23px-Flag_of_Sweden.svg.png', 'width': '23', 'height': '14', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/35px-Flag_of_Sweden.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/46px-Flag_of_Sweden.svg.png 2x', 'data-file-width': '1600', 'data-file-height': '1000'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/23px-Flag_of_Sweden.svg.png\", \"width\": \"23\", \"height\": \"14\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/35px-Flag_of_Sweden.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/46px-Flag_of_Sweden.svg.png 2x\", \"data-file-width\": \"1600\", \"data-file-height\": \"1000\"}"
         },
         "Switzerland": {
             "games": [
@@ -846,7 +846,7 @@
                 42
             ],
             "groups": "E",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/16px-Flag_of_Switzerland.svg.png', 'width': '16', 'height': '16', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/24px-Flag_of_Switzerland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/32px-Flag_of_Switzerland.svg.png 2x', 'data-file-width': '1000', 'data-file-height': '1000'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/16px-Flag_of_Switzerland.svg.png\", \"width\": \"16\", \"height\": \"16\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/24px-Flag_of_Switzerland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/32px-Flag_of_Switzerland.svg.png 2x\", \"data-file-width\": \"1000\", \"data-file-height\": \"1000\"}"
         },
         "Tunisia": {
             "games": [
@@ -855,7 +855,7 @@
                 46
             ],
             "groups": "G",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/23px-Flag_of_Tunisia.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/35px-Flag_of_Tunisia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/45px-Flag_of_Tunisia.svg.png 2x', 'data-file-width': '1200', 'data-file-height': '800'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/23px-Flag_of_Tunisia.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/35px-Flag_of_Tunisia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/45px-Flag_of_Tunisia.svg.png 2x\", \"data-file-width\": \"1200\", \"data-file-height\": \"800\"}"
         },
         "Uruguay": {
             "games": [
@@ -864,7 +864,7 @@
                 33
             ],
             "groups": "A",
-            "logo": "{'alt': '', 'src': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/23px-Flag_of_Uruguay.svg.png', 'width': '23', 'height': '15', 'class': ['thumbborder'], 'srcset': '//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/35px-Flag_of_Uruguay.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/45px-Flag_of_Uruguay.svg.png 2x', 'data-file-width': '900', 'data-file-height': '600'}"
+            "logo": "{\"alt\": \"\", \"src\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/23px-Flag_of_Uruguay.svg.png\", \"width\": \"23\", \"height\": \"15\", \"class\": [\"thumbborder\"], \"srcset\": \"//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/35px-Flag_of_Uruguay.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/45px-Flag_of_Uruguay.svg.png 2x\", \"data-file-width\": \"900\", \"data-file-height\": \"600\"}"
         }
     }
 }
