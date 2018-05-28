@@ -18,8 +18,11 @@
     flex-direction: column;
 }
 
+
+
 .groups {
     margin: 2%;
+    margin-top: 5%;
     background-color:rgba(0, 0, 0, 0);
     /* background-color: #972a29; */
     height: 3%;
@@ -36,65 +39,81 @@
     font-weight: bold;
 }
 
-.game {
-    margin: 2%;
-    background-color: #474748;
-    color: white;
-    /* background-color: #972a29; */
-    height: 5%;
-    width: 96%;
-    display: flex;
-    text-align:center;
-    border-radius: 25px;
+.group_link {
+    width: 100%;
+    height: 100%;
 }
 
+.game_table {
+    width: 96%;
+    margin: 2%;
+    color:white;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.game_row {
+    background-color: #474748;
+    color: white;
+    width: 96%;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+    height: 80px;
+}
+
+.game_number:first-child{
+    -moz-border-radius:25px 0 0 25px;
+    -webkit-border-radius:25px 0 0 25px;
+    border-radius: 25px 0 0 25px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.game_number:last-child{
+    -moz-border-radius:0 25px 25px 0;
+    -webkit-border-radius:0 25px 25px 0;
+    border-radius: 0 25px 25px 0;
+}
+
+
 .game_number {
-    position: relative;
-    height: 100%;
-    padding-left: 1%;
-    width: 2%;
+    width: 5%;
     text-align: center;
     font-weight: bold;
 }
 
 .team_flag {
-    position: relative;
-    height: 100%;
-    width: 50px;
+    width: 5%;
 }
 
+
 .team_flag_img {
-    height: 100%;
-    width: 100%;
+    height: 60%;
+    width: 60%;
     object-fit: contain;
 }
 
 .game_team {
-    height: 100%;
     width: 15%;
-    font-size: 100%;
 }
 
-.game_score_date {
-    height: 100%;
-    width: 25%;
-    text-align:center;
-    position: relative;
+.stadium {
+    width: 15%;
 }
 
 
-.game_score {
-    height: 50%;
-    width: 100%;
-    text-align:center;
-    position: relative;
-}
-
-.game_date {
-    height: 50%;
-    width: 100%;
-    text-align:center;
-    position: relative;
+.game_date_score {
+    width: 15%;
 }
 
 .group_A{
@@ -145,12 +164,34 @@
     text-decoration: none;
 }
 
-.game:hover, .game_link:hover {
+.game_link:hover, .group_link:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.game_link:active {
+    text-decoration: none;
+}
+
+.game_number:first-child:hover{
     text-decoration: none;
     background-color: white;
     color: black;
 }
 
-.game_link:active {
-    text-decoration: none;
+.padding {
+    padding-bottom: 5%;
+}
+
+
+@media only screen and (max-device-width : 640px) {
+
 }

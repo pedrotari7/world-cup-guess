@@ -5,7 +5,10 @@
 		<title>World Cup Guess</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/home.css" />		
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/header-basic.css" />
+		<link rel="stylesheet" href="assets/css/leaderboard.css" />
+		<link rel="stylesheet" href="assets/css/schedule.css" />
 		<link rel="apple-touch-icon" sizes="57x57" href="resources/logos/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="resources/logos/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="resources/logos/apple-icon-72x72.png">
@@ -31,41 +34,48 @@
 	<body class="landing">
 
 		<!-- Header -->
-		<header id="header">
-			<a href="#nav">Menu</a>
+		<header class="header-basic">
+				<div class="header-limiter">
+					<div id="profile_picture"><img id="profile_picture_img" src="resources/logos/ms-icon-310x310.png"> </div>
+					<h1><a id="user_name" href="#">World Cup <span>Guess</span></a></h1>
+
+					<nav id="header_nav">
+						<a id="my_predictions" href="#" class="selected"></a>
+						<a id="leaderboard" href="#"></a>
+						<a id="schedule" href="#"></a>
+						<a id="rules_banner" href="#rules">Rules</a>
+						<a id="sign_out" href="#" onclick="signOut();"></a>
+					</nav>
+				</div>
 		</header>
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul class="links">
-				<li><a href="#rules">Rules</a></li>
-			</ul>
-		</nav>
+
+		<!-- <li><a href="#rules"></a>Rules</a></li> -->
 
 		<!-- Banner -->
-			<section id="banner">
+		<section id="banner" class="flexcroll">
 
-				<div id="landing_logo_wrapper">
-					<img id="landing_logo" src="resources/images/landing_logo.png">
-				</div>
+			<div id="landing_logo_wrapper">
+				<img id="landing_logo" src="resources/images/landing_logo.png">
+			</div>
 
-				<div id="google"> 
-					<div id="my-signin2"</div>
-				</div>
-				<!-- <div id="facebook"> 
-					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-				</div> -->
-					
-				
-			</section>
+			<div id="google">
+				<div id="my-signin2"</div>
+			</div>
+			<!-- <div id="facebook">
+				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+			</div> -->
 
-		<!-- Rules -->	
-		<div id="rules">
+
+		</section>
+
+		<!-- Rules -->
+		<div id="rules" class="flexcroll">
 			<a href="#" class="close_overlay">&times;</a>
 			<div style="height:100%">
 				<h3 style="text-align: center">
 					The rules are simple!
-				</h3>
+				</h3>ocum
 				<h4 style="text-align: center">
 					There is only one winner and all the other ones are nothing but losers.
 				</h4>
@@ -92,35 +102,32 @@
 					<li>In the group stages, the predictions have to be done in full before the start of the tournament.</li>
 					<li>For the final stages games, the predictions will be available once the matchup is known, and have to be submited up to 1 hour before the game.</li>
 					<li>The indivual awards predictions have to be subtimited before the start of the tournament.</li>
-				</ul>	
-			</div>			
+				</ul>
+			</div>
 		</div>
-		<div id="mask" onclick="document.location='';"></div>
 
-		<!-- Swish -->	
+		<!-- Swish -->
 		<div id="swish">
 			<a href="#" class="close_overlay">&times;</a>
 			<div style="height:100%">
 				<img id="swish_logo" src="resources/images/swish.png" style='height: 100%; width: 100%; object-fit: contain'>
-			</div>			
+			</div>
 		</div>
 		<div id="mask" onclick="document.location='';"></div>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="https://github.com/pedrotari7" target="_blank" class="icon fa-github">
-						<span class="label">Github</span>
-					</a></li>
-					<li><a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-alvito-5b73b46a" target="_blank" class="icon fa-linkedin">
-						<span class="label">LinkedIn</span>
-					</a></li>
-					<li><a href="#swish" class="icon fa-gift">
-						<span class="label">Swish</span>
-					</a></li>
-				</ul>
+			<div class="container">
 
+				<a href="https://github.com/pedrotari7" target="_blank" class="footer_img_container">
+					<img class="footer_img" src="resources/images/github.png">
+				</a>
+				<a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-alvito-5b73b46a" target="_blank" class="footer_img_container">
+					<img class="footer_img" src="resources/images/linkedin.png">
+				</a>
+				<a href="#swish" class="footer_img_container">
+					<img class="footer_img" src="resources/images/swish_logo.png">
+				</a>
 			</div>
 		</footer>
 
@@ -129,8 +136,16 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/wcg.js"></script>			
+			<script src="assets/js/wcg.js"></script>
+			<script src="assets/js/predictions.js"></script>
+			<script src="assets/js/game.js"></script>
+			<script src="assets/js/schedule.js"></script>
+			<script src="assets/js/leaderboard.js"></script>
+			<script src="assets/js/home.js"></script>
+
 			<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	</body>
 </html>

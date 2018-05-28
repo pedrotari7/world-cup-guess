@@ -110,7 +110,7 @@ class wcg_server(object):
 
     def start_rest_api(self):
         self.timed_print('World Cup Guess server is now started' ,'OKGREEN')
-        app.run(host=variables['host'], port=variables['port'])
+        app.run(host=variables['host'], threaded=True, port=variables['port'])
         self.timed_print('World Cup Guess server stopped','WARNING')
         save_users_database(users, users_ids)
 
@@ -180,10 +180,12 @@ def get_game(user_id, game_num):
     if game['has_started']:
         game['predictions'] = predictions[game_num]
     else:
-        game['predictions'] = dict()
+        game['predictions'] = defaultdict(dict)
         if game_num in predictions:
             for user in predictions[game_num]:
-                game['predictions'][user] = ['X', 'X']
+                game['predictions'][user]['prediction'] = ['X', 'X']
+                game['predictions'][user]['picture'] = users[user]['picture']
+
 
     game['info'] = info['games'][game_num]
 
@@ -219,13 +221,10 @@ def get_leaderboard():
 
     return jsonify(sort_leaderboard(leaderboard))
 
-@app.route(join_route_url('login','google'), methods=['POST'])
+@app.route(join_route_url('login','google','<token>'), methods=['GET'])
 @cross_origin(supports_credentials=True)
-def login_with_google():
-    if not request.json or not 'token' in request.json:
-        abort(400)
-
-    url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + request.json['token']
+def login_with_google(token):
+    url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + token
     response = urlopen(url)
     data = json.loads(response.read())
 
@@ -258,7 +257,7 @@ def login_with_google():
 
         next_page = join_url(variables['HOME_URL'],'test.html')
 
-    return jsonify({'next_page': next_page}), 201
+    return jsonify({'id': users[data['name']]['id'], 'next_page': next_page}), 200
 
 ###################################################################################################
 #                                           Main                                                  #
