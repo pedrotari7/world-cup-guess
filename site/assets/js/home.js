@@ -15,6 +15,12 @@ function get_home(user_id) {
     var my_predictions = document.getElementById("my_predictions");
     my_predictions.innerText = 'My Predictions';
 
+    var closureMaker = function(a) {
+        return function(){get_my_predictions(a);};
+    }
+    var closure = closureMaker(user_id);
+    my_predictions.addEventListener('click', closure, false);
+
     var leaderboard = document.getElementById("leaderboard");
 
     leaderboard.innerText = 'Leaderboard';

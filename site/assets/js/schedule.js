@@ -21,7 +21,7 @@ function get_schedule(user_id, group_filter) {
 
     xhr.onload = function () {
         var banner = document.getElementById('banner');
-
+        banner.scrollTop = 0;
         var info = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             previous_stage = "";

@@ -21,12 +21,15 @@
 
 
 .groups {
-    margin: 2%;
-    margin-top: 5%;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    /* margin: 2%;
+    margin-top: 5%; */
     background-color:rgba(0, 0, 0, 0);
     /* background-color: #972a29; */
-    height: 3%;
-    width: 96%;
+    height: 25px;
+    width: 100%;
     display: flex;
     text-align: center;
     justify-content: space-between;
@@ -34,8 +37,7 @@
 
 .group {
     position: relative;
-    width: 10%;
-    border-radius: 25px;
+    width: 12.5%;
     font-weight: bold;
 }
 
@@ -168,7 +170,6 @@ td {
     text-decoration: none;
     background-color: white;
     color: black;
-    border-radius: 25px;
 }
 
 

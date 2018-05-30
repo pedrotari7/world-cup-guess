@@ -21,7 +21,7 @@ function get_leaderboard() {
         var leaderboard = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             var banner = document.getElementById('banner');
-
+            banner.scrollTop = 0;
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
             }

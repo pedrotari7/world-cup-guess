@@ -154,6 +154,17 @@ def sort_leaderboard(leaderboard):
     return sorted(leaderboard, key=lambda k: (k['points'], k['results']['exact_score'], k['results']['right_result'], k['results']['one_right_score']), reverse=True)
 
 
+def sort_by_phase_and_group(games, teams):
+    sorted_games = defaultdict(list)
+
+    for game in map(str,sorted(map(int,games.keys()))):
+        if games[game]['home_team'] in teams and games[game]['away_team'] in teams:
+            sorted_games[teams[games[game]['home_team']]['groups']].append({'game_number':game,'game':games[game]})
+        else:
+            sorted_games[games[game]['stage']].append({'game_number':game,'game':games[game]})
+    return sorted_games
+
+
 def has_game_started(game_info):
     return False
 
@@ -202,9 +213,28 @@ def get_game(user_id, game_num):
 
     return jsonify(game)
 
-@app.route(join_route_url('predictions'), methods=['GET'])
+
+@app.route(join_route_url('predictions', '<user_id>'), methods=['GET'])
 def get_predictions(user_id):
-    return jsonify(info)
+    print(join_route_url('predictions'))
+    predictions = users[users_ids[user_id]]['predictions'] if 'predictions' in users[users_ids[user_id]] else dict()
+
+    games = sort_by_phase_and_group(info['games'], info['teams'])
+
+    return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions})
+
+
+@app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
+def set_predictions(user_id):
+    print(join_route_url('predictions'))
+    if not request.json or not 'predictions' in request.json:
+        abort(400)
+
+    users[users_ids[user_id]]['predictions'] = request.json['predictions']
+
+    print(request.json['predictions'])
+
+    return jsonify({'groups': 'test groups return'}), 201
 
 @app.route(join_route_url('leaderboard'), methods=['GET'])
 def get_leaderboard():
