@@ -36,7 +36,7 @@ input::-webkit-inner-spin-button {
 }
 
 .group_table_div {
-    margin: 2%;
+    margin: 1% 2% 1% 2%;
     width: 96%;
     display: flex;
 }
@@ -47,7 +47,7 @@ input::-webkit-inner-spin-button {
     color: white;
     table-layout: fixed;
     border-collapse: separate;
-    border-spacing: 0px 0px;
+    border-spacing: 0px 15px;
 }
 
 .table_td {

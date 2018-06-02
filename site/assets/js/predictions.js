@@ -91,10 +91,16 @@ function get_my_predictions(user_id) {
 
                     var real_group_table = document.createElement('table');
                     real_group_table.className = 'group_table real_group_table group_table_' + g
+                    real_group_table.createCaption();
+                    real_group_table.caption.innerHTML = 'Real'
+                    real_group_table.caption.style.fontWeight = 'bold';
 
                     var predicted_group_table = document.createElement('table');
                     predicted_group_table.className = 'group_table predicted_group_table group_table_' + g
                     predicted_group_table.id = 'group_table_' + g
+                    predicted_group_table.createCaption();
+                    predicted_group_table.caption.innerHTML = 'Predicted';
+                    predicted_group_table.caption.style.fontWeight = 'bold';
 
                     var header_row = document.createElement('tr');
                     header_row.className = 'group_header'
@@ -150,10 +156,10 @@ function get_my_predictions(user_id) {
                     predicted_group_table.appendChild(header_row.cloneNode(true));
 
                     // Real Table
-                    real_group_table = fill_in_group_table(real_groups[g], real_group_table)
+                    real_group_table = fill_in_group_table(real_groups[g], real_group_table);
 
                     // Predicted Table
-                    predicted_group_table = fill_in_group_table(predicted_groups[g], predicted_group_table)
+                    predicted_group_table = fill_in_group_table(predicted_groups[g], predicted_group_table, 'predicted', real_groups[g]);
 
                     group_tables_div.appendChild(real_group_table);
                     group_tables_div.appendChild(predicted_group_table);
@@ -318,7 +324,7 @@ function send_predictions(user_id, game_number) {
             console.log(groups);
             for (var group in groups['groups']) {
                 table = document.getElementById('group_table_' + group);
-                table = fill_in_group_table(groups['groups'][group], table);
+                table = fill_in_group_table(groups['groups'][group], table, 'predicted', real_groups[group]);
             }
 
         } else {
@@ -335,9 +341,11 @@ function set_predictions_default(predictions) {
     }
 }
 
-function fill_in_group_table(group_teams, table) {
+function fill_in_group_table(group_teams, table, mode, other_results) {
 
-    if (table.childElementCount == 5) {
+    console.log(table.childElementCount);
+
+    if (table.childElementCount == 6) {
         for (var j = 0; j < 4; j++) {
             table.removeChild(table.lastChild);
         }
@@ -402,6 +410,17 @@ function fill_in_group_table(group_teams, table) {
         group_table_row.append(goals_conceded_table);
         group_table_row.append(goal_difference_table);
         group_table_row.append(points_table);
+
+        if (mode == 'predicted') {
+            if (group_teams[j]['team'] == other_results[j]['team']) {
+                group_table_row.style.backgroundColor = '#A6E22E';
+                group_table_row.style.color = 'black';
+            } else {
+                group_table_row.style.backgroundColor = 'rgb(250, 111, 111)';
+                group_table_row.style.color = 'white';
+            }
+
+        }
 
         table.appendChild(group_table_row);
     }

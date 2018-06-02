@@ -21,13 +21,6 @@
     border-radius: 25px;
 }
 
-.label_th {
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-}
-
-
 td {
     vertical-align: middle;
     display: table-cell;
@@ -48,6 +41,7 @@ td:last-child{
 
 .user_row {
     background-color: black;
+    font-weight: bold;
 }
 
 .user_profile_picture_img {
@@ -65,7 +59,17 @@ td:last-child{
     width: 20%;
 }
 
-.user_points {
+.user_pointsr:not(.label_th) {
     background-color: black;
+    color: white;
+}
+
+.label_th {
+    background-color: transparent;
+}
+
+.header_label {
+    font-weight: white;
+    margin: 1% 2% 1% 2%;
     color: white;
 }

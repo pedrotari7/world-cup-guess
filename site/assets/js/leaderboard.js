@@ -29,8 +29,8 @@ function get_leaderboard() {
             var table = document.createElement('table');
             table.id = 'leaderboard_table';
 
-            var label_th = document.createElement('th');
-            label_th.className = 'label_th';
+            var label_th = document.createElement('tr');
+            label_th.className = 'label_th user_row';
 
             var pos_header = document.createElement('td');
             pos_header.className = 'user_pos';
@@ -64,7 +64,7 @@ function get_leaderboard() {
             awards_header.innerHTML = 'A';
             var points_header = document.createElement('td');
             points_header.className = 'user_points';
-            points_header.innerHTML = 'Pts';
+            points_header.innerHTML = 'PTS';
 
             label_th.appendChild(pos_header);
             label_th.appendChild(profile_picture_header);
@@ -156,6 +156,19 @@ function get_leaderboard() {
             }
 
             banner.appendChild(table);
+
+            var labels = document.createElement('div');
+
+            header_text = ['ES - Exact Score','RR - Right Result','ORS - One Right Result', 'F - Fail', 'G - Groups', 'P - Penalties', 'A - Awards', 'PTS - Points'];
+
+            for (var i = 0; i < header_text.length; i++) {
+                var text = document.createElement('p');
+                text.className = 'header_label';
+                text.innerText = header_text[i];
+                labels.appendChild(text);
+            }
+
+            banner.appendChild(labels);
 
         } else {
             console.error(info);
