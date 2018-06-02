@@ -40,7 +40,7 @@ def load_games_database():
 
 def save_games_database(info):
     with open(variables['games_db'], 'w') as f:
-        return json.dump(info, f)
+        return json.dump(info, f,  indent=4, sort_keys=True)
 
 def load_predictions_database():
     with open(variables['predictions_db'], 'r') as f:
@@ -113,6 +113,7 @@ class wcg_server(object):
         app.run(host=variables['host'], threaded=True, port=variables['port'])
         self.timed_print('World Cup Guess server stopped','WARNING')
         save_users_database(users, users_ids)
+        save_games_database(info)
 
 ###################################################################################################
 #                                       URL Functions                                             #
@@ -165,6 +166,17 @@ def sort_by_phase_and_group(games, teams):
     return sorted_games
 
 
+def calculate_game_outcome(score):
+    if not (score['home'] and score['away']):
+        return ''
+    elif int(score['home']) > int(score['away']):
+        return 'home'
+    elif int(score['home']) < int(score['away']):
+        return 'away'
+    else:
+        return 'draw'
+
+
 def has_game_started(game_info):
     return False
 
@@ -175,7 +187,11 @@ def has_game_started(game_info):
 @app.route(join_route_url('users', 'info', '<user_id>'), methods=['GET'])
 def get_user_info(user_id):
     print(join_route_url('users', 'info','<user_id>'), {'name': users_ids[user_id]})
-    return jsonify({'name': users_ids[user_id], 'picture': users[users_ids[user_id]]['picture']})
+    is_admin = users_ids[user_id] == variables['admin']
+    return jsonify({'name': users_ids[user_id],
+                    'picture': users[users_ids[user_id]]['picture'],
+                    'admin': is_admin
+                    })
 
 @app.route(join_route_url('schedule'), methods=['GET'])
 def get_schedule():
@@ -233,6 +249,24 @@ def set_predictions(user_id):
     users[users_ids[user_id]]['predictions'] = request.json['predictions']
 
     print(request.json['predictions'])
+
+    return jsonify({'groups': 'test groups return'}), 201
+
+@app.route(join_route_url('results', '<user_id>'), methods=['POST'])
+def set_results(user_id):
+    print(join_route_url('results'))
+    if (not request.json or
+       'results' not in request.json or
+       user_id not in users_ids or
+       users_ids[user_id] not in users or
+       users_ids[user_id]!=variables['admin']):
+        abort(400)
+
+
+    for game in request.json['results']:
+        info['games'][game]['score'] = request.json['results'][game]
+        info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score']);
+        print(info['games'][game])
 
     return jsonify({'groups': 'test groups return'}), 201
 

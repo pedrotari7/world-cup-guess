@@ -106,7 +106,7 @@ body{
   background: rgba(0,0,0,0)
 }
 
-.container{
+#container{
   text-align:center;
   height: 80px;
 }

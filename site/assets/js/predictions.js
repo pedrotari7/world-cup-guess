@@ -72,7 +72,11 @@ function get_my_predictions(user_id) {
                 var stage_div = document.createElement('div');
                 stage_div.className = 'stage_div textBox';
                 stage_div.id = g;
-                stage_div.innerText = g;
+                if (g.length > 1)
+                    stage_div.innerText = g;
+                else
+                    stage_div.innerText = 'Group ' + g;
+
                 banner.appendChild(stage_div);
 
                 var schedule_table = document.createElement('table');

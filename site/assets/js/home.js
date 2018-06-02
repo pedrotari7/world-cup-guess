@@ -41,28 +41,6 @@ function get_home(user_id) {
     var closure = closureMaker(user_id);
     schedule.addEventListener('click', closure, false);
 
-    // schedule_td.appendChild(schedule);
-    // header_row.appendChild(schedule_td);
-
-    // var rules_td = document.createElement('td');
-    // rules_td.className = 'header_td';
-    // rules_td.id = 'rules';
-
-    // var rules = document.createElement("a");
-    // rules.setAttribute("id", "rules_link");
-    // var rules_icon = document.createElement("img");
-    // rules_icon.className = 'menu_icon'
-    // rules_icon.src = 'resources/images/rules.png';
-    // rules.appendChild(rules_icon);
-    // var closureMaker = function(a) {
-    //     return function(){get_rules(a);};
-    // }
-    // var closure = closureMaker(user_id);
-    // rules.addEventListener('click', closure, false);
-
-    // rules_td.appendChild(rules);
-    // header_row.appendChild(rules_td);
-
 }
 
 function get_user_info(user_id) {
@@ -80,6 +58,25 @@ function get_user_info(user_id) {
         if (xhr.readyState == 4 && xhr.status == "200") {
             document.getElementById('user_name').innerHTML = result["name"];
             document.getElementById('profile_picture_img').src = result["picture"];
+            if (result['admin']) {
+                console.log('found admin user');
+                container = document.getElementById('container');
+                admin_link = document.createElement('a');
+                admin_link.className = 'footer_img_container';
+                admin_img = document.createElement('img');
+                admin_img.className = 'footer_img';
+                admin_img.src = 'resources/images/admin.png';
+
+                var closureMaker = function(a) {
+                    return function(){get_admin(a);};
+                }
+                var closure = closureMaker(user_id);
+                admin_link.addEventListener('click', closure, false);
+
+                admin_link.appendChild(admin_img);
+                container.appendChild(admin_link);
+
+            }
         } else {
             console.error(result);
         }
