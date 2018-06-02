@@ -6,6 +6,7 @@
     background-color: rgb(0, 0, 0, 0);
     border-color: rgb(255, 255, 255, 0.3);
     color: white;
+    font-weight: bold;
 }
 
 .home_team_guess {
@@ -32,4 +33,47 @@ input::-webkit-inner-spin-button {
     width: 50%;
     height: 50%;
     color: white;
+}
+
+.group_table_div {
+    margin: 2%;
+    width: 96%;
+    display: flex;
+}
+
+.group_table{
+    text-align: center;
+    width: 50%;
+    color: white;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+}
+
+.table_td {
+    width: 5%;
+    height: 50px;
+}
+
+.team_table_flag_img {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+}
+
+.group_header_title {
+    width: 100%;
+}
+
+.group_table_row {
+    background-color: black;
+}
+
+.team_td {
+    background-color: transparent;
+}
+
+.group_header {
+    font-weight: bold;
+    background-color: transparent;
 }

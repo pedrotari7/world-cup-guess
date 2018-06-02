@@ -86,10 +86,10 @@ function get_leaderboard() {
                 user_row.className = 'user_row';
 
                 if (leaderboard[i].name == document.getElementById('user_name').innerHTML) {
-                    user_row.style.backgroundColor = "white";
+                    user_row.style.backgroundColor = "#A6E22E";
                     user_row.style.color = "black";
                 } else {
-                    user_row.style.backgroundColor = "#1E2832";
+                    user_row.style.backgroundColor = "#474748";
                 }
 
                 var pos = document.createElement('td');

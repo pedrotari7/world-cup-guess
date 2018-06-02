@@ -27,6 +27,23 @@ function get_admin(user_id) {
                 banner.removeChild(banner.firstChild);
             }
 
+            var groups_div = document.createElement('div');
+            groups_div.className = 'groups';
+
+            var groups = ['A','B','C','D','E','F','G','H'];
+
+            for (var i = 0; i < groups.length; i++) {
+                var group_link = document.createElement('div');
+                group_link.className = 'group group_' + groups[i];
+                var group = document.createElement('div');
+                group.className = 'textBox';
+                group.innerText = groups[i];
+                group_link.appendChild(group);
+                groups_div.appendChild(group_link);
+            }
+
+            banner.appendChild(groups_div);
+
             var schedule_table = document.createElement('table');
             schedule_table.className = 'game_table';
 
@@ -182,10 +199,6 @@ function get_admin(user_id) {
 
             banner.appendChild(schedule_table);
 
-            var padding = document.createElement('div');
-            padding.className = 'padding';
-            banner.appendChild(padding);
-
         } else {
             console.error(info);
         }
@@ -205,7 +218,7 @@ function send_results(user_id, game_number) {
             home_guess.style.borderColor= 'transparent';
             home_guess.disabled = true;
         } else {
-            home_guess.style.borderColor= "rgb( 255 , 255, 255, 0.3)";
+            home_guess.style.borderColor= "rgb(255 , 255, 255, 0.3)";
             home_guess.disabled = false;
         }
         home_guess = home_guess.value;
@@ -217,7 +230,7 @@ function send_results(user_id, game_number) {
             away_guess.style.borderColor= 'transparent';
             away_guess.disabled = true;
         } else {
-            away_guess.style.borderColor= "rgb( 255 , 255, 255, 0.3)";
+            away_guess.style.borderColor= "rgb(255, 255, 255, 0.3)";
             away_guess.disabled = false;
         }
         away_guess = away_guess.value;
@@ -226,8 +239,6 @@ function send_results(user_id, game_number) {
     }
 
     results[game_number] = {'home':home_guess, 'away':away_guess, 'finished':finished.checked};
-    console.log(game_number, home_guess, away_guess, home_guess != '', away_guess != '', (home_guess != '') && (away_guess != ''));
-
 
     if ((home_guess != '') && (away_guess != '')) {
         finished.style.visibility = 'visible';

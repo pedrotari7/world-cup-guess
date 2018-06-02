@@ -30,8 +30,11 @@ function get_my_predictions(user_id) {
             games = data['games'];
             teams = data['teams'];
             predictions = data['predictions'];
+            predicted_groups = data['predicted_groups'];
+            real_groups = data['real_groups'];
 
             console.log(predictions);
+            console.log(real_groups);
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
@@ -79,6 +82,86 @@ function get_my_predictions(user_id) {
 
                 banner.appendChild(stage_div);
 
+                // Group Table
+
+                if (g.length == 1) {
+
+                    var group_tables_div = document.createElement('div');
+                    group_tables_div.className = 'group_table_div';
+
+                    var real_group_table = document.createElement('table');
+                    real_group_table.className = 'group_table real_group_table group_table_' + g
+
+                    var predicted_group_table = document.createElement('table');
+                    predicted_group_table.className = 'group_table predicted_group_table group_table_' + g
+                    predicted_group_table.id = 'group_table_' + g
+
+                    var header_row = document.createElement('tr');
+                    header_row.className = 'group_header'
+
+                    var team_header = document.createElement('td');
+                    team_header.className = 'table_td team_td';
+                    team_header.innerText = ''
+
+                    var games_header = document.createElement('td');
+                    games_header.className = 'table_td';
+                    games_header.innerText = 'G'
+
+                    var wins_header = document.createElement('td');
+                    wins_header.className = 'table_td';
+                    wins_header.innerText = 'W'
+
+                    var draws_header = document.createElement('td');
+                    draws_header.className = 'table_td';
+                    draws_header.innerText = 'D'
+
+                    var losses_header = document.createElement('td');
+                    losses_header.className = 'table_td';
+                    losses_header.innerText = 'L'
+
+                    var goals_scored_header = document.createElement('td');
+                    goals_scored_header.className = 'table_td';
+                    goals_scored_header.innerText = 'GS'
+
+                    var goals_conceded_header = document.createElement('td');
+                    goals_conceded_header.className = 'table_td';
+                    goals_conceded_header.innerText = 'GC'
+
+                    var goal_difference_header = document.createElement('td');
+                    goal_difference_header.className = 'table_td';
+                    goal_difference_header.innerText = 'GD'
+
+                    var points_header = document.createElement('td');
+                    points_header.className = 'table_td';
+                    points_header.innerText = 'PTS';
+
+                    header_row.append(team_header);
+                    header_row.append(games_header);
+                    header_row.append(wins_header);
+                    header_row.append(draws_header);
+                    header_row.append(losses_header);
+                    header_row.append(goals_scored_header);
+                    header_row.append(goals_conceded_header);
+                    header_row.append(goal_difference_header);
+                    header_row.append(points_header);
+
+                    real_group_table.appendChild(header_row);
+
+                    predicted_group_table.appendChild(header_row.cloneNode(true));
+
+                    // Real Table
+                    real_group_table = fill_in_group_table(real_groups[g], real_group_table)
+
+                    // Predicted Table
+                    predicted_group_table = fill_in_group_table(predicted_groups[g], predicted_group_table)
+
+                    group_tables_div.appendChild(real_group_table);
+                    group_tables_div.appendChild(predicted_group_table);
+
+                    banner.appendChild(group_tables_div);
+                }
+                // Group Result
+
                 var schedule_table = document.createElement('table');
                 schedule_table.className = 'game_table';
 
@@ -125,12 +208,13 @@ function get_my_predictions(user_id) {
                         home_team_guess_td.className = 'home_team_guess';
                         var home_team_guess_input = document.createElement('input');
                         home_team_guess_input.className = 'guess_input';
+                        home_team_guess_input.id = 'home_score_' + games[g][game]['game_number'];
                         home_team_guess_input.type = "number";
 
-                        var closureMaker = function(user_id) {
-                            return function(){send_predictions(user_id)};
+                        var closureMaker = function(user_id, game_number) {
+                            return function(){send_predictions(user_id, game_number)};
                         }
-                        var closure = closureMaker(user_id);
+                        var closure = closureMaker(user_id, games[g][game]['game_number']);
                         home_team_guess_input.addEventListener('change', closure, false);
                         home_team_guess_td.appendChild(home_team_guess_input);
                     }
@@ -138,8 +222,8 @@ function get_my_predictions(user_id) {
                     var date_score_td = document.createElement('td');
                     date_score_td.className = 'game_date_score';
 
-                    if (game_info['score']) {
-                        date_score_td.innerText = game_info['score'];
+                    if (game_info['score'] && game_info['score']['home'] && game_info['score']['away']) {
+                        date_score_td.innerText = game_info['score']['home'] + ' x ' + game_info['score']['away'];
                     } else {
                         var date = new Date(game_info['date']);
                         date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
@@ -151,11 +235,12 @@ function get_my_predictions(user_id) {
                         away_team_guess_td.className = 'away_team_guess';
                         var away_team_guess_input = document.createElement('input');
                         away_team_guess_input.className = 'guess_input';
+                        away_team_guess_input.id = 'away_score_' + games[g][game]['game_number'];
                         away_team_guess_input.type = "number";
-                        var closureMaker = function(user_id) {
-                            return function(){send_predictions(user_id)};
+                        var closureMaker = function(user_id, game_number) {
+                            return function(){send_predictions(user_id, game_number)};
                         }
-                        var closure = closureMaker(user_id);
+                        var closure = closureMaker(user_id, games[g][game]['game_number']);
                         away_team_guess_input.addEventListener('change', closure, false);
                         away_team_guess_td.appendChild(away_team_guess_input);
                     }
@@ -197,31 +282,28 @@ function get_my_predictions(user_id) {
     xhr.send(null);
 }
 
-function send_predictions(user_id) {
+function send_predictions(user_id, game_number) {
     games = document.getElementsByClassName('game_row');
 
     var predictions = {};
 
-    for(var i = 0; i < games.length; i++) {
-        game_number = games[i].getElementsByClassName('game_number')[0].innerText;
+    home_guess = document.getElementById('home_score_' + game_number);
+    away_guess = document.getElementById('away_score_' + game_number);
 
-        home_guesses = games[i].getElementsByClassName('home_team_guess');
-        away_guesses = games[i].getElementsByClassName('away_team_guess');
 
+    if (home_guess != null) {
+        home_guess = home_guess.value;
+    } else {
         home_guess = '';
-        if (home_guesses != null && home_guesses.results != null && home_guesses.results.length > 0) {
-            console.log(home_guess, away_guess)
-            home_guess = home_guesses[0].firstChild.value;
-        }
-        away_guess = '';
-        if (away_guesses != null && away_guesses.results != null && away_guesses.results.length > 0) {
-            away_guess = away_guesses[0].firstChild.value;
-        }
-
-        if ((home_guess != '') || (away_guess != '')) {
-            predictions[game_number] = {'home_guess':home_guess, 'away_guess':away_guess};
-        }
     }
+    if (away_guess != null) {
+        away_guess = away_guess.value;
+    } else {
+        away_guess = '';
+    }
+
+    predictions[game_number] = {'home':home_guess, 'away':away_guess};
+
     console.log(predictions)
     var url = "http://www.worldcupguess.win:5000/api/v1.0/predictions";
 
@@ -234,6 +316,11 @@ function send_predictions(user_id) {
         var groups = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "201") {
             console.log(groups);
+            for (var group in groups['groups']) {
+                table = document.getElementById('group_table_' + group);
+                table = fill_in_group_table(groups['groups'][group], table);
+            }
+
         } else {
             console.error(groups);
         }
@@ -242,14 +329,82 @@ function send_predictions(user_id) {
 }
 
 function set_predictions_default(predictions) {
-    games = document.getElementsByClassName('game_row');
+    for (game_number in predictions) {
+        document.getElementById('home_score_' + game_number).defaultValue = predictions[game_number]['home'];
+        document.getElementById('away_score_' + game_number).defaultValue = predictions[game_number]['away'];
+    }
+}
 
-    for(var i = 0; i < games.length; i++) {
-        game_number = games[i].getElementsByClassName('game_number')[0].innerText;
+function fill_in_group_table(group_teams, table) {
 
-        if (game_number in predictions) {
-            games[i].getElementsByClassName('home_team_guess')[0].firstChild.defaultValue = predictions[game_number]['home_guess'];
-            games[i].getElementsByClassName('away_team_guess')[0].firstChild.defaultValue = predictions[game_number]['away_guess'];
+    if (table.childElementCount == 5) {
+        for (var j = 0; j < 4; j++) {
+            table.removeChild(table.lastChild);
         }
     }
+
+    for (var j = 0; j < 4; j++) {
+        var group_table_row = document.createElement('tr');
+        group_table_row.className = 'group_table_row';
+
+        var team_table = document.createElement('td');
+        team_table.className = 'table_td team_td';
+
+        if (group_teams[j]['team'] in teams) {
+            team_logo = JSON.parse(teams[group_teams[j]['team']]['logo']);
+            if ('src' in team_logo) {
+                var team_table_img = document.createElement("IMG")
+                team_table_img.className = 'team_table_flag_img';
+                team_table_img.src = team_logo['src'].replace("23","60");
+                team_table.appendChild(team_table_img);
+            }
+        }
+
+
+        var games_table = document.createElement('td');
+        games_table.className = 'table_td';
+        games_table.innerText = group_teams[j]['g']
+
+        var wins_table = document.createElement('td');
+        wins_table.className = 'table_td';
+        wins_table.innerText = group_teams[j]['w']
+
+        var draws_table = document.createElement('td');
+        draws_table.className = 'table_td';
+        draws_table.innerText = group_teams[j]['d']
+
+        var losses_table = document.createElement('td');
+        losses_table.className = 'table_td';
+        losses_table.innerText = group_teams[j]['l']
+
+        var goals_scored_table = document.createElement('td');
+        goals_scored_table.className = 'table_td';
+        goals_scored_table.innerText = group_teams[j]['gs']
+
+        var goals_conceded_table = document.createElement('td');
+        goals_conceded_table.className = 'table_td';
+        goals_conceded_table.innerText = group_teams[j]['gc'];
+
+        var goal_difference_table = document.createElement('td');
+        goal_difference_table.className = 'table_td';
+        goal_difference_table.innerText = group_teams[j]['gs'] - group_teams[j]['gc']
+
+        var points_table = document.createElement('td');
+        points_table.className = 'table_td';
+        points_table.innerText = group_teams[j]['pts'];
+
+        group_table_row.append(team_table);
+        group_table_row.append(games_table);
+        group_table_row.append(wins_table);
+        group_table_row.append(draws_table);
+        group_table_row.append(losses_table);
+        group_table_row.append(goals_scored_table);
+        group_table_row.append(goals_conceded_table);
+        group_table_row.append(goal_difference_table);
+        group_table_row.append(points_table);
+
+        table.appendChild(group_table_row);
+    }
+    return table
+
 }

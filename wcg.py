@@ -180,6 +180,80 @@ def calculate_game_outcome(score):
 def has_game_started(game_info):
     return False
 
+
+def create_group_table(group):
+    return {team:{'team':team,'g':0,'w':0,'d':0,'l':0,'gs':0,'gc':0,'pts':0} for team in info['teams'] if info['teams'][team]['groups'] == group}
+
+
+def update_group_table_info(teams, home_team, away_team, score):
+    if score and score['home'] and score['away']:
+        teams[home_team]['g'] += 1
+        teams[away_team]['g'] += 1
+        teams[home_team]['gs'] += int(score['home'])
+        teams[home_team]['gc'] += int(score['away'])
+        teams[away_team]['gs'] += int(score['away'])
+        teams[away_team]['gc'] =  int(score['home'])
+        outcome = calculate_game_outcome(score)
+        if outcome == 'home':
+            teams[home_team]['w'] += 1
+            teams[away_team]['l'] += 1
+            teams[home_team]['pts'] += 3
+        elif outcome == 'away':
+            teams[away_team]['w'] += 1
+            teams[home_team]['l'] += 1
+            teams[away_team]['pts'] += 3
+        elif outcome == 'draw':
+            teams[home_team]['d'] += 1
+            teams[home_team]['pts'] += 1
+            teams[away_team]['d'] += 1
+            teams[away_team]['pts'] += 1
+    return teams
+
+def update_groups_order(games, groups_to_update):
+
+
+    if 'groups_table' not in info:
+        info['groups_table'] = defaultdict()
+
+    for group in groups_to_update:
+        teams = create_group_table(group)
+        for game_number in info['games']:
+            home_team = info['games'][game_number]['home_team']
+            away_team = info['games'][game_number]['away_team']
+
+            if get_game_group_from_number(game_number) == group:
+                score = info['games'][game_number]['score']
+                teams = update_group_table_info(teams, home_team, away_team, score)
+
+        info['groups_table'][group] = sort_group(list(teams.values()))
+
+
+def calculate_predicted_groups_order(groups, user):
+
+    results = dict()
+    for group in groups:
+        teams = create_group_table(group)
+        for game_number in info['games']:
+            home_team = info['games'][game_number]['home_team']
+            away_team = info['games'][game_number]['away_team']
+
+            if get_game_group_from_number(game_number) == group:
+                if game_number in users[user]['predictions']:
+                    score = users[user]['predictions'][game_number]
+                    teams = update_group_table_info(teams, home_team, away_team, score)
+
+        results[group] = sort_group(list(teams.values()))
+    return results
+
+def sort_group(group):
+    return sorted(group, key=lambda k: (k['pts'], k['gs']-k['gc'], k['gs']), reverse=True)
+
+
+def get_game_group_from_number(game_number):
+    if info['games'][game_number]['stage'] != 'Groups Stage':
+        return ''
+    return info['teams'][info['games'][game_number]['home_team']]['groups']
+
 ###################################################################################################
 #                                       API Functions                                             #
 ###################################################################################################
@@ -237,7 +311,13 @@ def get_predictions(user_id):
 
     games = sort_by_phase_and_group(info['games'], info['teams'])
 
-    return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions})
+    real_groups = info['groups_table']
+
+    groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+
+    predicted_groups = calculate_predicted_groups_order(groups, users_ids[user_id])
+
+    return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
 
 
 @app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
@@ -246,11 +326,22 @@ def set_predictions(user_id):
     if not request.json or not 'predictions' in request.json:
         abort(400)
 
-    users[users_ids[user_id]]['predictions'] = request.json['predictions']
+    if 'predictions' not in users[users_ids[user_id]]:
+        users[users_ids[user_id]]['predictions'] = defaultdict()
 
-    print(request.json['predictions'])
+    groups = []
 
-    return jsonify({'groups': 'test groups return'}), 201
+    for prediction in request.json['predictions']:
+        if not has_game_started(info['games'][prediction]):
+            users[users_ids[user_id]]['predictions'][prediction] = request.json['predictions'][prediction]
+            if info['games'][prediction]['stage'] == 'Groups Stage':
+                groups.append(get_game_group_from_number(prediction))
+
+    ordered_groups = calculate_predicted_groups_order(groups, users_ids[user_id])
+
+    print(groups, request.json['predictions'])
+
+    return jsonify({'groups': ordered_groups}), 201
 
 @app.route(join_route_url('results', '<user_id>'), methods=['POST'])
 def set_results(user_id):
@@ -259,14 +350,16 @@ def set_results(user_id):
        'results' not in request.json or
        user_id not in users_ids or
        users_ids[user_id] not in users or
-       users_ids[user_id]!=variables['admin']):
+       users_ids[user_id] != variables['admin']):
         abort(400)
 
-
+    groups_to_update = set()
     for game in request.json['results']:
+        groups_to_update.add(get_game_group_from_number(game))
         info['games'][game]['score'] = request.json['results'][game]
-        info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score']);
-        print(info['games'][game])
+        info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score'])
+
+    update_groups_order(info['games'], groups_to_update)
 
     return jsonify({'groups': 'test groups return'}), 201
 

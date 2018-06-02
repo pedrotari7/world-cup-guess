@@ -126,13 +126,8 @@ function get_schedule(user_id, group_filter) {
                 var date_score_td = document.createElement('td');
                 date_score_td.className = 'game_date_score';
 
-                if (games[g]['score']) {
-                    date_score_td.innerText = games[g]['score'];
-                } else {
-                    var date = new Date(games[g]['date']);
-                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
-                }
-
+                var date = new Date(games[g]['date']);
+                date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
 
                 var away_team_flag_td = document.createElement('td');
                 away_team_flag_td.className = 'team_flag';
@@ -166,10 +161,6 @@ function get_schedule(user_id, group_filter) {
             }
 
             banner.appendChild(schedule_table);
-
-            var padding = document.createElement('div');
-            padding.className = 'padding';
-            banner.appendChild(padding);
 
         } else {
             console.error(info);

@@ -13,8 +13,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6/*  */, blo
   font-family: "Roboto";
   }
 
-body{
+/* body{
   background-color: #972a29;
+} */
+
+body{
+  background-color: #272822;
 }
 
 #header {
@@ -23,7 +27,7 @@ body{
   left: 0;
   width: 100%;
   height: 80px;
-  background-color: #1E2832;
+  background-color: #272822;
 }
 
 #header_table {
@@ -78,7 +82,7 @@ body{
   margin-bottom: 60px;
   border-bottom: 60px;
   width: 100%;
-  height: 85%;
+  height: calc(100% - 185px);
   overflow: auto;
 }
 
@@ -98,7 +102,7 @@ body{
 .flexcroll::-webkit-scrollbar-thumb {
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: #1E2832;
+  background: rgb(108, 113, 117);
   /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); */
 }
 
@@ -108,12 +112,12 @@ body{
 
 #container{
   text-align:center;
-  height: 80px;
+  height: 60px;
 }
 
 .footer_img_container{
   display:inline-block;
-  margin:5px 20px;
+  margin:5px 15px;
   padding:5px;
   width: 40px;
   height: 40px;
@@ -246,7 +250,7 @@ body{
   height: 60px;
   width: 100%;
   border: 0;
-  background-color: #1E2832;
+  background-color: #272822;
   }
 
 #footer a {
