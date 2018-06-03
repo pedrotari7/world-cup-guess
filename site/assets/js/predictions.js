@@ -225,6 +225,8 @@ function get_my_predictions(user_id) {
                         home_team_guess_td.appendChild(home_team_guess_input);
                     }
 
+                    home_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+
                     var date_score_td = document.createElement('td');
                     date_score_td.className = 'game_date_score';
 
@@ -250,6 +252,8 @@ function get_my_predictions(user_id) {
                         away_team_guess_input.addEventListener('change', closure, false);
                         away_team_guess_td.appendChild(away_team_guess_input);
                     }
+
+                    away_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
 
                     var away_team_flag_td = document.createElement('td');
                     away_team_flag_td.className = 'team_flag';
@@ -296,6 +300,16 @@ function send_predictions(user_id, game_number) {
     home_guess = document.getElementById('home_score_' + game_number);
     away_guess = document.getElementById('away_score_' + game_number);
 
+    if (home_guess.value == '') {
+        home_guess.style.borderColor = "rgb(250, 111, 111)";
+    } else {
+        home_guess.style.borderColor = "#A6E22E";
+    }
+    if (away_guess.value == '') {
+        away_guess.style.borderColor = "rgb(250, 111, 111)";
+    } else {
+        away_guess.style.borderColor = "#A6E22E";
+    }
 
     if (home_guess != null) {
         home_guess = home_guess.value;
@@ -336,8 +350,23 @@ function send_predictions(user_id, game_number) {
 
 function set_predictions_default(predictions) {
     for (game_number in predictions) {
-        document.getElementById('home_score_' + game_number).defaultValue = predictions[game_number]['home'];
-        document.getElementById('away_score_' + game_number).defaultValue = predictions[game_number]['away'];
+
+        var home_team_guess_input = document.getElementById('home_score_' + game_number)
+        home_team_guess_input.defaultValue = predictions[game_number]['home'];
+        var away_team_guess_input = document.getElementById('away_score_' + game_number)
+        away_team_guess_input.defaultValue = predictions[game_number]['away'];
+
+        if (home_team_guess_input.value == '') {
+            home_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+        } else {
+            home_team_guess_input.style.borderColor = "#A6E22E";
+        }
+        if (away_team_guess_input.value == '') {
+            away_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+        } else {
+            away_team_guess_input.style.borderColor = "#A6E22E";
+        }
+
     }
 }
 

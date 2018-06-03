@@ -93,29 +93,27 @@ function checkLoginState() {
  *                        Load Fuctions                         *
  * *************************************************************/
 
-// window.onload = function() {
-//     user_id = get_id();
-//     get_user_info(user_id);
-//     if (user_id) {
-//         document.getElementById("predictions").href += '?&id=' + user_id;
-//         document.getElementById("leaderboard").href += '?&id=' + user_id;
-//         document.getElementById("schedule").href += '?&id=' + user_id;
-//     }
+window.onload = function() {
+    var rules = document.getElementById("rules_banner");
+    rules.innerText = 'Rules';
 
-//     if (document.title == "Schedule") {
-//         get_schedule(user_id);
-//     } else if (document.title == "My Predictions") {
-//         get_my_predictions(user_id);
-//     } else if (document.title == "Leaderboard") {
-//         get_leaderboard();
-//     } else if (document.title.includes("Game")) {
-//         var url = new URL(window.location.href);
-//         var game_num = url.searchParams.get("n");
-//         document.getElementById('game_title').innerHTML = "Game " + game_num;
-//         document.title = "Game " + game_num;
-//         get_game(user_id, game_num);
-//     }
-// }
+    var closureMaker = function() {
+        return function(){get_rules();};
+    }
+    var closure = closureMaker();
+    rules.addEventListener('click', closure, false);
+
+    var home_text = document.getElementById("user_name");
+
+    var closureMaker = function() {
+        return function(){location.reload();;};
+    }
+    var closure = closureMaker();
+    home_text.addEventListener('click', closure, false);
+
+}
+
+
 
 function get_id() {
     var url = new URL(window.location.href);

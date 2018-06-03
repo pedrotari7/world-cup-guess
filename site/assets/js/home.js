@@ -40,7 +40,6 @@ function get_home(user_id) {
     }
     var closure = closureMaker(user_id);
     schedule.addEventListener('click', closure, false);
-
 }
 
 function get_user_info(user_id) {
