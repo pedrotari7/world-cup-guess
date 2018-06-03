@@ -18,7 +18,9 @@
     table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0px 15px;
-    border-radius: 25px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 td {
@@ -29,22 +31,27 @@ td {
 }
 
 td:first-child{
-    -moz-border-radius:25px 0 0 25px;
-    -webkit-border-radius:25px 0 0 25px;
-    border-radius: 25px 0 0 25px;
+    -moz-border-radius:20px 0 0 20px;
+    -webkit-border-radius:20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
 }
 td:last-child{
-    -moz-border-radius:0 25px 25px 0;
-    -webkit-border-radius:0 25px 25px 0;
-    border-radius: 0 25px 25px 0;
+    -moz-border-radius:0 20px 20px 0;
+    -webkit-border-radius:0 20px 20px 0;
+    border-radius: 0 20px 20px 0;
 }
 
 .user_row {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
     background-color: black;
     font-weight: bold;
 }
 
 .user_profile_picture_img {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     height: 60%;
     width: 60%;

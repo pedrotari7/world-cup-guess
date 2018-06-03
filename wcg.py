@@ -42,14 +42,6 @@ def save_games_database(info):
     with open(variables['games_db'], 'w') as f:
         return json.dump(info, f,  indent=4, sort_keys=True)
 
-def load_predictions_database():
-    with open(variables['predictions_db'], 'r') as f:
-        return json.load(f)
-
-def save_predictions_database(predictions):
-    with open(variables['predictions_db'], 'w') as f:
-        return json.dump(predictions, f)
-
 def load_users_database():
     if os.path.exists(variables['users_db']):
         with open(variables['users_db'], 'r') as f:
@@ -180,6 +172,11 @@ def calculate_game_outcome(score):
 def has_game_started(game_info):
     return False
 
+def get_next_game_number(games):
+    game_times = [(datetime.datetime.strptime(games[game]['date'], "%Y-%m-%d %H:%M:%S"), game) for game in games if not games[game]['score'] or (games[game]['score'] and not games[game]['score']['finished'])]
+
+    return sorted(game_times)[0][1]
+
 
 def create_group_table(group):
     return {team:{'team':team,'g':0,'w':0,'d':0,'l':0,'gs':0,'gc':0,'pts':0} for team in info['teams'] if info['teams'][team]['groups'] == group}
@@ -276,16 +273,22 @@ def get_schedule():
 def get_game(user_id, game_num):
     game = dict()
 
+    print('get_game', user_id, game_num)
+
     game['has_started'] = has_game_started(info['games'][game_num])
 
-    if game['has_started']:
-        game['predictions'] = predictions[game_num]
-    else:
-        game['predictions'] = defaultdict(dict)
-        if game_num in predictions:
-            for user in predictions[game_num]:
-                game['predictions'][user]['prediction'] = ['X', 'X']
-                game['predictions'][user]['picture'] = users[user]['picture']
+
+    game['predictions'] = defaultdict(dict)
+    for user in users:
+        if game_num in users[user]['predictions']:
+            if users_ids[user_id] == user or game['has_started']:
+                if game_num in users[user]['predictions']:
+                    game['predictions'][user]['prediction'] = users[user]['predictions'][game_num]
+                else:
+                    game['predictions'][user]['prediction'] = {'home':'', 'away':''}
+            else:
+                game['predictions'][user]['prediction'] = {'home':'X', 'away':'X'}
+        game['predictions'][user]['picture'] = users[user]['picture']
 
 
     game['info'] = info['games'][game_num]
@@ -303,6 +306,11 @@ def get_game(user_id, game_num):
 
     return jsonify(game)
 
+@app.route(join_route_url('game', 'next'), methods=['GET'])
+def get_next_game():
+    next_game = get_next_game_number(info['games'])
+
+    return jsonify({'next_game': next_game})
 
 @app.route(join_route_url('predictions', '<user_id>'), methods=['GET'])
 def get_predictions(user_id):
@@ -390,6 +398,7 @@ def login_with_google(token):
         next_page = join_url(variables['HOME_URL'], 'home.html', id=users[data['name']]['id'])
     else:
         new_server.timed_print('New user: ' + data['name'], color='OKGREEN')
+        users[data['name']] = dict()
         users[data['name']]['name'] = data['name']
         users[data['name']]['id'] = id_gen()
         users_ids[users[data['name']]['id']] = data['name']
@@ -412,6 +421,8 @@ def login_with_google(token):
         users[data['name']]['results']['player_best_scorer'] = ''
         users[data['name']]['results']['player_mvp'] = ''
 
+        users[data['name']]['predictions'] = {}
+
         next_page = join_url(variables['HOME_URL'],'test.html')
 
     return jsonify({'id': users[data['name']]['id'], 'next_page': next_page}), 200
@@ -425,8 +436,6 @@ if __name__ == '__main__':
     users, users_ids = load_users_database()
 
     info = load_games_database()
-
-    predictions = load_predictions_database()
 
     new_server = wcg_server()
 

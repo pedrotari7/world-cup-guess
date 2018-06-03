@@ -7,8 +7,6 @@ function get_my_predictions(user_id) {
 
     xhr.open("GET", url+'/'+user_id, true);
 
-    console.log("user_id:",user_id);
-
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
     var nav_elements = document.getElementsByClassName('selected');
@@ -32,9 +30,6 @@ function get_my_predictions(user_id) {
             predictions = data['predictions'];
             predicted_groups = data['predicted_groups'];
             real_groups = data['real_groups'];
-
-            console.log(predictions);
-            console.log(real_groups);
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
@@ -188,9 +183,15 @@ function get_my_predictions(user_id) {
                     game_number_td.className = 'game_number';
 
                     var game_link = document.createElement('a');
-                    game_link.href = 'http://www.worldcupguess.win/game.html?&id=' + user_id + '&n=' + g;
                     game_link.innerText = games[g][game]['game_number'];
                     game_link.className = 'game_link';
+
+                    var closureMaker = function(user_id, game_number) {
+                        return function(){get_game(user_id, game_number)};
+                    }
+                    var closure = closureMaker(user_id, games[g][game]['game_number']);
+                    game_number_td.addEventListener('click', closure, false);
+
                     game_number_td.appendChild(game_link);
 
                     var home_team_td = document.createElement('td');
@@ -324,7 +325,6 @@ function send_predictions(user_id, game_number) {
 
     predictions[game_number] = {'home':home_guess, 'away':away_guess};
 
-    console.log(predictions)
     var url = "http://www.worldcupguess.win:5000/api/v1.0/predictions";
 
     var json = JSON.stringify({'predictions':predictions});
@@ -335,7 +335,6 @@ function send_predictions(user_id, game_number) {
     xhr.onload = function () {
         var groups = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "201") {
-            console.log(groups);
             for (var group in groups['groups']) {
                 table = document.getElementById('group_table_' + group);
                 table = fill_in_group_table(groups['groups'][group], table, 'predicted', real_groups[group]);
@@ -371,8 +370,6 @@ function set_predictions_default(predictions) {
 }
 
 function fill_in_group_table(group_teams, table, mode, other_results) {
-
-    console.log(table.childElementCount);
 
     if (table.childElementCount == 6) {
         for (var j = 0; j < 4; j++) {

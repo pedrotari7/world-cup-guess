@@ -6,7 +6,6 @@ function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
       // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
     var url = "http://www.worldcupguess.win:5000/api/v1.0/login/google";
     var data = {};
     data.token = id_token;
@@ -17,10 +16,7 @@ function onSuccess(googleUser) {
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
     xhr.onload = function () {
         var result = JSON.parse(xhr.responseText);
-        console.log('response:', xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            console.log('response:', xhr.responseText);
-            console.log(result);
             get_home(result['id']);
         } else {
             console.error(xhr.readyState);

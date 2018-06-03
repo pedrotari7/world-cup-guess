@@ -7,8 +7,6 @@ function get_schedule(user_id, group_filter) {
 
     xhr.open("GET", url, true);
 
-    console.log("user_id:",user_id,"group_filter",group_filter);
-
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
     var nav_elements = document.getElementsByClassName('selected');
@@ -100,11 +98,16 @@ function get_schedule(user_id, group_filter) {
                 game_number_td.className = 'game_number';
 
                 var game_link = document.createElement('a');
-                game_link.href = 'http://www.worldcupguess.win/game.html?&id=' + user_id + '&n=' + g;
                 game_link.innerText = g;
                 game_link.className = 'game_link';
-                game_number_td.appendChild(game_link);
 
+                var closureMaker = function(user_id, game_number) {
+                    return function(){get_game(user_id, game_number)};
+                }
+                var closure = closureMaker(user_id, g);
+                game_number_td.addEventListener('click', closure, false);
+
+                game_number_td.appendChild(game_link);
 
 
                 var home_team_td = document.createElement('td');
@@ -133,7 +136,7 @@ function get_schedule(user_id, group_filter) {
                 away_team_flag_td.className = 'team_flag';
                 if (games[g]['away_team'] in teams) {
                     team_logo = JSON.parse(teams[games[g]['away_team']]['logo']);
-                    if ('src' in team_logo)            banner.appendChild(schedule_table); {
+                    if ('src' in team_logo) {
                         var away_img = document.createElement("IMG")
                         away_img.className = 'team_flag_img';
                         away_img.src = team_logo['src'].replace("23","60");
@@ -145,9 +148,6 @@ function get_schedule(user_id, group_filter) {
                 away_team_td.className = 'game_team';
                 away_team_td.innerText = games[g]['away_team'];
 
-                // var stadium_td = document.createElement('td');
-                // stadium_td.className = 'stadium';
-                // stadium_td.innerText = games[g]['stadium'];
 
                 schedule_row.appendChild(game_number_td);
                 schedule_row.appendChild(home_team_td);
@@ -155,7 +155,6 @@ function get_schedule(user_id, group_filter) {
                 schedule_row.appendChild(date_score_td);
                 schedule_row.appendChild(away_team_flag_td);
                 schedule_row.appendChild(away_team_td);
-                // schedule_row.appendChild(stadium_td);
 
                 schedule_table.appendChild(schedule_row);
             }

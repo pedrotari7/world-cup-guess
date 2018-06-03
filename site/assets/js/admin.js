@@ -63,9 +63,14 @@ function get_admin(user_id) {
                 game_number_td.className = 'game_number';
 
                 var game_link = document.createElement('a');
-                game_link.href = 'http://www.worldcupguess.win/game.html?&id=' + user_id + '&n=' + g;
                 game_link.innerText = g;
                 game_link.className = 'game_link';
+                var closureMaker = function(user_id, game_number) {
+                    return function(){get_game(user_id, game_number)};
+                }
+                var closure = closureMaker(user_id, g);
+                game_number_td.addEventListener('click', closure, false);
+
                 game_number_td.appendChild(game_link);
 
 

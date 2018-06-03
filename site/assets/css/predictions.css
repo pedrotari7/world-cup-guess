@@ -44,7 +44,8 @@ input::-webkit-inner-spin-button {
 
 .group_table{
     text-align: center;
-    width: 50%;
+    width: 48%;
+    margin: 1%;
     color: white;
     table-layout: fixed;
     border-collapse: separate;
@@ -68,6 +69,9 @@ input::-webkit-inner-spin-button {
 
 .group_table_row {
     background-color: black;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 .team_td {

@@ -40,6 +40,30 @@ function get_home(user_id) {
     }
     var closure = closureMaker(user_id);
     schedule.addEventListener('click', closure, false);
+
+    get_next_game(user_id);
+
+}
+
+function get_next_game(user_id) {
+    var url = "http://www.worldcupguess.win:5000/api/v1.0/game/next";
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+
+    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+
+    xhr.onload = function () {
+        var next_game = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.log(next_game);
+            get_game(user_id, next_game['next_game'])
+        } else {
+            console.error(result);
+        }
+    }
+    xhr.send(null);
 }
 
 function get_user_info(user_id) {
@@ -52,13 +76,11 @@ function get_user_info(user_id) {
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
     xhr.onload = function () {
-        console.log(xhr.responseText);
         var result = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             document.getElementById('user_name').innerHTML = result["name"];
             document.getElementById('profile_picture_img').src = result["picture"];
             if (result['admin']) {
-                console.log('found admin user');
                 container = document.getElementById('container');
                 admin_link = document.createElement('a');
                 admin_link.className = 'footer_img_container';
