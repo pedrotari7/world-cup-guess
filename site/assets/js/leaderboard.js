@@ -1,4 +1,4 @@
-function get_leaderboard() {
+function get_leaderboard(user_id) {
     document.title = "Leaderboard";
 
     var url = "http://www.worldcupguess.win:5000/api/v1.0/leaderboard";
@@ -151,6 +151,12 @@ function get_leaderboard() {
                 user_row.appendChild(penalties);
                 user_row.appendChild(awards);
                 user_row.appendChild(points);
+
+                var closureMaker = function(a, b) {
+                    return function(){get_my_predictions(a, b);};
+                }
+                var closure = closureMaker(user_id, leaderboard[i].name);
+                user_row.addEventListener('click', closure, false);
 
                 table.appendChild(user_row);
             }

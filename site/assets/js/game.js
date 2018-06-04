@@ -130,6 +130,12 @@ function get_game(user_id, game_num) {
                 user_row.appendChild(name);
                 user_row.appendChild(game_prediction_score);
 
+                var closureMaker = function(a, b) {
+                    return function(){get_my_predictions(a, b);};
+                }
+                var closure = closureMaker(user_id, user);
+                user_row.addEventListener('click', closure, false);
+
                 game_prediction_table.appendChild(user_row);
 
             }

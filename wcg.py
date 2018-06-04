@@ -312,10 +312,11 @@ def get_next_game():
 
     return jsonify({'next_game': next_game})
 
-@app.route(join_route_url('predictions', '<user_id>'), methods=['GET'])
-def get_predictions(user_id):
-    print(join_route_url('predictions'))
-    predictions = users[users_ids[user_id]]['predictions'] if 'predictions' in users[users_ids[user_id]] else dict()
+@app.route(join_route_url('predictions', '<user_id>', '<predictions_user_name>'), methods=['GET'])
+def get_predictions(user_id, predictions_user_name):
+    print(join_route_url('predictions', user_id, predictions_user_name))
+
+    predictions = users[predictions_user_name]['predictions'] if 'predictions' in users[predictions_user_name] else dict()
 
     games = sort_by_phase_and_group(info['games'], info['teams'])
 
@@ -323,7 +324,7 @@ def get_predictions(user_id):
 
     groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
-    predicted_groups = calculate_predicted_groups_order(groups, users_ids[user_id])
+    predicted_groups = calculate_predicted_groups_order(groups, predictions_user_name)
 
     return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
 

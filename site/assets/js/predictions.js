@@ -1,11 +1,9 @@
-function get_my_predictions(user_id) {
-    document.title = "My Predictions";
-
+function get_my_predictions(user_id, predictions_user_name) {
     var url = "http://www.worldcupguess.win:5000/api/v1.0/predictions";
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", url+'/'+user_id, true);
+    xhr.open("GET", url + '/' + user_id + '/' + predictions_user_name, true);
 
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
@@ -14,8 +12,15 @@ function get_my_predictions(user_id) {
         nav_elements[i].className = '';
     }
 
-    var my_predictions_nav = document.getElementById('my_predictions');
-    my_predictions_nav.className = 'selected';
+    var is_my_predictions = predictions_user_name == document.getElementById('user_name').innerHTML;
+
+    if (is_my_predictions) {
+        var my_predictions_nav = document.getElementById('my_predictions');
+        my_predictions_nav.className = 'selected';
+        document.title = "My Predictions";
+    } else {
+        document.title = predictions_user_name;
+    }
 
     xhr.onload = function () {
         var banner = document.getElementById('banner');
@@ -60,6 +65,13 @@ function get_my_predictions(user_id) {
             }
 
             banner.appendChild(groups_div);
+
+            if (!is_my_predictions) {
+                var predictions_user_div = document.createElement('div');
+                predictions_user_div.innerText = predictions_user_name + ' Predictions';
+                predictions_user_div.className = 'stage_div textBox';
+                banner.appendChild(predictions_user_div);
+            }
 
             games_order = ['A','B','C','D','E','F','G','H','Round of 16','Quarter-finals','Semi-finals','Third place play-off','Final']
 
@@ -217,12 +229,16 @@ function get_my_predictions(user_id) {
                         home_team_guess_input.className = 'guess_input';
                         home_team_guess_input.id = 'home_score_' + games[g][game]['game_number'];
                         home_team_guess_input.type = "number";
-
-                        var closureMaker = function(user_id, game_number) {
-                            return function(){send_predictions(user_id, game_number)};
+                        if(is_my_predictions) {
+                            var closureMaker = function(user_id, game_number) {
+                                return function(){send_predictions(user_id, game_number)};
+                            }
+                            var closure = closureMaker(user_id, games[g][game]['game_number']);
+                            home_team_guess_input.addEventListener('change', closure, false);
+                        } else {
+                            home_team_guess_input.disabled = true;
+                            home_team_guess_input.style.border = 0;
                         }
-                        var closure = closureMaker(user_id, games[g][game]['game_number']);
-                        home_team_guess_input.addEventListener('change', closure, false);
                         home_team_guess_td.appendChild(home_team_guess_input);
                     }
 
@@ -246,11 +262,17 @@ function get_my_predictions(user_id) {
                         away_team_guess_input.className = 'guess_input';
                         away_team_guess_input.id = 'away_score_' + games[g][game]['game_number'];
                         away_team_guess_input.type = "number";
-                        var closureMaker = function(user_id, game_number) {
-                            return function(){send_predictions(user_id, game_number)};
+
+                        if (is_my_predictions) {
+                            var closureMaker = function(user_id, game_number) {
+                                return function(){send_predictions(user_id, game_number)};
+                            }
+                            var closure = closureMaker(user_id, games[g][game]['game_number']);
+                            away_team_guess_input.addEventListener('change', closure, false);
+                        } else {
+                            away_team_guess_input.disabled = true;
+                            away_team_guess_input.style.border = 0;
                         }
-                        var closure = closureMaker(user_id, games[g][game]['game_number']);
-                        away_team_guess_input.addEventListener('change', closure, false);
                         away_team_guess_td.appendChild(away_team_guess_input);
                     }
 

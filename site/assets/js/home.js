@@ -12,15 +12,6 @@ function get_home(user_id) {
     var sign_out = document.getElementById("sign_out");
     sign_out.innerText = 'SignOut';
 
-    var my_predictions = document.getElementById("my_predictions");
-    my_predictions.innerText = 'My Predictions';
-
-    var closureMaker = function(a) {
-        return function(){get_my_predictions(a);};
-    }
-    var closure = closureMaker(user_id);
-    my_predictions.addEventListener('click', closure, false);
-
     var leaderboard = document.getElementById("leaderboard");
 
     leaderboard.innerText = 'Leaderboard';
@@ -80,6 +71,17 @@ function get_user_info(user_id) {
         if (xhr.readyState == 4 && xhr.status == "200") {
             document.getElementById('user_name').innerHTML = result["name"];
             document.getElementById('profile_picture_img').src = result["picture"];
+
+            var my_predictions = document.getElementById("my_predictions");
+            my_predictions.innerText = 'My Predictions';
+
+            var closureMaker = function(a, b) {
+                return function(){get_my_predictions(a, b);};
+            }
+            var closure = closureMaker(user_id, result["name"]);
+            my_predictions.addEventListener('click', closure, false);
+
+
             if (result['admin']) {
                 container = document.getElementById('container');
                 admin_link = document.createElement('a');
