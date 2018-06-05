@@ -94,13 +94,6 @@ function get_game(user_id, game_num) {
                 var user_row = document.createElement('tr');
                 user_row.className = 'user_row';
 
-                if (user == document.getElementById('user_name').innerHTML) {
-                    user_row.style.backgroundColor = "#A6E22E";
-                    user_row.style.color = "black";
-                } else {
-                    user_row.style.backgroundColor = "#474748";
-                }
-
                 var profile_picture = document.createElement('td');
                 profile_picture.className = 'user_profile_picture';
                 var profile_picture_img = document.createElement('img');
@@ -126,6 +119,10 @@ function get_game(user_id, game_num) {
                 game_prediction_score.innerText = home_prediction + ' - ' + away_prediction;
 
 
+                if (game_info['predictions'][user].hasOwnProperty('prediction') && game_info['predictions'][user].prediction.hasOwnProperty('result')) {
+                    user_row.className += ' game_result_' + game_info['predictions'][user]['prediction']['result'];
+                }
+
                 user_row.appendChild(profile_picture);
                 user_row.appendChild(name);
                 user_row.appendChild(game_prediction_score);
@@ -135,6 +132,12 @@ function get_game(user_id, game_num) {
                 }
                 var closure = closureMaker(user_id, user);
                 user_row.addEventListener('click', closure, false);
+
+                if (user == document.getElementById('user_name').innerHTML) {
+                    user_row.className += ' its_me';
+                } else {
+                    user_row.style.backgroundColor = "#474748";
+                }
 
                 game_prediction_table.appendChild(user_row);
 

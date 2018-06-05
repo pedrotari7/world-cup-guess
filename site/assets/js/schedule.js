@@ -23,14 +23,18 @@ function get_schedule(user_id, group_filter) {
         var info = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             previous_stage = "";
-            games = info['games'];
-            teams = info['teams'];
+            games_order = info['games_order'];
+            games = info['games_info']['games'];
+            teams = info['games_info']['teams'];
+
+            console.log(games_order);
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
             }
 
-            for (var g in games) {
+            for (var k = 0; k < games_order.length; k++) {
+                g = games_order[k];
 
                 if (games[g]['stage'] != previous_stage) {
 

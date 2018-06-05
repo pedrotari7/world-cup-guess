@@ -20,8 +20,9 @@ function get_admin(user_id) {
         var info = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
             previous_stage = "";
-            games = info['games'];
-            teams = info['teams'];
+            games_order = info['games_order'];
+            games = info['games_info']['games'];
+            teams = info['games_info']['teams'];
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
@@ -47,7 +48,10 @@ function get_admin(user_id) {
             var schedule_table = document.createElement('table');
             schedule_table.className = 'game_table';
 
-            for (var g in games) {
+            for (var k = 0; k < games_order.length; k++) {
+                g = games_order[k];
+
+                console.log(games[g]);
 
                 var schedule_row = document.createElement('tr');
                 schedule_row.className = 'game_row';
@@ -105,14 +109,15 @@ function get_admin(user_id) {
                     home_team_result_input.addEventListener('change', closure, false);
                     home_team_result_td.appendChild(home_team_result_input);
 
+
+                    if (!games[g]['has_started']) {
+                        home_team_result_input.style.borderColor = 'transparent';
+                        home_team_result_input.disabled = true;
+                    } else {
+                        home_team_result_input.style.borderColor = "rgb(255, 255, 255, 0.3)";
+                    }
                     if (games[g]['score']) {
                         home_team_result_input.value = games[g]['score']['home'];
-                        if (games[g]['score']['finished']) {
-                            home_team_result_input.style.borderColor = 'transparent';
-                            home_team_result_input.disabled = true;
-                        } else {
-                            home_team_result_input.style.borderColor = "rgb(255, 255, 255, 0.3)";
-                        }
                     }
                 }
 
@@ -137,14 +142,14 @@ function get_admin(user_id) {
                     var closure = closureMaker(user_id, g);
                     away_team_result_input.addEventListener('change', closure, false);
 
+                    if (!games[g]['has_started']) {
+                        away_team_result_input.style.borderColor = 'transparent';
+                        away_team_result_input.disabled = true;
+                    } else {
+                        away_team_result_input.style.borderColor = "rgb(255 ,255, 255, 0.3)";
+                    }
                     if (games[g]['score']) {
                         away_team_result_input.value = games[g]['score']['away'];
-                        if (games[g]['score']['finished']) {
-                            away_team_result_input.style.borderColor = 'transparent';
-                            away_team_result_input.disabled = true;
-                        } else {
-                            away_team_result_input.style.borderColor = "rgb(255 ,255, 255, 0.3)";
-                        }
                     }
 
                     away_team_result_td.appendChild(away_team_result_input);

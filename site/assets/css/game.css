@@ -50,3 +50,32 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
 }
+
+.game_result_exact_score td{
+    background-color: #A6E22E;
+    border-color: #A6E22E;
+    color: black;
+}
+
+.game_result_right_result td{
+    background-color: #89BDFF;
+    border-color: #89BDFF;
+    color: black;
+}
+
+.game_result_one_right_score td{
+    background-color: #E6DB74;
+    border-color: #E6DB74;
+    color: black;
+}
+
+.game_result_fail td{
+    background-color: #8B0000;
+    border-color: #8B0000;
+    color: white;
+}
+
+.its_me td{
+    background-color: #C0C0C0;
+    color: black;
+}

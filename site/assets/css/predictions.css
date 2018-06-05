@@ -3,11 +3,14 @@
     height: 50%;
     text-align: center;
     font-size: 20px;
-    background-color: rgb(0, 0, 0, 0);
+    background-color: transparent;
     border-color: rgb(255, 255, 255, 0.3);
     color: white;
     font-weight: bold;
     border-style:solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .home_team_guess {
@@ -26,8 +29,14 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
 .game_finished_checkbox {
-    width: 4%;;
+    width: 4%;
 }
 
 .checkbox {
@@ -82,3 +91,21 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
     background-color: transparent;
 }
+
+.prediction_result_exact_score td{
+    border-color: #A6E22E;
+}
+
+.prediction_result_right_result td{
+    border-color: #89BDFF;
+}
+
+.prediction_result_one_right_score td{
+    border-color: #E6DB74;
+}
+
+.prediction_result_fail td{
+    border-color: #8B0000;
+}
+
+

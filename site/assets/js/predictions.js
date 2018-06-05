@@ -36,6 +36,8 @@ function get_my_predictions(user_id, predictions_user_name) {
             predicted_groups = data['predicted_groups'];
             real_groups = data['real_groups'];
 
+            console.log(predictions);
+
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
             }
@@ -184,6 +186,10 @@ function get_my_predictions(user_id, predictions_user_name) {
                     var schedule_row = document.createElement('tr');
                     schedule_row.className = 'game_row';
 
+                    if (predictions.hasOwnProperty(games[g][game]['game_number']) && predictions[games[g][game]['game_number']].hasOwnProperty('result')) {
+                        schedule_row.className += ' prediction_result_' + predictions[games[g][game]['game_number']]['result']
+                    }
+
                     if (game_info['stage'] == 'Groups Stage') {
                         schedule_row.className += ' group_' + teams[game_info['home_team']]['groups'];
                     }
@@ -229,7 +235,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                         home_team_guess_input.className = 'guess_input';
                         home_team_guess_input.id = 'home_score_' + games[g][game]['game_number'];
                         home_team_guess_input.type = "number";
-                        if(is_my_predictions) {
+                        if(is_my_predictions && !game_info['has_started']) {
                             var closureMaker = function(user_id, game_number) {
                                 return function(){send_predictions(user_id, game_number)};
                             }
@@ -242,13 +248,14 @@ function get_my_predictions(user_id, predictions_user_name) {
                         home_team_guess_td.appendChild(home_team_guess_input);
                     }
 
-                    home_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+                    home_team_guess_input.style.borderColor = "#8B0000";
 
                     var date_score_td = document.createElement('td');
                     date_score_td.className = 'game_date_score';
 
                     if (game_info['score'] && game_info['score']['home'] && game_info['score']['away']) {
                         date_score_td.innerText = game_info['score']['home'] + ' x ' + game_info['score']['away'];
+                        date_score_td.style.fontSize = '20px';
                     } else {
                         var date = new Date(game_info['date']);
                         date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
@@ -263,7 +270,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                         away_team_guess_input.id = 'away_score_' + games[g][game]['game_number'];
                         away_team_guess_input.type = "number";
 
-                        if (is_my_predictions) {
+                        if (is_my_predictions && !game_info['has_started']) {
                             var closureMaker = function(user_id, game_number) {
                                 return function(){send_predictions(user_id, game_number)};
                             }
@@ -276,7 +283,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                         away_team_guess_td.appendChild(away_team_guess_input);
                     }
 
-                    away_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+                    away_team_guess_input.style.borderColor = "#8B0000";
 
                     var away_team_flag_td = document.createElement('td');
                     away_team_flag_td.className = 'team_flag';
@@ -324,12 +331,12 @@ function send_predictions(user_id, game_number) {
     away_guess = document.getElementById('away_score_' + game_number);
 
     if (home_guess.value == '') {
-        home_guess.style.borderColor = "rgb(250, 111, 111)";
+        home_guess.style.borderColor = "#8B0000";
     } else {
         home_guess.style.borderColor = "#A6E22E";
     }
     if (away_guess.value == '') {
-        away_guess.style.borderColor = "rgb(250, 111, 111)";
+        away_guess.style.borderColor = "#8B0000";
     } else {
         away_guess.style.borderColor = "#A6E22E";
     }
@@ -370,6 +377,7 @@ function send_predictions(user_id, game_number) {
 }
 
 function set_predictions_default(predictions) {
+
     for (game_number in predictions) {
 
         var home_team_guess_input = document.getElementById('home_score_' + game_number)
@@ -378,12 +386,12 @@ function set_predictions_default(predictions) {
         away_team_guess_input.defaultValue = predictions[game_number]['away'];
 
         if (home_team_guess_input.value == '') {
-            home_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+            home_team_guess_input.style.borderColor = "#8B0000";
         } else {
             home_team_guess_input.style.borderColor = "#A6E22E";
         }
         if (away_team_guess_input.value == '') {
-            away_team_guess_input.style.borderColor = "rgb(250, 111, 111)";
+            away_team_guess_input.style.borderColor = "#8B0000";
         } else {
             away_team_guess_input.style.borderColor = "#A6E22E";
         }
@@ -464,7 +472,7 @@ function fill_in_group_table(group_teams, table, mode, other_results) {
                 group_table_row.style.backgroundColor = '#A6E22E';
                 group_table_row.style.color = 'black';
             } else {
-                group_table_row.style.backgroundColor = 'rgb(250, 111, 111)';
+                group_table_row.style.backgroundColor = '#8B0000';
                 group_table_row.style.color = 'white';
             }
 

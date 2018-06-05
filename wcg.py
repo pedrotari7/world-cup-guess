@@ -5,6 +5,8 @@ import datetime
 import random, string
 import json
 import os
+
+from freezegun import freeze_time
 from collections import defaultdict
 from urllib.request import urlopen
 from flask import Flask, jsonify, make_response, abort, request
@@ -29,6 +31,9 @@ points = {
             'player_best_scorer' : 10,
             'player_mvp' : 10,
          }
+
+freezer = freeze_time("2018-06-14 17:00:00")
+freezer.start()
 
 ###################################################################################################
 #                                         Database                                                #
@@ -146,17 +151,16 @@ def calculate_points(user):
 def sort_leaderboard(leaderboard):
     return sorted(leaderboard, key=lambda k: (k['points'], k['results']['exact_score'], k['results']['right_result'], k['results']['one_right_score']), reverse=True)
 
-
 def sort_by_phase_and_group(games, teams):
     sorted_games = defaultdict(list)
 
     for game in map(str,sorted(map(int,games.keys()))):
+        games[game]['has_started'] = has_game_started(games[game])
         if games[game]['home_team'] in teams and games[game]['away_team'] in teams:
             sorted_games[teams[games[game]['home_team']]['groups']].append({'game_number':game,'game':games[game]})
         else:
             sorted_games[games[game]['stage']].append({'game_number':game,'game':games[game]})
     return sorted_games
-
 
 def calculate_game_outcome(score):
     if not (score['home'] and score['away']):
@@ -168,19 +172,18 @@ def calculate_game_outcome(score):
     else:
         return 'draw'
 
-
 def has_game_started(game_info):
-    return False
+    return datetime.datetime.now() >= datetime.datetime.strptime(game_info['date'], "%Y-%m-%d %H:%M:%S")
+
+def get_time_sorted_games(games, mode='all'):
+    game_times = [(datetime.datetime.strptime(games[game]['date'], "%Y-%m-%d %H:%M:%S"), game) for game in games if not games[game]['score'] or (games[game]['score'] and (mode == 'all' or not games[game]['score']['finished']))]
+    return [_[1] for _ in sorted(game_times)]
 
 def get_next_game_number(games):
-    game_times = [(datetime.datetime.strptime(games[game]['date'], "%Y-%m-%d %H:%M:%S"), game) for game in games if not games[game]['score'] or (games[game]['score'] and not games[game]['score']['finished'])]
-
-    return sorted(game_times)[0][1]
-
+    return get_time_sorted_games(games, mode='not_finished')[0]
 
 def create_group_table(group):
     return {team:{'team':team,'g':0,'w':0,'d':0,'l':0,'gs':0,'gc':0,'pts':0} for team in info['teams'] if info['teams'][team]['groups'] == group}
-
 
 def update_group_table_info(teams, home_team, away_team, score):
     if score and score['home'] and score['away']:
@@ -208,7 +211,6 @@ def update_group_table_info(teams, home_team, away_team, score):
 
 def update_groups_order(games, groups_to_update):
 
-
     if 'groups_table' not in info:
         info['groups_table'] = defaultdict()
 
@@ -224,9 +226,7 @@ def update_groups_order(games, groups_to_update):
 
         info['groups_table'][group] = sort_group(list(teams.values()))
 
-
 def calculate_predicted_groups_order(groups, user):
-
     results = dict()
     for group in groups:
         teams = create_group_table(group)
@@ -245,11 +245,59 @@ def calculate_predicted_groups_order(groups, user):
 def sort_group(group):
     return sorted(group, key=lambda k: (k['pts'], k['gs']-k['gc'], k['gs']), reverse=True)
 
-
 def get_game_group_from_number(game_number):
     if info['games'][game_number]['stage'] != 'Groups Stage':
         return ''
     return info['teams'][info['games'][game_number]['home_team']]['groups']
+
+def update_leaderboard_info(games_info):
+    for user in users:
+        users[user]['results']['points'] = 0
+        users[user]['results']['exact_score'] = 0
+        users[user]['results']['right_result'] = 0
+        users[user]['results']['one_right_score'] = 0
+        users[user]['results']['fail'] = 0
+        for game in games_info:
+            if game in users[user]['predictions'] and users[user]['predictions'][game]:
+                if 'home' in users[user]['predictions'][game] and 'away' in users[user]['predictions'][game] and games_info[game]['score'] and games_info[game]['score']['finished']:
+                    predicted_score = users[user]['predictions'][game]
+                    predicted_outcome = calculate_game_outcome(users[user]['predictions'][game])
+                    real_score = games_info[game]['score']
+                    real_outcome = games_info[game]['score']['outcome']
+
+                    if real_score['home'] == predicted_score['home'] and real_score['away'] == predicted_score['away']:
+                        users[user]['results']['exact_score'] += 1
+                    elif predicted_outcome == real_outcome:
+                        users[user]['results']['right_result'] += 1
+                    elif real_score['home'] == predicted_score['home'] or real_score['away'] == predicted_score['away']:
+                        users[user]['results']['one_right_score'] += 1
+                    else:
+                        users[user]['results']['fail'] +=1
+
+def update_has_started_info():
+    for game in info['games']:
+        info['games'][game]['has_started']= has_game_started(info['games'][game])
+
+
+def update_prediction_result():
+    for user in users:
+        for game in info['games']:
+            if game in users[user]['predictions'] and users[user]['predictions'][game]:
+                if 'home' in users[user]['predictions'][game] and 'away' in users[user]['predictions'][game] and info['games'][game]['score'] and info['games'][game]['has_started']:
+                    predicted_score = users[user]['predictions'][game]
+                    predicted_outcome = calculate_game_outcome(users[user]['predictions'][game])
+                    real_score = info['games'][game]['score']
+                    real_outcome = info['games'][game]['score']['outcome']
+                    users[user]['predictions'][game]['result'] = ''
+
+                    if real_score['home'] == predicted_score['home'] and real_score['away'] == predicted_score['away']:
+                        users[user]['predictions'][game]['result'] = 'exact_score'
+                    elif predicted_outcome == real_outcome:
+                        users[user]['predictions'][game]['result'] = 'right_result'
+                    elif real_score['home'] == predicted_score['home'] or real_score['away'] == predicted_score['away']:
+                        users[user]['predictions'][game]['result'] = 'one_right_score'
+                    else:
+                        users[user]['predictions'][game]['result'] = 'fail'
 
 ###################################################################################################
 #                                       API Functions                                             #
@@ -267,13 +315,16 @@ def get_user_info(user_id):
 @app.route(join_route_url('schedule'), methods=['GET'])
 def get_schedule():
     print(join_route_url('schedule'))
-    return jsonify(info)
+
+    games_order = get_time_sorted_games(info['games'])
+
+    update_has_started_info()
+
+    return jsonify({'games_info':info, 'games_order': games_order})
 
 @app.route(join_route_url('game', '<user_id>', '<game_num>'), methods=['GET'])
 def get_game(user_id, game_num):
     game = dict()
-
-    print('get_game', user_id, game_num)
 
     game['has_started'] = has_game_started(info['games'][game_num])
 
@@ -328,7 +379,6 @@ def get_predictions(user_id, predictions_user_name):
 
     return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
 
-
 @app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
 def set_predictions(user_id):
     print(join_route_url('predictions'))
@@ -348,8 +398,6 @@ def set_predictions(user_id):
 
     ordered_groups = calculate_predicted_groups_order(groups, users_ids[user_id])
 
-    print(groups, request.json['predictions'])
-
     return jsonify({'groups': ordered_groups}), 201
 
 @app.route(join_route_url('results', '<user_id>'), methods=['POST'])
@@ -362,6 +410,8 @@ def set_results(user_id):
        users_ids[user_id] != variables['admin']):
         abort(400)
 
+    update_has_started_info()
+
     groups_to_update = set()
     for game in request.json['results']:
         groups_to_update.add(get_game_group_from_number(game))
@@ -369,6 +419,11 @@ def set_results(user_id):
         info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score'])
 
     update_groups_order(info['games'], groups_to_update)
+
+    update_leaderboard_info(info['games'])
+
+
+    update_prediction_result()
 
     return jsonify({'groups': 'test groups return'}), 201
 
