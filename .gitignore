@@ -101,6 +101,7 @@ ENV/
 #globals
 globals.json
 
-db
+db/*
+!db/players.json
 
 .vscode
