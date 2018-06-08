@@ -45,41 +45,52 @@ function get_players(user_id, team_name, mode) {
             }
 
 
-            var players_container = document.createElement('div');
-            players_container.className = 'players_container';
+            positions = [['GK', 'Goalkeepers'], ['DEF','Defenders'], ['MID','Midfielders'], ['FRW','Forwards']];
 
-            for (var player in players) {
-                var player_div = document.createElement('div');
-                player_div.className = 'players_div';
+            for(var p in positions) {
+                position = positions[p][0];
+                position_title = positions[p][1];
 
-                var player_image = document.createElement('img');
-                player_image.className = 'player_img';
-                player_image.src = players[player];
+                var team_name_div = document.createElement('div');
+                team_name_div.className = 'stage_div textBox';
+                team_name_div.innerText = position_title;
+                banner.appendChild(team_name_div);
 
-                player_div.appendChild(player_image);
+                var players_container = document.createElement('div');
+                players_container.className = 'players_container';
+
+                for (var player in players[position]) {
+                    var player_div = document.createElement('div');
+                    player_div.className = 'players_div';
+
+                    var player_image = document.createElement('img');
+                    player_image.className = 'player_img';
+                    player_image.src = players[position][player];
+
+                    player_div.appendChild(player_image);
 
 
-                var player_name = document.createElement('p');
-                player_name.className = 'player_name';
-                player_name.innerText = player;
+                    var player_name = document.createElement('p');
+                    player_name.className = 'player_name';
+                    player_name.innerText = player;
 
 
-                player_div.appendChild(player_name);
+                    player_div.appendChild(player_name);
 
-                if (mode == 'mvp' || mode == 'top_scorer') {
-                    var closureMaker = function(user_id, player_name) {
-                        return function(){set_award(user_id, player_name, mode)};
+                    if (mode == 'mvp' || mode == 'top_scorer') {
+                        var closureMaker = function(user_id, player_name) {
+                            return function(){set_award(user_id, player_name, mode)};
+                        }
+                        var closure = closureMaker(user_id, player);
+                        player_div.addEventListener('click', closure, false);
                     }
-                    var closure = closureMaker(user_id, player);
-                    player_div.addEventListener('click', closure, false);
+
+                    players_container.appendChild(player_div);
+
                 }
 
-                players_container.appendChild(player_div);
-
+                banner.appendChild(players_container);
             }
-
-            banner.appendChild(players_container);
-
         } else {
             console.error(info);
         }

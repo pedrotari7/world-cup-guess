@@ -77,7 +77,7 @@ function get_game(user_id, game_num) {
 
                 if(time_diff < one_day) {
                     date_score_td.style.fontSize = '20px';
-                    startTimer(time_diff, date_score_td)
+                    startTimer(time_diff, date_score_td, user_id, game_num)
                 } else {
                     date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
                 }
@@ -108,6 +108,8 @@ function get_game(user_id, game_num) {
 
             var game_prediction_table = document.createElement('table');
             game_prediction_table.id = 'game_prediction_table';
+
+            console.log(game_info['predictions'])
 
             for (var p = 0; p <  game_info['predictions'].length; p++) {
                 var user = game_info['predictions'][p][0];

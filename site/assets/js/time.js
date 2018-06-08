@@ -1,9 +1,10 @@
 
-function startTimer(duration, display) {
+function startTimer(duration, display, user_id, game_num) {
     var timer = duration, hours, minutes, seconds;
+    display.innerText = 'Starting in...'
     setInterval(function () {
 
-    	hours = parseInt(timer / 3600, 10);
+        hours = parseInt(timer / 3600, 10);
 
         minutes = parseInt(timer / 60 - hours*60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -13,8 +14,8 @@ function startTimer(duration, display) {
 
         display.innerText = hours + ":" + minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            location.reload();
+        if (--timer == 0) {
+            get_game(user_id, game_num)
         }
     }, 1000);
 }

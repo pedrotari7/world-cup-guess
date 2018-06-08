@@ -14,6 +14,8 @@ function get_rules() {
         nav_elements[i].className = '';
     }
 
+    banner.scrollTop = 0;
+
     var rules_banner_nav = document.getElementById('rules_banner');
     rules_banner_nav.className = 'selected';
 

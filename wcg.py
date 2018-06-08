@@ -5,6 +5,8 @@ import datetime
 import random, string
 import json
 import os
+import time
+import threading
 
 from freezegun import freeze_time
 from collections import defaultdict
@@ -32,7 +34,7 @@ points = {
             'player_mvp' : 5,
          }
 
-# freezer = freeze_time("2018-06-14 16:59:00")
+# freezer = freeze_time("2018-06-14 14:59:00")
 # freezer.start()
 
 ###################################################################################################
@@ -116,6 +118,27 @@ class wcg_server(object):
         save_users_database(users, users_ids)
         save_games_database(info)
 
+
+###################################################################################################
+#                                      Admin Functions                                            #
+###################################################################################################
+
+class SaveToDatabase(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+        self.event = threading.Event()
+
+    def run(self):
+        while not self.event.is_set():
+            save_users_database(users, users_ids)
+            save_games_database(info)
+            new_server.timed_print("Saving users and tournament info to database", color='OKBLUE')
+            self.event.wait(120)
+
+    def stop(self):
+        self.event.set()
+
+
 ###################################################################################################
 #                                       URL Functions                                             #
 ###################################################################################################
@@ -153,7 +176,7 @@ def calculate_points(user):
     return user['points']
 
 def sort_leaderboard(leaderboard):
-    return sorted(leaderboard, key=lambda k: (k['points'], k['results']['exact_score'], k['results']['right_result'], k['results']['one_right_score']), reverse=True)
+    return sorted(leaderboard, key=lambda k: (k['points'], k['results']['exact_score'], k['results']['right_result'], k['results']['one_right_score'], k['results']['groups'], k['results']['fail'], ), reverse=True)
 
 def sort_by_phase_and_group(games, teams):
     sorted_games = defaultdict(list)
@@ -301,8 +324,22 @@ def update_leaderboard_info(games_info):
                         users[user]['results']['fail'] +=1
 
 def update_has_started_info():
+    needs_update = False
     for game in info['games']:
         info['games'][game]['has_started'] = has_game_started(info['games'][game])
+        if info['games'][game]['has_started']:
+            if 'score' in info['games'][game]:
+                if not info['games'][game]['score']['home'] and not info['games'][game]['score']['away']:
+                    info['games'][game]['score']['home'] = '0'
+                    info['games'][game]['score']['away'] = '0'
+                    needs_update = True
+        else:
+            if 'score' in info['games'][game]:
+                info['games'][game]['score']['home'] = ''
+                info['games'][game]['score']['away'] = ''
+
+    if needs_update:
+        update_prediction_result()
 
 def update_prediction_result():
     for user in users:
@@ -326,6 +363,8 @@ def update_prediction_result():
                             users[user]['predictions'][game]['result'] = 'fail'
                     else:
                         users[user]['predictions'][game]['result'] = ''
+                else:
+                    users[user]['predictions'][game]['result'] = ''
 
 def get_updated_predictions(predictions):
     exact_score = []
@@ -335,7 +374,7 @@ def get_updated_predictions(predictions):
     hidden_bet = []
     no_bet = []
     for pred in predictions:
-        if 'prediction' in pred[1] and pred[1]['prediction'] and 'result' in pred[1]['prediction']:
+        if 'prediction' in pred[1] and pred[1]['prediction'] and 'result' in pred[1]['prediction'] and pred[1]['prediction']['result']:
             if pred[1]['prediction']['result'] == 'exact_score':
                 exact_score.append(pred)
             elif pred[1]['prediction']['result'] == 'right_result':
@@ -345,13 +384,12 @@ def get_updated_predictions(predictions):
             elif pred[1]['prediction']['result'] == 'fail':
                 fail.append(pred)
         else:
-            if 'prediction' in pred[1] and pred[1]['prediction'] and 'score':
+            if 'prediction' in pred[1] and 'away' in pred[1]['prediction'] and 'home' in pred[1]['prediction']:
                 hidden_bet.append(pred)
             else:
                 no_bet.append(pred)
 
     return exact_score + right_result + one_right_score + fail + hidden_bet + no_bet
-
 
 def update_knockout_stages():
 
@@ -386,6 +424,8 @@ def get_schedule():
 def get_game(user_id, game_num):
     game = dict()
 
+    update_has_started_info()
+
     game['has_started'] = has_game_started(info['games'][game_num])
 
     game['predictions'] = defaultdict(dict)
@@ -399,7 +439,6 @@ def get_game(user_id, game_num):
             else:
                 game['predictions'][user]['prediction'] = {'home':'X', 'away':'X'}
         game['predictions'][user]['picture'] = users[user]['picture']
-
 
     game['predictions'] = get_updated_predictions(game['predictions'].items())
 
@@ -630,4 +669,9 @@ if __name__ == '__main__':
 
     new_server = wcg_server()
 
+    saver = SaveToDatabase()
+    saver.start()
+
     new_server.start_rest_api()
+
+    saver.stop()
