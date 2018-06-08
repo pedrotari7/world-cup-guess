@@ -76,6 +76,5 @@
 }
 
 .its_me td{
-    background-color: #C0C0C0;
-    color: black;
+    border-color: rgb(252, 221, 200);
 }

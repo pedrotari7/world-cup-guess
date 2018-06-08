@@ -39,6 +39,8 @@ function get_home(user_id) {
 function get_next_game(user_id) {
     var url = "http://www.worldcupguess.win:5000/api/v1.0/game/next";
 
+    testConnection();
+
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", url, true);
@@ -48,7 +50,6 @@ function get_next_game(user_id) {
     xhr.onload = function () {
         var next_game = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            console.log(next_game);
             get_game(user_id, next_game['next_game'])
         } else {
             console.error(result);
@@ -59,6 +60,8 @@ function get_next_game(user_id) {
 
 function get_user_info(user_id) {
     var url = "http://www.worldcupguess.win:5000/api/v1.0/users/info";
+
+    testConnection();
 
     var xhr = new XMLHttpRequest();
 

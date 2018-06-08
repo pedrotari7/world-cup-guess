@@ -11,6 +11,8 @@ function onSuccess(googleUser) {
     data.token = id_token;
     var json = JSON.stringify(data);
 
+    testConnection(url);
+
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url + '/' + id_token, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -21,7 +23,6 @@ function onSuccess(googleUser) {
         } else {
             console.error(xhr.readyState);
             console.error(xhr.status);
-s
             console.error(result);
         }
     }
@@ -89,6 +90,13 @@ function checkLoginState() {
  *                        Load Fuctions                         *
  * *************************************************************/
 
+function testConnection(url) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onerror = function() {get_server_down_page();}
+    xmlhttp.open("GET","http://www.worldcupguess.win:5000/api/v1.0/test_connection",true);
+    xmlhttp.send();
+}
+
 window.onload = function() {
     var rules = document.getElementById("rules_banner");
     rules.innerText = 'Rules';
@@ -110,10 +118,22 @@ window.onload = function() {
 }
 
 
-
 function get_id() {
     var url = new URL(window.location.href);
     return url.searchParams.get("id");
+}
+
+
+function get_server_down_page() {
+    var banner = document.getElementById('banner');
+
+    while (banner.firstChild) {
+        banner.removeChild(banner.firstChild);
+    }
+
+    banner.style.backgroundImage = "url('resources/images/404.jpg')";
+    banner.style.backgroundRepeat = "no-repeat";
+    banner.style.backgroundSize = "cover";
 }
 
 /****************************************************************

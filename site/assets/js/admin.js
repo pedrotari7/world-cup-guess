@@ -3,6 +3,8 @@ function get_admin(user_id) {
 
     var url = "http://www.worldcupguess.win:5000/api/v1.0/schedule";
 
+    testConnection();
+
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", url, true);
@@ -51,8 +53,6 @@ function get_admin(user_id) {
             for (var k = 0; k < games_order.length; k++) {
                 g = games_order[k];
 
-                console.log(games[g]);
-
                 var schedule_row = document.createElement('tr');
                 schedule_row.className = 'game_row';
 
@@ -93,6 +93,12 @@ function get_admin(user_id) {
                         home_team_flag_td.appendChild(img);
                     }
                 }
+
+                var closureMaker = function(user_id, team) {
+                    return function(){get_players(user_id, team)};
+                }
+                var closure = closureMaker(user_id, games[g]['home_team']);
+                home_team_flag_td.addEventListener('click', closure, false);
 
                 var home_team_result_td = document.createElement('td');
                 if (games[g]['home_team'] in teams && games[g]['away_team'] in teams) {
@@ -168,6 +174,13 @@ function get_admin(user_id) {
                         away_team_flag_td.appendChild(away_img);
                     }
                 }
+
+                var closureMaker = function(user_id, team) {
+                    return function(){get_players(user_id, team)};
+                }
+                var closure = closureMaker(user_id, games[g]['away_team']);
+                away_team_flag_td.addEventListener('click', closure, false);
+
 
                 var away_team_td = document.createElement('td');
                 away_team_td.className = 'game_team';
@@ -258,6 +271,8 @@ function send_results(user_id, game_number) {
 
 
     var url = "http://www.worldcupguess.win:5000/api/v1.0/results";
+
+    testConnection()
 
     var json = JSON.stringify({'results':results});
 

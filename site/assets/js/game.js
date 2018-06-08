@@ -1,11 +1,11 @@
 function get_game(user_id, game_num) {
     document.title = "Game " + game_num;
 
-    console.log('get_game',user_id,game_num);
-
     var url = "http://www.worldcupguess.win:5000/api/v1.0/game";
 
     var xhr = new XMLHttpRequest();
+
+    testConnection();
 
     xhr.open("GET", url+'/'+user_id+'/'+game_num, true);
 
@@ -17,11 +17,12 @@ function get_game(user_id, game_num) {
     }
 
     xhr.onload = function () {
+
         var game_info = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            console.log(game_info)
 
             var banner = document.getElementById('banner');
+            banner.scrollTop = 0;
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
@@ -60,9 +61,27 @@ function get_game(user_id, game_num) {
             date_score_td.className = 'game_date_score';
 
 
-            var date = new Date(game_info['info']['date']);
-            date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+            if (game_info['has_started']) {
+                if (game_info['info']['score'] && game_info['info']['score']['home'] && game_info['info']['score']['away']) {
+                    date_score_td.innerText = game_info['info']['score']['home'] + ' x ' + game_info['info']['score']['away'];
+                } else {
+                    date_score_td.innerText = ' x '
+                }
+                date_score_td.style.fontSize = '20px';
+            } else {
+                var date = new Date(game_info['info']['date']);
+                var current_date = new Date(game_info['current_time']);
 
+                var time_diff = (date.getTime() - current_date.getTime() + 2*60*60*1000) / 1000;
+                var one_day = 60*60*24;
+
+                if(time_diff < one_day) {
+                    date_score_td.style.fontSize = '20px';
+                    startTimer(time_diff, date_score_td)
+                } else {
+                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                }
+            }
             var away_team_flag_td = document.createElement('td');
             away_team_flag_td.className = 'team_flag';
             if (game_info['info']['away_team']) {
@@ -90,7 +109,10 @@ function get_game(user_id, game_num) {
             var game_prediction_table = document.createElement('table');
             game_prediction_table.id = 'game_prediction_table';
 
-            for (user in game_info['predictions']) {
+            for (var p = 0; p <  game_info['predictions'].length; p++) {
+                var user = game_info['predictions'][p][0];
+                var prediction = game_info['predictions'][p][1];
+
                 var user_row = document.createElement('tr');
                 user_row.className = 'user_row';
 
@@ -98,7 +120,7 @@ function get_game(user_id, game_num) {
                 profile_picture.className = 'user_profile_picture';
                 var profile_picture_img = document.createElement('img');
                 profile_picture_img.className = 'user_profile_picture_img';
-                profile_picture_img.src = game_info['predictions'][user].picture;
+                profile_picture_img.src = prediction.picture;
                 profile_picture.appendChild(profile_picture_img);
 
                 var name = document.createElement('td');
@@ -109,18 +131,18 @@ function get_game(user_id, game_num) {
                 game_prediction_score.className = 'game_prediction_score';
 
                 home_prediction = '';
-                if (game_info['predictions'][user].hasOwnProperty('prediction') && game_info['predictions'][user].prediction.hasOwnProperty('home')) {
-                    home_prediction = game_info['predictions'][user].prediction['home'];
+                if (prediction.hasOwnProperty('prediction') && prediction.prediction.hasOwnProperty('home')) {
+                    home_prediction = prediction.prediction['home'];
                 }
                 away_prediction = '';
-                if (game_info['predictions'][user].hasOwnProperty('prediction') && game_info['predictions'][user].prediction.hasOwnProperty('away')) {
-                    away_prediction = game_info['predictions'][user].prediction['away'];
+                if (prediction.hasOwnProperty('prediction') && prediction.prediction.hasOwnProperty('away')) {
+                    away_prediction = prediction.prediction['away'];
                 }
                 game_prediction_score.innerText = home_prediction + ' - ' + away_prediction;
 
 
-                if (game_info['predictions'][user].hasOwnProperty('prediction') && game_info['predictions'][user].prediction.hasOwnProperty('result')) {
-                    user_row.className += ' game_result_' + game_info['predictions'][user]['prediction']['result'];
+                if (prediction.hasOwnProperty('prediction') && prediction.prediction.hasOwnProperty('result')) {
+                    user_row.className += ' game_result_' + prediction['prediction']['result'];
                 }
 
                 user_row.appendChild(profile_picture);

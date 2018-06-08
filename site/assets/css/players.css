@@ -1,0 +1,49 @@
+.players_container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 50px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+
+.players_div {
+    border: 1px solid transparent;
+    width: 25%;
+    text-align: center;
+    display:block;
+    margin:auto;
+}
+
+.player_img {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.player_name {
+    color: white;
+    font-size:100%;
+}
+
+
+.country_img{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.country_name{
+    color: white;
+    font-size:100%;
+}
+
+.players_div:hover {
+    border: 1px solid white;
+}

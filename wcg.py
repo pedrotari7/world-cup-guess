@@ -28,12 +28,12 @@ points = {
             'one_right_score' : 1,
             'groups' : 1,
             'penalties_winner': 1,
-            'player_best_scorer' : 10,
-            'player_mvp' : 10,
+            'player_top_scorer' : 5,
+            'player_mvp' : 5,
          }
 
-freezer = freeze_time("2018-06-14 17:00:00")
-freezer.start()
+# freezer = freeze_time("2018-06-14 16:59:00")
+# freezer.start()
 
 ###################################################################################################
 #                                         Database                                                #
@@ -58,6 +58,10 @@ def load_users_database():
 def save_users_database(users, users_id):
     with open(variables['users_db'], 'w') as f:
         return json.dump({'users': users, 'users_id': users_id}, f,  indent=4, sort_keys=True)
+
+def load_players_database():
+    with open(variables['players_db'], 'r') as f:
+        return json.load(f)
 
 ###################################################################################################
 #                                       Server Class                                              #
@@ -142,8 +146,8 @@ def calculate_points(user):
     user['points'] += points['groups'] * user['groups']
     user['points'] += points['penalties_winner'] * user['penalties_winner']
 
-    if user['player_best_scorer'] == variables['player_best_scorer']:
-        user['points'] += points['player_best_scorer']
+    if user['player_top_scorer'] == variables['player_top_scorer']:
+        user['points'] += points['player_top_scorer']
     if user['player_mvp'] == variables['player_mvp']:
         user['points'] += points['player_mvp']
     return user['points']
@@ -226,21 +230,43 @@ def update_groups_order(games, groups_to_update):
 
         info['groups_table'][group] = sort_group(list(teams.values()))
 
-def calculate_predicted_groups_order(groups, user):
+def calculate_predicted_groups_order(groups, user, is_my_predictions):
     results = dict()
     for group in groups:
-        teams = create_group_table(group)
-        for game_number in info['games']:
-            home_team = info['games'][game_number]['home_team']
-            away_team = info['games'][game_number]['away_team']
+        if is_my_predictions or have_all_games_from_group_started(group):
+            teams = create_group_table(group)
+            for game_number in info['games']:
+                home_team = info['games'][game_number]['home_team']
+                away_team = info['games'][game_number]['away_team']
 
-            if get_game_group_from_number(game_number) == group:
-                if game_number in users[user]['predictions']:
-                    score = users[user]['predictions'][game_number]
-                    teams = update_group_table_info(teams, home_team, away_team, score)
+                if get_game_group_from_number(game_number) == group:
+                    if game_number in users[user]['predictions']:
+                        score = users[user]['predictions'][game_number]
+                        teams = update_group_table_info(teams, home_team, away_team, score)
 
-        results[group] = sort_group(list(teams.values()))
+            results[group] = sort_group(list(teams.values()))
     return results
+
+def have_all_games_from_group_started(group):
+    for game in info['games']:
+        if info['games'][game]['group'] == group and not info['games'][game]['has_started']:
+            return False
+    return True
+
+def calculate_predicted_groups_points(user):
+    groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+
+    users[user]['results']['groups'] = 0
+
+    for group in groups:
+        if have_all_games_from_group_started(group):
+            predicted_group = calculate_predicted_groups_order([group], user, True)
+            real_group = info['groups_table']
+
+            for real_position, predicted_position in zip(real_group[group], predicted_group[group]):
+                users[user]['results']['groups'] += real_position['team'] == predicted_position['team']
+
+    return users[user]['results']['groups']
 
 def sort_group(group):
     return sorted(group, key=lambda k: (k['pts'], k['gs']-k['gc'], k['gs']), reverse=True)
@@ -259,7 +285,7 @@ def update_leaderboard_info(games_info):
         users[user]['results']['fail'] = 0
         for game in games_info:
             if game in users[user]['predictions'] and users[user]['predictions'][game]:
-                if 'home' in users[user]['predictions'][game] and 'away' in users[user]['predictions'][game] and games_info[game]['score'] and games_info[game]['score']['finished']:
+                if 'home' in users[user]['predictions'][game] and 'away' in users[user]['predictions'][game] and games_info[game]['score'] and games_info[game]['has_started']:
                     predicted_score = users[user]['predictions'][game]
                     predicted_outcome = calculate_game_outcome(users[user]['predictions'][game])
                     real_score = games_info[game]['score']
@@ -276,8 +302,7 @@ def update_leaderboard_info(games_info):
 
 def update_has_started_info():
     for game in info['games']:
-        info['games'][game]['has_started']= has_game_started(info['games'][game])
-
+        info['games'][game]['has_started'] = has_game_started(info['games'][game])
 
 def update_prediction_result():
     for user in users:
@@ -298,6 +323,38 @@ def update_prediction_result():
                         users[user]['predictions'][game]['result'] = 'one_right_score'
                     else:
                         users[user]['predictions'][game]['result'] = 'fail'
+
+def get_updated_predictions(predictions):
+    exact_score = []
+    right_result = []
+    one_right_score = []
+    fail = []
+    hidden_bet = []
+    no_bet = []
+    for pred in predictions:
+        if 'prediction' in pred[1] and pred[1]['prediction'] and 'result' in pred[1]['prediction']:
+            if pred[1]['prediction']['result'] == 'exact_score':
+                exact_score.append(pred)
+            elif pred[1]['prediction']['result'] == 'right_result':
+                right_result.append(pred)
+            elif pred[1]['prediction']['result'] == 'one_right_score':
+                one_right_score.append(pred)
+            elif pred[1]['prediction']['result'] == 'fail':
+                fail.append(pred)
+        else:
+            if 'prediction' in pred[1] and pred[1]['prediction'] and 'score':
+                hidden_bet.append(pred)
+            else:
+                no_bet.append(pred)
+
+    return exact_score + right_result + one_right_score + fail + hidden_bet + no_bet
+
+
+def update_knockout_stages():
+
+    groups = ['A','B','C','D','E','F','G','H']
+
+
 
 ###################################################################################################
 #                                       API Functions                                             #
@@ -328,7 +385,6 @@ def get_game(user_id, game_num):
 
     game['has_started'] = has_game_started(info['games'][game_num])
 
-
     game['predictions'] = defaultdict(dict)
     for user in users:
         if game_num in users[user]['predictions']:
@@ -341,6 +397,8 @@ def get_game(user_id, game_num):
                 game['predictions'][user]['prediction'] = {'home':'X', 'away':'X'}
         game['predictions'][user]['picture'] = users[user]['picture']
 
+
+    game['predictions'] = get_updated_predictions(game['predictions'].items())
 
     game['info'] = info['games'][game_num]
 
@@ -355,6 +413,8 @@ def get_game(user_id, game_num):
 
     game['teams'] = {'home_team': home_team, 'away_team': away_team}
 
+    game['current_time'] = datetime.datetime.now()
+
     return jsonify(game)
 
 @app.route(join_route_url('game', 'next'), methods=['GET'])
@@ -367,7 +427,16 @@ def get_next_game():
 def get_predictions(user_id, predictions_user_name):
     print(join_route_url('predictions', user_id, predictions_user_name))
 
-    predictions = users[predictions_user_name]['predictions'] if 'predictions' in users[predictions_user_name] else dict()
+    update_has_started_info()
+
+    predictions = {}
+
+    if 'predictions' in users[predictions_user_name]:
+        for prediction in users[predictions_user_name]['predictions']:
+            if predictions_user_name != users_ids[user_id] and not info['games'][prediction]['has_started']:
+                predictions[prediction] = {'home':'X', 'away':'X'}
+            else:
+                predictions[prediction] = users[predictions_user_name]['predictions'][prediction]
 
     games = sort_by_phase_and_group(info['games'], info['teams'])
 
@@ -375,9 +444,28 @@ def get_predictions(user_id, predictions_user_name):
 
     groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
-    predicted_groups = calculate_predicted_groups_order(groups, predictions_user_name)
+    predicted_groups = calculate_predicted_groups_order(groups, predictions_user_name, predictions_user_name == users_ids[user_id])
 
-    return jsonify({'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
+    mvp = users[predictions_user_name]['mvp']
+    top_scorer = users[predictions_user_name]['top_scorer']
+
+    print('mvp', mvp, predictions_user_name)
+    print('top_scorer', mvp, predictions_user_name)
+
+    if datetime.datetime.now() <  datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S"):
+        if predictions_user_name != users_ids[user_id]:
+            if mvp != 'Not selected':
+                mvp = 'X'
+            if top_scorer != 'Not selected':
+                top_scorer = 'X'
+        else:
+            if mvp == 'Not selected':
+                mvp = 'available_to_select'
+            if top_scorer == 'Not selected':
+                top_scorer = 'available_to_select'
+
+
+    return jsonify({'mvp':mvp,'top_scorer':top_scorer,'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
 
 @app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
 def set_predictions(user_id):
@@ -396,9 +484,9 @@ def set_predictions(user_id):
             if info['games'][prediction]['stage'] == 'Groups Stage':
                 groups.append(get_game_group_from_number(prediction))
 
-    ordered_groups = calculate_predicted_groups_order(groups, users_ids[user_id])
+    ordered_groups = calculate_predicted_groups_order(groups, users_ids[user_id], True)
 
-    return jsonify({'groups': ordered_groups}), 201
+    return jsonify({'teams':info['teams'] ,'groups': ordered_groups}), 201
 
 @app.route(join_route_url('results', '<user_id>'), methods=['POST'])
 def set_results(user_id):
@@ -422,18 +510,27 @@ def set_results(user_id):
 
     update_leaderboard_info(info['games'])
 
-
     update_prediction_result()
+
+    update_knockout_stages()
 
     return jsonify({'groups': 'test groups return'}), 201
 
 @app.route(join_route_url('leaderboard'), methods=['GET'])
 def get_leaderboard():
+
+    update_has_started_info()
+    update_leaderboard_info(info['games'])
+
     leaderboard = []
     for user in users:
+        users[user]['results']['groups'] = calculate_predicted_groups_points(user)
+
         users[user]['results']['points'] = calculate_points(users[user]['results'])
-        users[user]['results']['player_best_scorer'] = users[user]['results']['player_best_scorer'] == variables['player_best_scorer']
-        users[user]['results']['player_mvp'] = users[user]['results']['player_mvp'] == variables['player_mvp']
+
+        users[user]['results']['player_top_scorer'] = points['player_top_scorer'] * (users[user]['top_scorer'] == variables['player_top_scorer'])
+        users[user]['results']['player_mvp'] = points['player_mvp'] * (users[user]['mvp'] == variables['player_mvp'])
+
         leaderboard.append({'points': users[user]['results']['points'],
                             'name': users[user]['name'],
                             'picture': users[user]['picture'],
@@ -474,14 +571,45 @@ def login_with_google(token):
         users[data['name']]['results']['fail'] = 0
         users[data['name']]['results']['groups'] = 0
         users[data['name']]['results']['penalties_winner'] = 0
-        users[data['name']]['results']['player_best_scorer'] = ''
-        users[data['name']]['results']['player_mvp'] = ''
+        users[data['name']]['results']['player_top_scorer'] = False
+        users[data['name']]['results']['player_mvp'] = False
 
-        users[data['name']]['predictions'] = {}
+        users[data['name']]['top_scorer'] = "Not selected"
+        users[data['name']]['mvp'] = "Not selected"
 
         next_page = join_url(variables['HOME_URL'],'test.html')
 
     return jsonify({'id': users[data['name']]['id'], 'next_page': next_page}), 200
+
+@app.route(join_route_url('players', '<user_id>', '<team_name>'), methods=['GET'])
+def get_players(user_id, team_name):
+    print(join_route_url('players', user_id, team_name))
+
+    return jsonify(players[team_name])
+
+@app.route(join_route_url('teams', '<user_id>'), methods=['GET'])
+def get_teams(user_id):
+    print(join_route_url('teams', user_id))
+
+    teams = {team:info['teams'][team]['logo'] for team in info['teams']}
+
+    return jsonify(teams)
+
+@app.route(join_route_url('awards', '<user_id>', '<player_name>', '<mode>'), methods=['GET'])
+def set_awards(user_id, player_name, mode):
+    print(join_route_url('awards', user_id, player_name, mode))
+
+    if mode == 'mvp':
+        users[users_ids[user_id]]['mvp'] = player_name
+    elif mode == 'top_scorer':
+        users[users_ids[user_id]]['top_scorer'] = player_name
+
+    return jsonify({})
+
+@app.route(join_route_url('test_connection'), methods=['GET'])
+def test_connection():
+    return jsonify({})
+
 
 ###################################################################################################
 #                                           Main                                                  #
@@ -492,6 +620,8 @@ if __name__ == '__main__':
     users, users_ids = load_users_database()
 
     info = load_games_database()
+
+    players = load_players_database()
 
     new_server = wcg_server()
 

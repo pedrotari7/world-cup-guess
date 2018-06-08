@@ -24,8 +24,8 @@
 }
 
 td {
-    border-bottom:2px solid transparent;
-    border-top:2px solid transparent;
+    border-bottom:5px solid transparent;
+    border-top:5px solid transparent;
     vertical-align: middle;
     display: table-cell;
     height: 5%;
@@ -33,20 +33,20 @@ td {
 }
 
 td:first-child{
-    border-left:2px solid transparent;
+    border-left:5px solid transparent;
     -moz-border-radius:20px 0 0 20px;
     -webkit-border-radius:20px 0 0 20px;
     border-radius: 20px 0 0 20px;
 }
 td:last-child{
-    border-right:2px solid transparent;
+    border-right:5px solid transparent;
     -moz-border-radius:0 20px 20px 0;
     -webkit-border-radius:0 20px 20px 0;
     border-radius: 0 20px 20px 0;
 }
 
 .user_row {
-    border:2px solid transparent;
+    border:5px solid transparent;
     -moz-border-radius:20px 0 0 20px;
     -webkit-border-radius:20px 0 0 20px;
     border-radius: 20px 0 0 20px;

@@ -3,6 +3,8 @@ function get_schedule(user_id, group_filter) {
 
     var url = "http://www.worldcupguess.win:5000/api/v1.0/schedule";
 
+    testConnection();
+
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", url, true);
@@ -27,8 +29,6 @@ function get_schedule(user_id, group_filter) {
             games = info['games_info']['games'];
             teams = info['games_info']['teams'];
 
-            console.log(games_order);
-
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
             }
@@ -41,11 +41,14 @@ function get_schedule(user_id, group_filter) {
                     if (schedule_table) {
                         banner.appendChild(schedule_table);
                     }
-                    var stage_div = document.createElement('div');
-                    stage_div.className = 'stage_div textBox';
-                    stage_div.innerText = games[g]['stage'];
-                    banner.appendChild(stage_div);
-                    previous_stage = games[g]['stage'];
+
+                    if ((typeof group_filter === "undefined") || ((typeof group_filter !== "undefined") && games[g]['stage'] == 'Groups Stage')) {
+                        var stage_div = document.createElement('div');
+                        stage_div.className = 'stage_div textBox';
+                        stage_div.innerText = games[g]['stage'];
+                        banner.appendChild(stage_div);
+                        previous_stage = games[g]['stage'];
+                    }
 
                     if(games[g]['stage'] == 'Groups Stage') {
 
@@ -130,11 +133,27 @@ function get_schedule(user_id, group_filter) {
                     }
                 }
 
+                var closureMaker = function(user_id, team) {
+                    return function(){get_players(user_id, team)};
+                }
+                var closure = closureMaker(user_id, games[g]['home_team']);
+                home_team_flag_td.addEventListener('click', closure, false);
+
                 var date_score_td = document.createElement('td');
                 date_score_td.className = 'game_date_score';
 
-                var date = new Date(games[g]['date']);
-                date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+
+                if (games[g]['has_started']) {
+                    if (games[g]['score'] && games[g]['score']['home'] && games[g]['score']['away']) {
+                        date_score_td.innerText = games[g]['score']['home'] + ' x ' + games[g]['score']['away'];
+                    } else {
+                        date_score_td.innerText = ' x '
+                    }
+                    date_score_td.style.fontSize = '20px';
+                } else {
+                    var date = new Date(games[g]['date']);
+                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                }
 
                 var away_team_flag_td = document.createElement('td');
                 away_team_flag_td.className = 'team_flag';
@@ -147,6 +166,13 @@ function get_schedule(user_id, group_filter) {
                         away_team_flag_td.appendChild(away_img);
                     }
                 }
+
+                var closureMaker = function(user_id, team) {
+                    return function(){get_players(user_id, team)};
+                }
+                var closure = closureMaker(user_id, games[g]['away_team']);
+                away_team_flag_td.addEventListener('click', closure, false);
+
 
                 var away_team_td = document.createElement('td');
                 away_team_td.className = 'game_team';

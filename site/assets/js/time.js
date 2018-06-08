@@ -1,7 +1,4 @@
 
-var remain = document.getElementById('remain');
-console.log(remain);
-
 function startTimer(duration, display) {
     var timer = duration, hours, minutes, seconds;
     setInterval(function () {
@@ -22,19 +19,6 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-window.onload = function () {
-	var start = remain.innerText;
-	console.log(start);
-
-	if (start.indexOf(":") > -1){
-		
-		var s = start.split(':');
-
-		var total = parseInt(s[2],10);
-		total += 60*parseInt(s[1],10);
-		total += 3600*parseInt(s[0],10);
-
-    	display = document.querySelector('#remain');
-    	startTimer(total, display);
-	}
-};
+function convertDateToUTC(date) {
+    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+}
