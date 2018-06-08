@@ -315,14 +315,17 @@ def update_prediction_result():
                     real_outcome = info['games'][game]['score']['outcome']
                     users[user]['predictions'][game]['result'] = ''
 
-                    if real_score['home'] == predicted_score['home'] and real_score['away'] == predicted_score['away']:
-                        users[user]['predictions'][game]['result'] = 'exact_score'
-                    elif predicted_outcome == real_outcome:
-                        users[user]['predictions'][game]['result'] = 'right_result'
-                    elif real_score['home'] == predicted_score['home'] or real_score['away'] == predicted_score['away']:
-                        users[user]['predictions'][game]['result'] = 'one_right_score'
+                    if predicted_score['home'] and predicted_score['away'] and real_score['home'] and real_score['away']:
+                        if real_score['home'] == predicted_score['home'] and real_score['away'] == predicted_score['away']:
+                            users[user]['predictions'][game]['result'] = 'exact_score'
+                        elif predicted_outcome == real_outcome:
+                            users[user]['predictions'][game]['result'] = 'right_result'
+                        elif real_score['home'] == predicted_score['home'] or real_score['away'] == predicted_score['away']:
+                            users[user]['predictions'][game]['result'] = 'one_right_score'
+                        else:
+                            users[user]['predictions'][game]['result'] = 'fail'
                     else:
-                        users[user]['predictions'][game]['result'] = 'fail'
+                        users[user]['predictions'][game]['result'] = ''
 
 def get_updated_predictions(predictions):
     exact_score = []
@@ -576,6 +579,8 @@ def login_with_google(token):
 
         users[data['name']]['top_scorer'] = "Not selected"
         users[data['name']]['mvp'] = "Not selected"
+
+        users[data['name']]['predictions'] = {}
 
         next_page = join_url(variables['HOME_URL'],'test.html')
 

@@ -530,14 +530,521 @@
     "Morocco": {
         "DEF": {
             "Achraf Hakimi": "https://www.thefinalball.com//img/jogadores/25/478625_20170923190622_achraf_hakimi.png",
-            "Hamza Mendyl": "https://www.thefinalball.com//img/jogadores/34/526634_20170804011044_hamza_mendyl.jpg"
+            "Hamza Mendyl": "https://www.thefinalball.com//img/jogadores/34/526634_20170804011044_hamza_mendyl.jpg",
+            "Manuel da Costa": "https://www.thefinalball.com//img/jogadores/26/28526_20180203233449_manuel_da_costa.jpg",
+            "Mehdi Benatia": "https://www.thefinalball.com//img/jogadores/81/32781_20170911233004_mehdi_benatia.png",
+            "Romain Saiss": "https://www.thefinalball.com//img/jogadores/75/226075_20171123220703_romain_saiss.png"
         },
-        "FRW": {},
+        "FRW": {
+            "Ayoub Kaabi": "https://www.thefinalball.com//img/jogadores/99/451999__20180110100849_ayoub_kaabi.jpg",
+            "Aziz Bouhaddouz": "https://www.thefinalball.com//img/jogadores/50/65850_20170302044933_aziz_bouhaddouz.jpg",
+            "Khalid Boutaib": "https://www.thefinalball.com//img/jogadores/04/227004_20180518172921_khalid_boutaib.jpg",
+            "Mehdi Carcela": "https://www.thefinalball.com//img/jogadores/17/66117_20171018123242_mehdi_carcela.png",
+            "Nabil Dirar": "https://www.thefinalball.com//img/jogadores/12/34212_20171007223327_nabil_dirar.jpg",
+            "Nordin Amrabat": "https://www.thefinalball.com//img/jogadores/00/34900_20180125113547_nordin_amrabat.jpg",
+            "Youssef En-Nesyri": "https://www.thefinalball.com//img/jogadores/71/525371_20171207113841_youssef_en_nesyri.jpg"
+        },
         "GK": {
             "Ahmed Tagnaouti": "https://www.thefinalball.com//img/jogadores/80/375180_20180518163505_ahmed_tagnaouti.jpg",
             "Munir Mohamedi": "https://www.thefinalball.com//img/jogadores/60/471160__20180331170557_munir_mohamedi.jpg",
             "Yassine Bono": "https://www.thefinalball.com//img/jogadores/23/241923_20171127174842_yassine_bounou.jpg"
         },
-        "MID": {}
+        "MID": {
+            "Ait Bennasser": "https://www.thefinalball.com//img/jogadores/22/471922_20180518170448_ait_bennasser.jpg",
+            "Amine Harit": "https://www.thefinalball.com//img/jogadores/19/481419_20171101125807_amine_harit.jpg",
+            "Fay\u00e7al Fajr": "https://www.thefinalball.com//img/jogadores/77/154077_20170818010713_faycal_fajr.jpg",
+            "Hakim Ziyech": "https://www.thefinalball.com//img/jogadores/78/419378__20170731120923_hakim_ziyech.jpg",
+            "Karim El Ahmadi": "https://www.thefinalball.com//img/jogadores/10/32910_20170826123636_karim_el_ahmadi.jpg",
+            "Mbark Boussoufa": "https://www.thefinalball.com//img/jogadores/45/281145_mbark_boussoufa.jpg",
+            "Sofyan Amrabat": "https://www.thefinalball.com//img/jogadores/76/375176_20170826123824_sofyan_amrabat.jpg",
+            "Youn\u00e8s Belhanda": "https://www.thefinalball.com//img/jogadores/83/107683_20171103192116_younes_belhanda.png"
+        }
+    },
+    "Nigeria": {
+        "DEF": {
+            "Brian Idowu": "https://www.thefinalball.com//img/jogadores/73/153773_20180602221137_brian_idowu.jpg",
+            "Chidozie Awaziem": "https://www.thefinalball.com//img/jogadores/89/444489_20170819234128_chidozie_awaziem.jpg",
+            "Elderson Echi\u00e9jil\u00e9": "https://www.thefinalball.com//img/jogadores/50/38150_20180602204930_elderson_echiejile.jpg",
+            "Kenneth Omeruo": "https://www.thefinalball.com//img/jogadores/75/176475_20180601233251_kenneth_omeruo.jpg",
+            "Leon Balogun": "https://www.thefinalball.com//img/jogadores/14/78914_20170908134744_leon_balogun.jpg",
+            "Troost-Ekong": "https://www.thefinalball.com//img/jogadores/89/148089_20180601232425_troost_ekong.jpg",
+            "Tyronne Ebuehi": "https://www.thefinalball.com//img/jogadores/58/418158_20170206094632_tyronne_ebuehi.jpg"
+        },
+        "FRW": {
+            "Ahmed Musa": "https://www.thefinalball.com//img/jogadores/43/150643_20171001154234_ahmed_musa.png",
+            "Alex Iwobi": "https://www.thefinalball.com//img/jogadores/53/370653_20180204230621_alex_iwobi.png",
+            "Kelechi Iheanacho": "https://www.thefinalball.com//img/jogadores/67/375067_20171001154315_kelechi_iheanacho.png",
+            "Odion Ighalo": "https://www.thefinalball.com//img/jogadores/72/64572_20180602224142_odion_ighalo.jpg",
+            "Peter Etebo": "https://www.thefinalball.com//img/jogadores/92/381492_20180207143525_peter_etebo.jpg",
+            "Simy Nwankwo": "https://www.thefinalball.com//img/jogadores/14/206214_20170826111053_simy_nwankwo.jpg"
+        },
+        "GK": {
+            "Daniel Akpeyi": "https://www.thefinalball.com//img/jogadores/76/92176_20180601231345_daniel_akpeyi.jpg",
+            "Francis Uzoho": "https://www.thefinalball.com//img/jogadores/78/375078_20180601231749_francis_uzoho.jpg",
+            "Ike Ezenwa": "https://www.thefinalball.com//img/jogadores/65/38165_20180601230942_ike_ezenwa.jpg"
+        },
+        "MID": {
+            "Abdullahi Shehu": "https://www.thefinalball.com//img/jogadores/48/349048_20180602222837_abdullahi_shehu.jpg",
+            "Joel Obi": "https://www.thefinalball.com//img/jogadores/80/102280_20180602222638_joel_obi.jpg",
+            "John Ogu": "https://www.thefinalball.com//img/jogadores/48/108748_john_ogu.png",
+            "Obi Mikel": "https://www.thefinalball.com//img/jogadores/86/16186_20180602223539_obi_mikel.jpg",
+            "Ogenyi Onazi": "https://www.thefinalball.com//img/jogadores/40/181340_20171112214820_ogenyi_onazi.png",
+            "Victor Moses": "https://www.thefinalball.com//img/jogadores/87/66687_20170902232815_victor_moses.png",
+            "Wilfred Ndidi": "https://www.thefinalball.com//img/jogadores/41/357141_20171001153300_wilfred_ndidi.png"
+        }
+    },
+    "Panama": {
+        "DEF": {
+            "Adolfo Machado": "https://www.thefinalball.com//img/jogadores/27/71727_20180601095556_adolfo_machado.jpg",
+            "Felipe Baloy": "https://www.thefinalball.com//img/jogadores/99/5399_20180531235008_felipe_baloy.jpg",
+            "Fidel Escobar": "https://www.thefinalball.com//img/jogadores/79/365079_20180601001841_fidel_escobar.jpg",
+            "Harold Cummings": "https://www.thefinalball.com//img/jogadores/84/111684_20180601001100_harold_cummings.jpg",
+            "Michael Murillo": "https://www.thefinalball.com//img/jogadores/35/447135_20180601002345_michael_murillo.jpg",
+            "Rom\u00e1n Torres": "https://www.thefinalball.com//img/jogadores/31/71731_20180601000908_roman_torres.jpg",
+            "\u00c9ric Davis": "https://www.thefinalball.com//img/jogadores/83/111683_20180531235754_eric_davis.jpg"
+        },
+        "FRW": {
+            "Abdiel Arroyo": "https://www.thefinalball.com//img/jogadores/79/346979_20180601114959_abdiel_arroyo.jpg",
+            "Blas P\u00e9rez": "https://www.thefinalball.com//img/jogadores/35/71735_20180601114027_blas_perez.jpg",
+            "Gabriel Torres": "https://www.thefinalball.com//img/jogadores/17/38717_20180601130208_gabriel_torres.jpg",
+            "Ismael D\u00edaz": "https://www.thefinalball.com//img/jogadores/61/375161_20180601130918_ismael_diaz.jpg",
+            "Luis Tejada": "https://www.thefinalball.com//img/jogadores/69/39969_20180601133526_luis_tejada.jpg",
+            "Valent\u00edn Pimentel": "https://www.thefinalball.com//img/jogadores/36/464036_20180601113628_valentin_pimentel.jpg"
+        },
+        "GK": {
+            "Jaime Penedo": "https://www.thefinalball.com//img/jogadores/49/29049_20180531232407_jaime_penedo.jpg",
+            "Jos\u00e9 Calder\u00f3n": "https://www.thefinalball.com//img/jogadores/25/71725_20180531232932_jose_calderon.jpg",
+            "\u00c1lex Rodr\u00edguez": "https://www.thefinalball.com//img/jogadores/52/268252_20180531234300_alex_rodriguez.jpg"
+        },
+        "MID": {
+            "Alberto Quintero": "https://www.thefinalball.com//img/jogadores/07/38707_20180601102719_alberto_quintero.jpg",
+            "An\u00edbal Godoy": "https://www.thefinalball.com//img/jogadores/53/198453_20180601103327_anibal_godoy.jpg",
+            "Armando Cooper": "https://www.thefinalball.com//img/jogadores/10/38710_20180601101321_armando_cooper.jpg",
+            "Gabriel G\u00f3mez": "https://www.thefinalball.com//img/jogadores/08/37608_20180601101828_gabriel_gomez.jpg",
+            "Jos\u00e9 Luis Rodr\u00edguez": "https://www.thefinalball.com//img/jogadores/51/476551_20180601100250_jose_luis_rodriguez.jpg",
+            "Luis Ovalle": "https://www.thefinalball.com//img/jogadores/24/38724_20180601100652_luis_ovalle.jpg",
+            "Yoel B\u00e1rcenas": "https://www.thefinalball.com//img/jogadores/90/289290_20180601133147_yoel_barcenas.jpg"
+        }
+    },
+    "Peru": {
+        "DEF": {
+            "Alberto Rodr\u00edguez": "https://www.thefinalball.com//img/jogadores/45/30345_20180524141748_alberto_rodriguez.jpg",
+            "Aldo Corzo": "https://www.thefinalball.com//img/jogadores/27/85227_20180524130318_aldo_corzo.jpg",
+            "Anderson Santamar\u00eda": "https://www.thefinalball.com//img/jogadores/67/485667__20180530154024_anderson_santamaria.png",
+            "Christian Ramos": "https://www.thefinalball.com//img/jogadores/87/87387_20180524143047_christian_ramos.jpg",
+            "Luis Adv\u00edncula": "https://www.thefinalball.com//img/jogadores/37/85237_20180524175707_luis_advincula.jpg",
+            "Miguel Araujo": "https://www.thefinalball.com//img/jogadores/07/187907_20180524124145_miguel_araujo.jpg",
+            "Miguel Trauco": "https://www.thefinalball.com//img/jogadores/70/268970_20180524125625_miguel_trauco.jpg",
+            "Yoshimar Yot\u00fan": "https://www.thefinalball.com//img/jogadores/69/179769_20180322144304_yoshimar_yotun.jpg"
+        },
+        "FRW": {
+            "Andr\u00e9 Carrillo": "https://www.thefinalball.com//img/jogadores/89/175189_20171012215937_andre_carrillo.png",
+            "Jefferson Farf\u00e1n": "https://www.thefinalball.com//img/jogadores/11/9711_20170129192507_jefferson_farfan.png",
+            "Paolo Guerrero": "https://www.thefinalball.com//img/jogadores/14/405314__20170515121601_paolo_guerrero.jpg",
+            "Paolo Hurtado": "https://www.thefinalball.com//img/jogadores/28/97128_20170901141400_paolo_hurtado.png",
+            "Ra\u00fal Ruid\u00edaz": "https://www.thefinalball.com//img/jogadores/88/373688__20161130124627_raul_ruidiaz.png",
+            "\u00c9dison Flores": "https://www.thefinalball.com//img/jogadores/18/187918_edison_flores.jpg"
+        },
+        "GK": {
+            "Carlos C\u00e1ceda": "https://www.thefinalball.com//img/jogadores/82/175182_20180524113217_carlos_caceda.png",
+            "Jos\u00e9 Carvallo": "https://www.thefinalball.com//img/jogadores/59/56859_20180524112628_jose_carvallo.jpg",
+            "Pedro Gallese": "https://www.thefinalball.com//img/jogadores/95/373295__20161129085914_pedro_gallese.png"
+        },
+        "MID": {
+            "Andy Polo": "https://www.thefinalball.com//img/jogadores/19/187919_20180524183942_andy_polo.jpg",
+            "Christian Cueva": "https://www.thefinalball.com//img/jogadores/97/87397_20180524183554_christian_cueva.jpg",
+            "Nilson Loyola": "https://www.thefinalball.com//img/jogadores/89/483489_20170304191930_nilson_loyola.png",
+            "Pedro Aquino": "https://www.thefinalball.com//img/jogadores/13/187913_20180524182935_pedro_aquino.jpg",
+            "Renato Tapia": "https://www.thefinalball.com//img/jogadores/10/187910_20170826123611_renato_tapia.jpg",
+            "Wilder Cartagena": "https://www.thefinalball.com//img/jogadores/14/187914_20180524144615_wilder_cartagena.png"
+        }
+    },
+    "Poland": {
+        "DEF": {
+            "Artur Jedrzejczyk": "https://www.thefinalball.com//img/jogadores/17/78517_20180606150852_artur_jedrzejczyk.jpg",
+            "Bartosz Bereszynski": "https://www.thefinalball.com//img/jogadores/55/132555_20180606183652_bartosz_bereszynski.jpg",
+            "Jan Bednarek": "https://www.thefinalball.com//img/jogadores/51/355551_20180606180407_jan_bednarek.jpg",
+            "Lukasz Piszczek": "https://www.thefinalball.com//img/jogadores/45/43045_20180606185145_lukasz_piszczek.jpg",
+            "Maciej Rybus": "https://www.thefinalball.com//img/jogadores/02/72602_20180606180946_maciej_rybus.jpg",
+            "Marcin Kaminski": "https://www.thefinalball.com//img/jogadores/66/118766_20180606182926_marcin_kaminski.jpg",
+            "Michal Pazdan": "https://www.thefinalball.com//img/jogadores/10/59910_20180606150309_michal_pazdan.jpg",
+            "Thiago Cionek": "https://www.thefinalball.com//img/jogadores/85/80385_20180606175345_thiago_cionek.jpg"
+        },
+        "FRW": {
+            "Arkadiusz Milik": "https://www.thefinalball.com//img/jogadores/36/208336_20180607001213_arkadiusz_milik.jpg",
+            "Dawid Kownacki": "https://www.thefinalball.com//img/jogadores/65/355565_20180108172921_dawid_kownacki.jpg",
+            "Kamil Grosicki": "https://www.thefinalball.com//img/jogadores/73/63773_20180607002449_kamil_grosicki.jpg",
+            "Lukasz Teodorczyk": "https://www.thefinalball.com//img/jogadores/45/149745_20180607003035__321_ukasz_teodorczyk.jpg",
+            "Robert Lewandowski": "https://www.thefinalball.com//img/jogadores/23/71023_20180607001928_robert_lewandowski.jpg"
+        },
+        "GK": {
+            "Bartosz Bialkowski": "https://www.thefinalball.com//img/jogadores/92/37992_20170827184551_bartosz_bialkowski.png",
+            "Lukasz Fabianski": "https://www.thefinalball.com//img/jogadores/35/27735_20171101005123_lukasz_fabianski.png",
+            "Wojciech Szczesny": "https://www.thefinalball.com//img/jogadores/11/38011_20180606123050_wojciech_szczesny.jpg"
+        },
+        "MID": {
+            "Grzeg Krychowiak": "https://www.thefinalball.com//img/jogadores/06/38006_20180606233238_grzeg_krychowiak.jpg",
+            "Jacek Goralski": "https://www.thefinalball.com//img/jogadores/52/217452_20180606232046_jacek_goralski.jpg",
+            "Karol Linetty": "https://www.thefinalball.com//img/jogadores/11/260711_20180606233006_karol_linetty.jpg",
+            "Kuba": "https://www.thefinalball.com//img/jogadores/07/43007_20180606233939_kuba.jpg",
+            "Piotr Zielinski": "https://www.thefinalball.com//img/jogadores/39/282239_20180606235340_piotr_zieli_324_ski.jpg",
+            "Rafal Kurzawa": "https://www.thefinalball.com//img/jogadores/95/279095_20180607000358_rafal_kurzawa.jpg",
+            "Slawomir Peszko": "https://www.thefinalball.com//img/jogadores/93/72793_20180606234813_slawomir_peszko.jpg"
+        }
+    },
+    "Portugal": {
+        "DEF": {
+            "Bruno Alves": "https://www.thefinalball.com//img/jogadores/11/511_20180602235156_bruno_alves.jpg",
+            "C\u00e9dric Soares": "https://www.thefinalball.com//img/jogadores/21/43621_20180607230944_cedric_soares.jpg",
+            "Jos\u00e9 Fonte": "https://www.thefinalball.com//img/jogadores/37/15537_20180603000148_jose_fonte.jpg",
+            "M\u00e1rio Rui": "https://www.thefinalball.com//img/jogadores/17/43617_20180602233253_mario_rui.jpg",
+            "Pepe": "https://www.thefinalball.com//img/jogadores/30/130_20180602233931_pepe.jpg",
+            "Raphael Guerreiro": "https://www.thefinalball.com//img/jogadores/07/184207_20180602235843_raphael_guerreiro.jpg",
+            "Ricardo Pereira": "https://www.thefinalball.com//img/jogadores/79/56579_20180603013446_ricardo_pereira.jpg",
+            "R\u00faben Dias": "https://www.thefinalball.com//img/jogadores/70/155270_20180602235052_ruben_dias.jpg"
+        },
+        "FRW": {
+            "Andr\u00e9 Silva": "https://www.thefinalball.com//img/jogadores/59/160859_20180602233706_andre_silva.jpg",
+            "Cristiano Ronaldo": "https://www.thefinalball.com//img/jogadores/79/1579_20180602234248_cristiano_ronaldo.jpg",
+            "Gelson Martins": "https://www.thefinalball.com//img/jogadores/34/109534_20180602232718_gelson_martins.jpg",
+            "Gon\u00e7alo Guedes": "https://www.thefinalball.com//img/jogadores/38/143938_20180602231211_goncalo_guedes.jpg",
+            "Ricardo Quaresma": "https://www.thefinalball.com//img/jogadores/71/771_20180602232440_ricardo_quaresma.jpg"
+        },
+        "GK": {
+            "Anthony Lopes": "https://www.thefinalball.com//img/jogadores/87/74587_20180602234758_anthony_lopes.jpg",
+            "Beto": "https://www.thefinalball.com//img/jogadores/55/20355_20180602234635_beto.jpg",
+            "Rui Patr\u00edcio": "https://www.thefinalball.com//img/jogadores/31/28531_20180602233404_rui_patricio.jpg"
+        },
+        "MID": {
+            "Adrien Silva": "https://www.thefinalball.com//img/jogadores/02/32302_20180209150200_adrien_silva.png",
+            "Bernardo Silva": "https://www.thefinalball.com//img/jogadores/53/74953_20180607232036_bernardo_silva.jpg",
+            "Bruno Fernandes": "https://www.thefinalball.com//img/jogadores/88/220488_20180602232247_bruno_fernandes.jpg",
+            "Jo\u00e3o Moutinho": "https://www.thefinalball.com//img/jogadores/08/7608_20180607231843_joao_moutinho.jpg",
+            "Jo\u00e3o M\u00e1rio": "https://www.thefinalball.com//img/jogadores/60/56560_20180130233031_joao_mario.jpg",
+            "Manuel Fernandes": "https://www.thefinalball.com//img/jogadores/41/2741_20180602232845_manuel_fernandes.jpg",
+            "William Carvalho": "https://www.thefinalball.com//img/jogadores/26/43626_20180607231718_william_carvalho.jpg"
+        }
+    },
+    "Russia": {
+        "DEF": {
+            "Andrey Semenov": "https://www.thefinalball.com//img/jogadores/21/281121_andrey_semenov.jpg",
+            "Fyodor Kudryashov": "https://www.thefinalball.com//img/jogadores/46/447046__20171212120610_fyodor_kudryashov.jpg",
+            "Igor Smolnikov": "https://www.thefinalball.com//img/jogadores/13/60513_20180531181104_igor_smolnikov.jpg",
+            "Ilya Kutepov ": "https://www.thefinalball.com//img/jogadores/96/416496__20170717103307_ilya_kutepov.jpg",
+            "M\u00e1rio Fernandes": "https://www.thefinalball.com//img/jogadores/40/101140_20170824230017_mario_fernandes.jpg",
+            "Sergey Ignashevich": "https://www.thefinalball.com//img/jogadores/52/2652_20170824225845_sergey_ignashevich.jpg",
+            "Vladimir Granat": "https://www.thefinalball.com//img/jogadores/45/447045__20171212120609_vladimir_granat.jpg",
+            "Yuri Zhirkov": "https://www.thefinalball.com//img/jogadores/35/9635_20180530194448_yuri_zhirkov.jpg"
+        },
+        "FRW": {
+            "Aleksandr Samedov": "https://www.thefinalball.com//img/jogadores/02/416502__20170717103308_aleksandr_samedov.jpg",
+            "Artyom Dzyuba": "https://www.thefinalball.com//img/jogadores/42/30242_20180531213749_artyom_dzyuba.jpg",
+            "Denis Cheryshev": "https://www.thefinalball.com//img/jogadores/02/134802_20180531214406_denis_cheryshev.jpg",
+            "Fyodor Smolov": "https://www.thefinalball.com//img/jogadores/78/60678_20180531214945_fyodor_smolov.jpg"
+        },
+        "GK": {
+            "Andrei Lunev": "https://www.thefinalball.com//img/jogadores/51/199251_20171124003401_andrei_lunev.jpg",
+            "Igor Akinfeev": "https://www.thefinalball.com//img/jogadores/74/6174_20180530123726_igor_akinfeev.jpg",
+            "Vladimir Gabulov": "https://www.thefinalball.com//img/jogadores/26/9626_20180530111414_vladimir_gabulov.jpg"
+        },
+        "MID": {
+            "Alan Dzagoev": "https://www.thefinalball.com//img/jogadores/85/60985_20180531195007_alan_dzagoev.jpg",
+            "Aleksandr Erokhin": "https://www.thefinalball.com//img/jogadores/43/68543_20180531195340_aleksandr_erokhin.jpg",
+            "Aleksandr Golovin": "https://www.thefinalball.com//img/jogadores/21/364521_20180531194044_aleksandr_golovin.jpg",
+            "Aleksei Miranchuk": "https://www.thefinalball.com//img/jogadores/90/304890_20180531194515_aleksei_miranchuk.jpg",
+            "Anton Miranchuk": "https://www.thefinalball.com//img/jogadores/91/304891_20180531181858_anton_miranchuk.jpg",
+            "Daler Kuzyaev": "https://www.thefinalball.com//img/jogadores/97/279797_20180531182421_daler_kuzyaev.jpg",
+            "Roman Zobnin": "https://www.thefinalball.com//img/jogadores/04/416504__20170717103308_roman_zobnin.jpg",
+            "Yury Gazinskiy": "https://www.thefinalball.com//img/jogadores/94/198494_yury_gazinskiy.png"
+        }
+    },
+    "Saudi Arabia": {
+        "DEF": {
+            "Ali Al Bulayhi": "https://www.thefinalball.com//img/jogadores/84/553384_20180528221738_ali_al_bulayhi.png",
+            "Mansour Al-Harbi": "https://www.thefinalball.com//img/jogadores/71/58771_20180528221013_mansour_al_harbi.jpg",
+            "Mohammed Al Burayk ": "https://www.thefinalball.com//img/jogadores/10/419310_20180528220752_mohammed_al_burayk_.jpg",
+            "Motaz Hawsawi": "https://www.thefinalball.com//img/jogadores/75/207875_20180528220438_motaz_hawsawi.jpg",
+            "Omar Hawsawi": "https://www.thefinalball.com//img/jogadores/71/217371_20180528224030_omar_hawsawi.jpg",
+            "Osama Hawsawi": "https://www.thefinalball.com//img/jogadores/12/113212_20180528222019_osama_hawsawi.jpg",
+            "Yasir Al-Shahrani": "https://www.thefinalball.com//img/jogadores/70/207870_20180528223150_yasir_al_shahrani.jpg"
+        },
+        "FRW": {
+            "Fahad Al Muwallad": "https://www.thefinalball.com//img/jogadores/66/207866_20180528230716_fahad_al_muwallad.jpg",
+            "Mohammad Al-Sahlawi": "https://www.thefinalball.com//img/jogadores/32/217532_20180528230533_mohammad_al_sahlawi.jpg",
+            "Mohanad Asiri": "https://www.thefinalball.com//img/jogadores/30/150330_mohannad_aseri.jpg"
+        },
+        "GK": {
+            "Abdullah Al Maiouf": "https://www.thefinalball.com//img/jogadores/23/133223_20180528215814_abdullah_al_maiouf.jpg",
+            "Mohammed Al Owais": "https://www.thefinalball.com//img/jogadores/69/391269_20180528215154_mohammed_al_owais.jpg",
+            "Yasser Al-Mosailem": "https://www.thefinalball.com//img/jogadores/04/113204_20180528214638_yasser_al_mosailem.jpg"
+        },
+        "MID": {
+            "Abdul Al Khaibri": "https://www.thefinalball.com//img/jogadores/91/116991_20180528225915_abdul_al_khaibri.jpg",
+            "Abdullah Al Khaibari": "https://www.thefinalball.com//img/jogadores/40/617740_20180528225205_abdullah_al_khaibari.jpg",
+            "Abdullah Otayf": "https://www.thefinalball.com//img/jogadores/71/207871_20180528225753_abdullah_otayf.jpg",
+            "Hattan Babhir": "https://www.thefinalball.com//img/jogadores/43/258043_20180408212200_hattan_babhir.jpg",
+            "Hussain Al-Mogahwi": "https://www.thefinalball.com//img/jogadores/29/286729_20180528230223_hussain_al_mogahwi.jpg",
+            "Mohamed Kanno": "https://www.thefinalball.com//img/jogadores/93/543793_20180528224610_mohamed_kanno.jpg",
+            "Salem Al Dawsari": "https://www.thefinalball.com//img/jogadores/60/207860_20180528225619_salem_al_dawsari.jpg",
+            "Salman Al Faraj": "https://www.thefinalball.com//img/jogadores/63/139963_20180528230325_salman_al_faraj.jpg",
+            "Taisir Al-Jassim": "https://www.thefinalball.com//img/jogadores/15/113215_20180528230047_taisir_al_jassim.jpg",
+            "Yahya Al Shehri": "https://www.thefinalball.com//img/jogadores/16/223316_20180528224242_yahya_al_shehri.jpg"
+        }
+    },
+    "Senegal": {
+        "DEF": {
+            "Kalidou Koulibaly": "https://www.thefinalball.com//img/jogadores/99/154699_20170815234322_kalidou_koulibaly.png",
+            "Kara Mbodji": "https://www.thefinalball.com//img/jogadores/67/134267_20170827042849_kara_mbodji.jpg",
+            "Lamine Gassama": "https://www.thefinalball.com//img/jogadores/99/69299_20180123115232_lamine_gassama.jpg",
+            "Moussa Wagu\u00e9": "https://www.thefinalball.com//img/jogadores/38/453038_20180519114730_moussa_wague.png",
+            "Salif San\u00e9": "https://www.thefinalball.com//img/jogadores/33/150433_20170905131928_salif_sane.jpg",
+            "Saliou Ciss": "https://www.thefinalball.com//img/jogadores/01/146501_pri_saliou_ciss.jpg",
+            "Youssouf Sabaly": "https://www.thefinalball.com//img/jogadores/61/142861_20170811150400_youssouf_sabaly.jpg"
+        },
+        "FRW": {
+            "Diafra Sakho": "https://www.thefinalball.com//img/jogadores/93/111893_20180519134742_diafra_sakho.jpg",
+            "Ismaila Sarr": "https://www.thefinalball.com//img/jogadores/04/522904_20171125201009_ismaila_sarr.jpg",
+            "Keita Bald\u00e9": "https://www.thefinalball.com//img/jogadores/98/328598_20170925181115_keita_balde.jpg",
+            "Mame Biram Diouf": "https://www.thefinalball.com//img/jogadores/36/63136_20170907115212_mame_biram_diouf.png",
+            "Moussa Konat\u00e9": "https://www.thefinalball.com//img/jogadores/47/207947_20171118114125_moussa_konate.jpg",
+            "Moussa Sow": "https://www.thefinalball.com//img/jogadores/65/29765_pri__20180206155906_moussa_sow.jpg",
+            "M\u0092Baye Niang": "https://www.thefinalball.com//img/jogadores/37/159637_20171119214713_m_baye_niang.jpg",
+            "Sadio Man\u00e9": "https://www.thefinalball.com//img/jogadores/01/240701_20170903014310_sadio_mane.png"
+        },
+        "GK": {
+            "Abdoulaye Diallo": "https://www.thefinalball.com//img/jogadores/13/121513_20170820170748_abdoulaye_diallo.jpg",
+            "Alfred Gomis": "https://www.thefinalball.com//img/jogadores/22/170222_20180324172427_alfred_gomis.jpg",
+            "Khadim N\u00b4Diaye": "https://www.thefinalball.com//img/jogadores/71/237971_20180519112841_khadim_n_diaye.jpg"
+        },
+        "MID": {
+            "Alfred N\u0092Diaye": "https://www.thefinalball.com//img/jogadores/07/53607_20171123220800_alfred_n_diaye.png",
+            "Badou Ndiaye": "https://www.thefinalball.com//img/jogadores/98/246998_20180211132823_badou_ndiaye.jpg",
+            "Cheikh N\u00b4Doye": "https://www.thefinalball.com//img/jogadores/23/158223_20180519132934_cheikh_n_doye.jpg",
+            "Cheikhou Kouyat\u00e9": "https://www.thefinalball.com//img/jogadores/03/66103_20170827165753_cheikhou_kouyate.png",
+            "Gana Gueye": "https://www.thefinalball.com//img/jogadores/36/131636_20170903002025_idrissa_gueye.png"
+        }
+    },
+    "Serbia": {
+        "DEF": {
+            "Aleksandar Kolarov": "https://www.thefinalball.com//img/jogadores/90/35590_20180528170708_aleksandar_kolarov.jpg",
+            "Antonio Rukavina": "https://www.thefinalball.com//img/jogadores/78/35478_20180528172027_antonio_rukavina.jpg",
+            "Branislav Ivanovic": "https://www.thefinalball.com//img/jogadores/03/27803_20180528172833_branislav_ivanovic.jpg",
+            "Dusko Tosic": "https://www.thefinalball.com//img/jogadores/73/24073_20180528170834_dusko_tosic.jpg",
+            "Milan Rodic": "https://www.thefinalball.com//img/jogadores/66/108566_20180528145719_milan_rodic.jpg",
+            "Milos Veljkovic": "https://www.thefinalball.com//img/jogadores/94/153494_20170903193206_milos_veljkovic.jpg",
+            "Nikola Milenkovic": "https://www.thefinalball.com//img/jogadores/33/507133_20180528144855_nikola_milenkovic.jpg",
+            "Uros Spajic": "https://www.thefinalball.com//img/jogadores/51/248351_20180528150842_uros_spajic.jpg"
+        },
+        "FRW": {
+            "Aleksandar Mitrovic": "https://www.thefinalball.com//img/jogadores/38/272838_20180528184610_aleksandar_mitrovic.jpg",
+            "Aleksandar Prijovic": "https://www.thefinalball.com//img/jogadores/77/60177_20180528181214_aleksandar_prijovic.jpg",
+            "Filip Kostic": "https://www.thefinalball.com//img/jogadores/61/211361_20180528184422_filip_kostic.jpg",
+            "Luka Jovic": "https://www.thefinalball.com//img/jogadores/24/409324_20171111135713_luka_jovic.jpg",
+            "Nemanja Radonjic": "https://www.thefinalball.com//img/jogadores/26/421026_20180528185104_nemanja_radonjic.jpg"
+        },
+        "GK": {
+            "Marko Dmitrovic": "https://www.thefinalball.com//img/jogadores/49/235349_20180528142927_marko_dmitrovic.jpg",
+            "Predrag Rajkovic": "https://www.thefinalball.com//img/jogadores/48/273748_20180528102514_predrag_rajkovic.jpg",
+            "Vladimir Stojkovic": "https://www.thefinalball.com//img/jogadores/92/26892_20180528142045_vladimir_stojkovic.jpg"
+        },
+        "MID": {
+            "Adem Ljajic": "https://www.thefinalball.com//img/jogadores/85/68485_20180528174112_adem_ljajic.jpg",
+            "Andrija Zivkovic": "https://www.thefinalball.com//img/jogadores/62/340062_20171014201406_andrija_zivkovic.png",
+            "Dusan Tadic": "https://www.thefinalball.com//img/jogadores/49/67049_20171101003737_dusan_tadic.png",
+            "Luka Milivojevic": "https://www.thefinalball.com//img/jogadores/08/100408_20180528175055_luka_milivojevic.jpg",
+            "Marko Grujic": "https://www.thefinalball.com//img/jogadores/94/348694_20180528173902_marko_grujic.jpg",
+            "Milinkovic-Savic": "https://www.thefinalball.com//img/jogadores/19/362219_20170925184200_milinkovic_savic.jpg",
+            "Nemanja Matic": "https://www.thefinalball.com//img/jogadores/30/99030_20180528174549_nemanja_matic.jpg"
+        }
+    },
+    "South Korea": {
+        "DEF": {
+            "Hong Chul": "https://www.thefinalball.com//img/jogadores/54/133354_20180528040324_hong_chul.jpg",
+            "Jang Hyun-Soo": "https://www.thefinalball.com//img/jogadores/20/207920_20180603231301_jang_hyun_soo.jpg",
+            "Jung Seung-Hyeon": "https://www.thefinalball.com//img/jogadores/38/457938_20180603230845_jung_seung_hyeon.jpg",
+            "Kim Young-gwon": "https://www.thefinalball.com//img/jogadores/38/114538_20180603231801_kim_young_gwon.jpg",
+            "Lee Yong": "https://www.thefinalball.com//img/jogadores/26/319326__20160215133254_lee_yong.png",
+            "Oh Ban-Suk": "https://www.thefinalball.com//img/jogadores/59/251259_oh_ban_suk.jpg",
+            "Park Joo-ho": "https://www.thefinalball.com//img/jogadores/67/37967_20180603231428_park_joo_ho.jpg",
+            "Yun Young-Sun": "https://www.thefinalball.com//img/jogadores/13/30113_yun_young_sun.jpg"
+        },
+        "FRW": {
+            "Hwang Hee-Chan": "https://www.thefinalball.com//img/jogadores/06/439906_20170914115325_hwang_hee_chan.jpg",
+            "Kim Shin-wook": "https://www.thefinalball.com//img/jogadores/24/145524_20180604010633_kim_shin_wook.jpg",
+            "Lee Seung-Woo": "https://www.thefinalball.com//img/jogadores/31/401731_20180109152130_lee_seung_woo.jpg",
+            "Son Heung-min": "https://www.thefinalball.com//img/jogadores/97/153997_20180604010410_son_heung_min.jpg"
+        },
+        "GK": {
+            "Cho Hyun-Woo": "https://www.thefinalball.com//img/jogadores/62/323162_20180603230325_cho_hyun_woo.jpg",
+            "Kim Jin-Hyeon": "https://www.thefinalball.com//img/jogadores/77/37977_20180603230052_kim_jin_hyeon.jpg",
+            "Kim Seung-Gyu": "https://www.thefinalball.com//img/jogadores/15/105415_20180603225553_kim_seung_gyu.jpg"
+        },
+        "MID": {
+            "Go Yo-han": "https://www.thefinalball.com//img/jogadores/96/115796_go_yo_han.jpg",
+            "Ju Se-Jong": "https://www.thefinalball.com//img/jogadores/01/334801_ju_se_jong.jpg",
+            "Jung Woo-Young": "https://www.thefinalball.com//img/jogadores/44/179244_20180603232151_jung_woo_young.jpg",
+            "Ki Sung-yueng": "https://www.thefinalball.com//img/jogadores/07/122507_20180603232055_ki_sung_yueng.jpg",
+            "Kim Min-woo": "https://www.thefinalball.com//img/jogadores/37/114537_20180528032529_kim_min_woo.jpg",
+            "Koo Ja-cheol": "https://www.thefinalball.com//img/jogadores/43/114543_20170827035204_koo_ja_cheol.jpg",
+            "Lee Jae-Seong": "https://www.thefinalball.com//img/jogadores/72/397972_20180604000309_lee_jae_seong.jpg",
+            "Seon-Min Moon": "https://www.thefinalball.com//img/jogadores/02/265902_seon_min_moon.jpg"
+        }
+    },
+    "Spain": {
+        "DEF": {
+            "C\u00e9sar Azpilicueta": "https://www.thefinalball.com//img/jogadores/87/32687_20170902232352_cesar_azpilicueta.png",
+            "Dani Carvajal": "https://www.thefinalball.com//img/jogadores/33/134833_20170923190925_dani_carvajal.png",
+            "Gerard Piqu\u00e9": "https://www.thefinalball.com//img/jogadores/58/6958_20180115130140_gerard_pique.jpg",
+            "Jordi Alba": "https://www.thefinalball.com//img/jogadores/28/85728_20180115130827_jordi_alba.jpg",
+            "Nacho Fern\u00e1ndez": "https://www.thefinalball.com//img/jogadores/47/134747_20170923201223_nacho_fernandez.png",
+            "Nacho Monreal": "https://www.thefinalball.com//img/jogadores/51/29051_20180204230712_nacho_monreal.png",
+            "Sergio Ramos": "https://www.thefinalball.com//img/jogadores/94/9894_20170923200434_sergio_ramos.png",
+            "\u00c1lvaro Odriozola": "https://www.thefinalball.com//img/jogadores/65/370965_20170818110811_alvaro_odriozola.png"
+        },
+        "FRW": {
+            "Diego Costa": "https://www.thefinalball.com//img/jogadores/37/29137_20180106190259_diego_costa.png",
+            "Iago Aspas": "https://www.thefinalball.com//img/jogadores/08/30208_20170911224235_iago_aspas.jpg",
+            "Lucas V\u00e1zquez": "https://www.thefinalball.com//img/jogadores/70/219770_20170923224717_lucas_vazquez.png",
+            "Rodrigo Moreno": "https://www.thefinalball.com//img/jogadores/62/126962_20171002170314_rodrigo_moreno.jpg"
+        },
+        "GK": {
+            "David de Gea": "https://www.thefinalball.com//img/jogadores/25/111925_20170902222135_david_de_gea.png",
+            "Kepa Arrizabalaga": "https://www.thefinalball.com//img/jogadores/49/211249_20180117141748_kepa_arrizabalaga.jpg",
+            "Pepe Reina": "https://www.thefinalball.com//img/jogadores/27/1127_20170816000100_pepe_reina.png"
+        },
+        "MID": {
+            "Andr\u00e9s Iniesta": "https://www.thefinalball.com//img/jogadores/62/762_20180115130721_andres_iniesta.jpg",
+            "David Silva": "https://www.thefinalball.com//img/jogadores/19/453019__20180116092026_david_silva.png",
+            "Isco ": "https://www.thefinalball.com//img/jogadores/58/123058_20170923225027_isco_.png",
+            "Koke ": "https://www.thefinalball.com//img/jogadores/87/113787_20170907214031_koke_.png",
+            "Marco Asensio": "https://www.thefinalball.com//img/jogadores/83/409083_20170923224856_marco_asensio.png",
+            "Sa\u00fal \u00d1\u00edguez": "https://www.thefinalball.com//img/jogadores/60/142860_20170907214409_saul_niguez.png",
+            "Sergio Busquets": "https://www.thefinalball.com//img/jogadores/32/72432_20180115131222_sergio_busquets.jpg",
+            "Thiago Alc\u00e2ntara": "https://www.thefinalball.com//img/jogadores/75/75175_20170903120115_thiago_alcantara.jpg"
+        }
+    },
+    "Sweden": {
+        "DEF": {
+            "Andreas Granqvist": "https://www.thefinalball.com//img/jogadores/37/30337_andreas_granqvist.png",
+            "Emil Krafth": "https://www.thefinalball.com//img/jogadores/71/192071_20180123112900_emil_krafth.png",
+            "Filip Helander": "https://www.thefinalball.com//img/jogadores/95/214595_20180123111255_filip_helander.png",
+            "Ludwig Augustinsson": "https://www.thefinalball.com//img/jogadores/05/211805_20170903193012_ludwig_augustinsson.jpg",
+            "Martin Olsson": "https://www.thefinalball.com//img/jogadores/06/42806_20171101005538_martin_olsson.png",
+            "Mikael Lustig": "https://www.thefinalball.com//img/jogadores/97/68297_20170826112018_mikael_lustig.jpg",
+            "Pontus Jansson": "https://www.thefinalball.com//img/jogadores/53/437453__20171028162304_pontus_jansson.png",
+            "Victor Lindelof": "https://www.thefinalball.com//img/jogadores/66/184866_20170902222300_victor_lindelof.png"
+        },
+        "FRW": {
+            "Emil Forsberg": "https://www.thefinalball.com//img/jogadores/76/98376_20170903140111_emil_forsberg.jpg",
+            "Isaac Thelin": "https://www.thefinalball.com//img/jogadores/10/217410_20170827044052_isaac_thelin.jpg",
+            "Jimmy Durmaz": "https://www.thefinalball.com//img/jogadores/54/95254_20170825141355_jimmy_durmaz.jpg",
+            "John Guidetti": "https://www.thefinalball.com//img/jogadores/28/135128_20180130121715_john_guidetti.jpg",
+            "Marcus Berg": "https://www.thefinalball.com//img/jogadores/27/45327_20180524110321_marcus_berg.jpg",
+            "Ola Toivonen": "https://www.thefinalball.com//img/jogadores/27/68327_20170825141812_ola_toivonen.jpg"
+        },
+        "GK": {
+            "Karl Johnsson ": "https://www.thefinalball.com//img/jogadores/22/95322_20170811190315_karl_johnsson_.jpg",
+            "Kristoffer Nordfeldt": "https://www.thefinalball.com//img/jogadores/75/95275_20171101005143_kristoffer_nordfeldt.png",
+            "Robin Olsen": "https://www.thefinalball.com//img/jogadores/66/254266_robin_olsen.png"
+        },
+        "MID": {
+            "Albin Ekdal": "https://www.thefinalball.com//img/jogadores/35/61235_20171111124129_albin_ekdal.jpg",
+            "Gustav Svensson": "https://www.thefinalball.com//img/jogadores/71/68371_pri__20170310143150_gustav_svensson.jpg",
+            "Marcus Rohd\u00e9n": "https://www.thefinalball.com//img/jogadores/99/223699_20170826110524_marcus_rohden.jpg",
+            "Oscar Hiljemark ": "https://www.thefinalball.com//img/jogadores/05/153005_20180523235404_oscar_hiljemark_.png",
+            "Sebastian Larsson": "https://www.thefinalball.com//img/jogadores/28/431928__20171003152318_sebastian_larsson.jpg",
+            "Viktor Claesson": "https://www.thefinalball.com//img/jogadores/92/184592_20170216093351_viktor_claesson.png"
+        }
+    },
+    "Switzerland": {
+        "DEF": {
+            "Fabian Schar": "https://www.thefinalball.com//img/jogadores/69/121669_20171104152219_fabian_schar.jpg",
+            "Fran\u00e7ois Moubandje": "https://www.thefinalball.com//img/jogadores/73/131273_20170825141119_francois_moubandje.jpg",
+            "Johan Djourou": "https://www.thefinalball.com//img/jogadores/01/10901_20180131183207_johan_djourou.png",
+            "Manuel Akanji": "https://www.thefinalball.com//img/jogadores/14/394414_20180407001937_manuel_akanji.jpg",
+            "Michael Lang": "https://www.thefinalball.com//img/jogadores/22/52122_20170926110251_michael_lang.jpg",
+            "Nico Elvedi": "https://www.thefinalball.com//img/jogadores/73/335973_20170905112907_nico_elvedi.jpg",
+            "Ricardo Rodr\u00edguez": "https://www.thefinalball.com//img/jogadores/83/103083_20170824235523_ricardo_rodriguez.jpg",
+            "Stephan Lichtsteiner": "https://www.thefinalball.com//img/jogadores/61/19061_20180605150447_stephan_lichtsteiner.jpg"
+        },
+        "FRW": {
+            "Breel Embolo": "https://www.thefinalball.com//img/jogadores/95/370795_20171101123716_breel_embolo.jpg",
+            "Haris Seferovic": "https://www.thefinalball.com//img/jogadores/79/102379_20180604103511_haris_seferovic.jpg",
+            "Josip Drmic": "https://www.thefinalball.com//img/jogadores/62/127962_20170905112409_josip_drmic.jpg",
+            "Mario Gavranovic": "https://www.thefinalball.com//img/jogadores/79/348679__20160725111230_mario_gavranovic.png",
+            "Xherdan Shaqiri": "https://www.thefinalball.com//img/jogadores/52/102352_20170907115001_xherdan_shaqiri.png"
+        },
+        "GK": {
+            "Roman Burki": "https://www.thefinalball.com//img/jogadores/55/63755_20170903125317_roman_burki.jpg",
+            "Yann Sommer": "https://www.thefinalball.com//img/jogadores/38/51738_20170905113047_yann_sommer.jpg",
+            "Yvon Mvogo": "https://www.thefinalball.com//img/jogadores/00/202400_20170903140442_yvon_mvogo.jpg"
+        },
+        "MID": {
+            "Blerim Dzemaili": "https://www.thefinalball.com//img/jogadores/02/26902_20180123112305_blerim_dzemaili.png",
+            "Denis Zakaria": "https://www.thefinalball.com//img/jogadores/07/433707_20170905113354_denis_zakaria.jpg",
+            "Gelson Fernandes": "https://www.thefinalball.com//img/jogadores/83/39983_20171111135944_gelson_fernandes.jpg",
+            "Granit Xhaka": "https://www.thefinalball.com//img/jogadores/38/148638_20180204231518_granit_xhaka.png",
+            "Remo Freuler": "https://www.thefinalball.com//img/jogadores/08/141808_20170825154046_remo_freuler.jpg",
+            "Steven Zuber": "https://www.thefinalball.com//img/jogadores/56/72456_20180511182026_steven_zuber.png",
+            "Valon Behrami": "https://www.thefinalball.com//img/jogadores/44/18244_20170825230152_valon_behrami.png"
+        }
+    },
+    "Tunisia": {
+        "DEF": {
+            "Ali Ma\u00e2loul": "https://www.thefinalball.com//img/jogadores/59/361659_20180529114540_ali_maaloul.jpg",
+            "Dylan Bronn": "https://www.thefinalball.com//img/jogadores/17/429817_20180529110128_dylan_bronn.jpg",
+            "Hamdi Nagguez": "https://www.thefinalball.com//img/jogadores/11/447311_20180529111544_hamdi_nagguez.jpg",
+            "Oussama Haddadi": "https://www.thefinalball.com//img/jogadores/48/442448_20170811152834_oussama_haddadi.jpg",
+            "Rami Bedoui": "https://www.thefinalball.com//img/jogadores/87/434087__20171013125008_rami_bedoui.png",
+            "Syam Ben Youssef": "https://www.thefinalball.com//img/jogadores/57/152557_20180529114751_syam_ben_youssef.jpg",
+            "Yassine Meriah": "https://www.thefinalball.com//img/jogadores/29/447629_20180529183736_yassine_meriah.jpg",
+            "Yohan Benalouane": "https://www.thefinalball.com//img/jogadores/07/32007_20171001152358_yohan_benalouane.png"
+        },
+        "FRW": {
+            "Anice Badri": "https://www.thefinalball.com//img/jogadores/65/163565_20180529192302_anice_badri.jpg",
+            "Bassem Srarfi": "https://www.thefinalball.com//img/jogadores/95/529095_20170817151313_bassem_srarfi.jpg",
+            "Fakhreddine Ben Youssef": "https://www.thefinalball.com//img/jogadores/99/311199_20180529190725_fakhreddine_ben_youssef.jpg",
+            "Naim Sliti": "https://www.thefinalball.com//img/jogadores/45/198945_20170811153629_naim_sliti.jpg",
+            "Saber Khalifa": "https://www.thefinalball.com//img/jogadores/65/167065_saber_khelifa.jpg"
+        },
+        "GK": {
+            "Aymen Balbouli": "https://www.thefinalball.com//img/jogadores/29/53829_20180529104839_aymen_balbouli.jpg",
+            "Farouk Ben Mustapha": "https://www.thefinalball.com//img/jogadores/58/82258_20180529105423_farouk_ben_mustapha.jpg",
+            "Mouez Hassen": "https://www.thefinalball.com//img/jogadores/78/265878_mouez_hassen.jpg"
+        },
+        "MID": {
+            "Ahmed Khalil": "https://www.thefinalball.com//img/jogadores/12/447212_20180529180121_ahmed_khalil.png",
+            "Ben Amor": "https://www.thefinalball.com//img/jogadores/92/434092__20171013125436_mohamed_ben_amor.png",
+            "Ellyes Skhiri": "https://www.thefinalball.com//img/jogadores/07/255807_20170822221937_ellyes_skhiri.jpg",
+            "Ferjani Sassi": "https://www.thefinalball.com//img/jogadores/54/361654_20180529183138_ferjani_sassi.jpg",
+            "Ghailene Chaalali": "https://www.thefinalball.com//img/jogadores/37/491937_20161221110035_ghailene_chaalali.png",
+            "Saif-Eddine Khaoui": "https://www.thefinalball.com//img/jogadores/37/367437_20171118230253_saif_eddine_khaoui.jpg",
+            "Wahbi Khazri": "https://www.thefinalball.com//img/jogadores/10/232110_20171125200806_wahbi_khazri.jpg"
+        }
+    },
+    "Uruguay": {
+        "DEF": {
+            "Diego God\u00edn": "https://www.thefinalball.com//img/jogadores/60/37660_20170907213630_diego_godin.png",
+            "Gast\u00f3n Silva": "https://www.thefinalball.com//img/jogadores/46/187946_20161010150711_gaston_silva.jpg",
+            "Guillermo Varela": "https://www.thefinalball.com//img/jogadores/48/462048__20180223192558_guillermo_varela.png",
+            "Jos\u00e9 Gim\u00e9nez": "https://www.thefinalball.com//img/jogadores/49/297049_20170907214052_jose_gimenez.png",
+            "Mart\u00edn C\u00e1ceres": "https://www.thefinalball.com//img/jogadores/48/34648_20180206163047_martin_caceres.jpg",
+            "Maxi Pereira": "https://www.thefinalball.com//img/jogadores/64/34664_20180603013341_maxi_pereira.jpg",
+            "Sebasti\u00e1n Coates": "https://www.thefinalball.com//img/jogadores/85/85285_20171019222401_sebastian_coates.png"
+        },
+        "FRW": {},
+        "GK": {
+            "Fernando Muslera": "https://www.thefinalball.com//img/jogadores/48/45348_20171103190116_fernando_muslera.png",
+            "Mart\u00edn Campa\u00f1a": "https://www.thefinalball.com//img/jogadores/67/89267_pri__20170531084343_martin_campana.jpg",
+            "Mart\u00edn Silva": "https://www.thefinalball.com//img/jogadores/53/483053__20180521103046_martin_silva.png"
+        },
+        "MID": {
+            "Carlos S\u00e1nchez": "https://www.thefinalball.com//img/jogadores/48/116748_20180122142429_carlos_sanchez.png",
+            "Cristi\u00e1n Rodr\u00edguez": "https://www.thefinalball.com//img/jogadores/38/462038__20180223192400_cristian_rodriguez.png",
+            "De Arrascaeta": "https://www.thefinalball.com//img/jogadores/48/429348__20170920120914_de_arrascaeta.png",
+            "Lucas Torreira": "https://www.thefinalball.com//img/jogadores/37/432037_20171209234635_lucas_torreira.jpg",
+            "Nahitan N\u00e1ndez": "https://www.thefinalball.com//img/jogadores/36/401836_pri__20170427090358_nahitan_nandez.jpg",
+            "Rodrigo Bentancur": "https://www.thefinalball.com//img/jogadores/84/452084_20170911233438_rodrigo_bentancur.png"
+        }
     }
 }

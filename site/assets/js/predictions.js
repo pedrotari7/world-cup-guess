@@ -225,7 +225,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                     var schedule_row = document.createElement('tr');
                     schedule_row.className = 'game_row';
 
-                    if (predictions.hasOwnProperty(games[g][game]['game_number']) && predictions[games[g][game]['game_number']].hasOwnProperty('result')) {
+                    if (game_info['has_started'] && predictions.hasOwnProperty(games[g][game]['game_number']) && predictions[games[g][game]['game_number']].hasOwnProperty('result')) {
                         schedule_row.className += ' prediction_result_' + predictions[games[g][game]['game_number']]['result']
                     }
 
