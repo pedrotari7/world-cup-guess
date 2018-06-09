@@ -75,7 +75,8 @@ function get_rules() {
 
         <div class="stage_div textBox" style="color:black;background-color: #A6E22E">
             Top Scorer - 5 points </br>
-            Player of the tournament - 5 points
+            Player of the tournament - 5 points </br>
+            Golden Glove - 5 points </br>
         </div>
 
         <div class="stage_div textBox"> </div>

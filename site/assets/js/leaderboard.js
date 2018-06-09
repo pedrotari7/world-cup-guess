@@ -135,7 +135,7 @@ function get_leaderboard(user_id) {
 
                 var awards = document.createElement('td');
                 awards.className = 'user_awards';
-                awards.innerText = leaderboard[i].results.player_top_scorer + leaderboard[i].results.player_mvp;
+                awards.innerText = leaderboard[i].results.player_top_scorer + leaderboard[i].results.player_mvp + leaderboard[i].results.player_golden_glove;
 
                 var points = document.createElement('td');
                 points.className = 'user_points';

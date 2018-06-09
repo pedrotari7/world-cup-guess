@@ -32,9 +32,10 @@ points = {
             'penalties_winner': 1,
             'player_top_scorer' : 5,
             'player_mvp' : 5,
+            'player_golden_glove': 5
          }
 
-freezer = freeze_time("2018-06-12 20:59:00")
+freezer = freeze_time("2018-07-12 20:59:00")
 freezer.start()
 
 ###################################################################################################
@@ -169,10 +170,9 @@ def calculate_points(user):
     user['points'] += points['groups'] * user['groups']
     user['points'] += points['penalties_winner'] * user['penalties_winner']
 
-    if user['player_top_scorer'] == variables['player_top_scorer']:
-        user['points'] += points['player_top_scorer']
-    if user['player_mvp'] == variables['player_mvp']:
-        user['points'] += points['player_mvp']
+    user['points'] += points['player_top_scorer'] * user['player_top_scorer']
+    user['points'] += points['player_mvp'] * user['player_mvp']
+    user['points'] += points['player_golden_glove'] * user['player_golden_glove']
     return user['points']
 
 def sort_leaderboard(leaderboard):
@@ -541,6 +541,7 @@ def get_predictions(user_id, predictions_user_name):
 
     mvp = users[predictions_user_name]['mvp']
     top_scorer = users[predictions_user_name]['top_scorer']
+    golden_glove = users[predictions_user_name]['golden_glove']
 
     tournament_started = datetime.datetime.now() >= datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S")
 
@@ -550,7 +551,17 @@ def get_predictions(user_id, predictions_user_name):
                 mvp = 'X'
             if top_scorer != 'Not selected':
                 top_scorer = 'X'
-    return jsonify({'tournament_started':tournament_started,'mvp':mvp,'top_scorer':top_scorer,'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
+            if golden_glove != 'Not selected':
+                golden_glove = 'X'
+    return jsonify({'tournament_started':tournament_started,
+                    'golden_glove':golden_glove,
+                    'mvp':mvp,
+                    'top_scorer':top_scorer,
+                    'teams': info['teams'],
+                    'games': games,
+                    'predictions': predictions,
+                    'real_groups': real_groups,
+                    'predicted_groups': predicted_groups})
 
 @app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
 def set_predictions(user_id):
@@ -594,7 +605,6 @@ def set_results(user_id):
         info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score'])
 
     if groups_to_update:
-        print(groups_to_update)
         update_groups_order(info['games'], groups_to_update)
 
     update_leaderboard_info(info['games'])
@@ -615,10 +625,11 @@ def get_leaderboard():
     for user in users:
         users[user]['results']['groups'] = calculate_predicted_groups_points(user)
 
-        users[user]['results']['points'] = calculate_points(users[user]['results'])
+        users[user]['results']['player_top_scorer'] = users[user]['top_scorer'] == variables['player_top_scorer']
+        users[user]['results']['player_mvp'] = users[user]['mvp'] == variables['player_mvp']
+        users[user]['results']['player_golden_glove'] = users[user]['golden_glove'] == variables['player_golden_glove']
 
-        users[user]['results']['player_top_scorer'] = points['player_top_scorer'] * (users[user]['top_scorer'] == variables['player_top_scorer'])
-        users[user]['results']['player_mvp'] = points['player_mvp'] * (users[user]['mvp'] == variables['player_mvp'])
+        users[user]['results']['points'] = calculate_points(users[user]['results'])
 
         leaderboard.append({'points': users[user]['results']['points'],
                             'name': users[user]['name'],
@@ -662,9 +673,11 @@ def login_with_google(token):
         users[data['name']]['results']['penalties_winner'] = 0
         users[data['name']]['results']['player_top_scorer'] = False
         users[data['name']]['results']['player_mvp'] = False
+        users[data['name']]['results']['player_golden_glove'] = False
 
         users[data['name']]['top_scorer'] = "Not selected"
         users[data['name']]['mvp'] = "Not selected"
+        users[data['name']]['golden_glove'] = "Not selected"
 
         users[data['name']]['predictions'] = {}
 
@@ -690,10 +703,14 @@ def get_teams(user_id):
 def set_awards(user_id, player_name, mode):
     print(join_route_url('awards', user_id, player_name, mode))
 
-    if mode == 'mvp':
-        users[users_ids[user_id]]['mvp'] = player_name
-    elif mode == 'top_scorer':
-        users[users_ids[user_id]]['top_scorer'] = player_name
+    tournament_started = datetime.datetime.now() >= datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S")
+    if not tournament_started:
+        if mode == 'mvp':
+            users[users_ids[user_id]]['mvp'] = player_name
+        elif mode == 'top_scorer':
+            users[users_ids[user_id]]['top_scorer'] = player_name
+        elif mode == 'golden_glove':
+            users[users_ids[user_id]]['golden_glove'] = player_name
 
     return jsonify({})
 

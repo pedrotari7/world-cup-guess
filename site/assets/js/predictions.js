@@ -119,8 +119,29 @@ function get_my_predictions(user_id, predictions_user_name) {
                 top_scorer_div.innerText += data['top_scorer'];
             }
 
-
             banner.appendChild(top_scorer_div);
+
+            var golden_glove_div = document.createElement('div');
+            golden_glove_div.className = 'stage_div textBox';
+            golden_glove_div.innerText = 'Golden Glove: ';
+
+            if(is_my_predictions && !tournament_started) {
+                if (data['golden_glove'] != 'Not selected') {
+                    golden_glove_div.innerText += data['golden_glove'];
+                } else {
+                    golden_glove_div.innerText += 'Click to predict...';
+                }
+                var closureMaker = function(user_id, mode) {
+                    return function(){get_teams(user_id, mode)};
+                }
+                var closure = closureMaker(user_id, 'golden_glove');
+                golden_glove_div.addEventListener('click', closure, false);
+            } else {
+                golden_glove_div.innerText += data['golden_glove'];
+            }
+
+
+            banner.appendChild(golden_glove_div);
 
 
             games_order = ['A','B','C','D','E','F','G','H','Round of 16','Quarter-finals','Semi-finals','Third place play-off','Final']

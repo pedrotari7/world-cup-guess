@@ -33,13 +33,15 @@ function get_players(user_id, team_name, mode) {
 
             banner.appendChild(team_name_div);
 
-            if (mode == 'mvp' || mode == 'top_scorer') {
+            if (mode == 'mvp' || mode == 'top_scorer' || mode == 'golden_glove') {
                 var mode_div = document.createElement('div');
                 mode_div.className = 'stage_div textBox';
                 if (mode == 'mvp') {
                     mode_div.innerText = 'Select the MVP...';
                 } else if (mode == 'top_scorer') {
                     mode_div.innerText = 'Select the Top Scorer...';
+                } else if (mode == 'golden_glove') {
+                    mode_div.innerText = 'Select the Golden Glove...';
                 }
                 banner.appendChild(mode_div);
             }
@@ -48,6 +50,10 @@ function get_players(user_id, team_name, mode) {
             positions = [['GK', 'Goalkeepers'], ['DEF','Defenders'], ['MID','Midfielders'], ['FRW','Forwards']];
 
             for(var p in positions) {
+                if (mode == 'golden_glove' && positions[p][0] != 'GK'){
+                    continue;
+                }
+
                 position = positions[p][0];
                 position_title = positions[p][1];
 
@@ -77,7 +83,7 @@ function get_players(user_id, team_name, mode) {
 
                     player_div.appendChild(player_name);
 
-                    if (mode == 'mvp' || mode == 'top_scorer') {
+                    if (mode == 'mvp' || mode == 'top_scorer' || mode == 'golden_glove') {
                         var closureMaker = function(user_id, player_name) {
                             return function(){set_award(user_id, player_name, mode)};
                         }
