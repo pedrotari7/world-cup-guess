@@ -34,7 +34,7 @@ points = {
             'player_mvp' : 5,
          }
 
-freezer = freeze_time("2018-07-16 23:59:00")
+freezer = freeze_time("2018-06-12 20:59:00")
 freezer.start()
 
 ###################################################################################################
@@ -448,8 +448,6 @@ def update_knockout_stages():
     # info['groups_table'][group]
 
 
-
-
 ###################################################################################################
 #                                       API Functions                                             #
 ###################################################################################################
@@ -544,20 +542,15 @@ def get_predictions(user_id, predictions_user_name):
     mvp = users[predictions_user_name]['mvp']
     top_scorer = users[predictions_user_name]['top_scorer']
 
-    if datetime.datetime.now() <  datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S"):
+    tournament_started = datetime.datetime.now() >= datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S")
+
+    if not tournament_started:
         if predictions_user_name != users_ids[user_id]:
             if mvp != 'Not selected':
                 mvp = 'X'
             if top_scorer != 'Not selected':
                 top_scorer = 'X'
-        else:
-            if mvp == 'Not selected':
-                mvp = 'available_to_select'
-            if top_scorer == 'Not selected':
-                top_scorer = 'available_to_select'
-
-
-    return jsonify({'mvp':mvp,'top_scorer':top_scorer,'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
+    return jsonify({'tournament_started':tournament_started,'mvp':mvp,'top_scorer':top_scorer,'teams': info['teams'], 'games': games, 'predictions': predictions, 'real_groups': real_groups, 'predicted_groups': predicted_groups})
 
 @app.route(join_route_url('predictions', '<user_id>'), methods=['POST'])
 def set_predictions(user_id):

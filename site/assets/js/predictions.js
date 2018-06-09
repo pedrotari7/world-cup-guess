@@ -37,6 +37,7 @@ function get_my_predictions(user_id, predictions_user_name) {
             predictions = data['predictions'];
             predicted_groups = data['predicted_groups'];
             real_groups = data['real_groups'];
+            tournament_started = data['tournament_started'];
 
             console.log(games);
 
@@ -82,8 +83,12 @@ function get_my_predictions(user_id, predictions_user_name) {
             mvp_div.innerText = 'MVP: ';
 
 
-            if(is_my_predictions && data['mvp'] == 'available_to_select') {
-                mvp_div.innerText += 'Click to predict...';
+            if(is_my_predictions && !tournament_started) {
+                if (data['mvp'] != 'Not selected') {
+                    mvp_div.innerText += data['mvp'];
+                } else {
+                    mvp_div.innerText += 'Click to predict...';
+                }
                 var closureMaker = function(user_id, mode) {
                     return function(){get_teams(user_id, mode)};
                 }
@@ -99,8 +104,12 @@ function get_my_predictions(user_id, predictions_user_name) {
             top_scorer_div.className = 'stage_div textBox';
             top_scorer_div.innerText = 'Top Scorer: ';
 
-            if(is_my_predictions && data['top_scorer'] == 'available_to_select') {
-                top_scorer_div.innerText += 'Click to predict...';
+            if(is_my_predictions && !tournament_started) {
+                if (data['top_scorer'] != 'Not selected') {
+                    top_scorer_div.innerText += data['top_scorer'];
+                } else {
+                    top_scorer_div.innerText += 'Click to predict...';
+                }
                 var closureMaker = function(user_id, mode) {
                     return function(){get_teams(user_id, mode)};
                 }
