@@ -149,6 +149,9 @@ function get_schedule(user_id, group_filter) {
                         if(!games[g]['score']['finished'])
                             date_score_td.innerHTML += '<blink>  &#9679;   </blink>'
                         date_score_td.innerHTML += games[g]['score']['home'] + ' x ' + games[g]['score']['away'];
+                        if(games[g]['score']['home_penalties'] && games[g]['score']['away_penalties']) {
+                            date_score_td.innerHTML += ' (' + games[g]['score']['home_penalties'] + ' - ' + games[g]['score']['away_penalties'] + ')';
+                        }
                     } else {
                         date_score_td.innerHTML += ' x '
                     }

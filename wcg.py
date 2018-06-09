@@ -35,7 +35,7 @@ points = {
             'player_golden_glove': 5
          }
 
-freezer = freeze_time("2018-07-12 20:59:00")
+freezer = freeze_time("2018-06-30 21:59:00")
 freezer.start()
 
 ###################################################################################################
@@ -134,7 +134,7 @@ class SaveToDatabase(threading.Thread):
             save_users_database(users, users_ids)
             save_games_database(info)
             new_server.timed_print("Saving users and tournament info to database", color='OKBLUE')
-            self.event.wait(120)
+            self.event.wait(60*5)
 
     def stop(self):
         self.event.set()
@@ -406,6 +406,10 @@ def update_knockout_stages():
 
     for game in info['games']:
 
+        if info['games'][game]['stage'] != 'Groups Stage':
+            info['games'][game]['home_team'] = info['games'][game]['home_team_original']
+            info['games'][game]['away_team'] = info['games'][game]['away_team_original']
+
         if info['games'][game]['stage'] == 'Round of 16':
             group = info['games'][game]['away_team_original'].split()[1]
             position = info['games'][game]['away_team_original'].split()[0]
@@ -426,26 +430,60 @@ def update_knockout_stages():
         elif info['games'][game]['stage'] in ['Quarter-finals', 'Semi-finals', 'Final']:
             previous_game = info['games'][game]['home_team_original'].split()[1]
             if info['games'][previous_game]['score']['finished']:
-                info['games'][game]['home_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+                if info['games'][previous_game]['score']['outcome'] in ['home', 'away']:
+                    info['games'][game]['home_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+                elif info['games'][previous_game]['score']['outcome'] == 'draw':
+                     if info['games'][previous_game]['score']['home_penalties'] and info['games'][previous_game]['score']['away_penalties']:
+                        if int(info['games'][previous_game]['score']['home_penalties']) > int(info['games'][previous_game]['score']['away_penalties']):
+                            info['games'][game]['home_team'] = info['games'][previous_game]['home_team']
+                        else:
+                            info['games'][game]['home_team'] = info['games'][previous_game]['away_team']
+
             previous_game = info['games'][game]['away_team_original'].split()[1]
             if info['games'][previous_game]['score']['finished']:
-                info['games'][game]['away_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+                if info['games'][previous_game]['score']['outcome'] in ['home', 'away']:
+                    info['games'][game]['away_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+                elif info['games'][previous_game]['score']['outcome'] == 'draw':
+                     if info['games'][previous_game]['score']['home_penalties'] and info['games'][previous_game]['score']['away_penalties']:
+                        if int(info['games'][previous_game]['score']['home_penalties']) > int(info['games'][previous_game]['score']['away_penalties']):
+                            info['games'][game]['away_team'] = info['games'][previous_game]['home_team']
+                        else:
+                            info['games'][game]['away_team'] = info['games'][previous_game]['away_team']
+
         elif info['games'][game]['stage'] == 'Third place play-off':
             previous_game = info['games'][game]['home_team_original'].split()[1]
             if info['games'][previous_game]['score']['outcome'] == 'away':
                 info['games'][game]['home_team'] = info['games'][previous_game]['home_team']
-            else:
+            elif info['games'][previous_game]['score']['outcome'] == 'home':
                 info['games'][game]['home_team'] = info['games'][previous_game]['away_team']
+            elif info['games'][previous_game]['score']['outcome'] == 'draw':
+                if info['games'][previous_game]['score']['home_penalties'] and info['games'][previous_game]['score']['away_penalties']:
+                    if info['games'][previous_game]['score']['home_penalties'] > info['games'][previous_game]['score']['away_penalties']:
+                        info['games'][game]['home_team'] = info['games'][previous_game]['away_team']
+                    else:
+                        info['games'][game]['home_team'] = info['games'][previous_game]['home_team']
             previous_game = info['games'][game]['away_team_original'].split()[1]
             if info['games'][previous_game]['score']['outcome'] == 'away':
                 info['games'][game]['away_team'] = info['games'][previous_game]['home_team']
-            else:
+            elif info['games'][previous_game]['score']['outcome'] == 'home':
                 info['games'][game]['away_team'] = info['games'][previous_game]['away_team']
+            elif info['games'][previous_game]['score']['outcome'] == 'draw':
+                if info['games'][previous_game]['score']['home_penalties'] and info['games'][previous_game]['score']['away_penalties']:
+                    if int(info['games'][previous_game]['score']['home_penalties']) > int(info['games'][previous_game]['score']['away_penalties']):
+                        info['games'][game]['away_team'] = info['games']['away_team']
+                    else:
+                        info['games'][game]['away_team'] = info['games']['home_team']
 
-
-    print('Group', group, 'finished')
-
-    # info['groups_table'][group]
+def update_penalties_points():
+    for user in users:
+        users[user]['results']['penalties_winner'] = 0
+        for game in users[user]['predictions']:
+            if info['games'][game]['stage'] != 'Groups Stage':
+                if info['games'][game]['score']['finished'] and info['games'][game]['score']['outcome'] == 'draw':
+                    if int(info['games'][game]['score']['home_penalties']) > int(info['games'][game]['score']['away_penalties']):
+                        users[user]['results']['penalties_winner'] += calculate_game_outcome(users[user]['predictions'][game]) == 'home'
+                    else:
+                        users[user]['results']['penalties_winner'] += calculate_game_outcome(users[user]['predictions'][game]) == 'away'
 
 
 ###################################################################################################
@@ -613,6 +651,8 @@ def set_results(user_id):
 
     update_knockout_stages()
 
+    update_penalties_points()
+
     return jsonify({'groups': 'test groups return'}), 201
 
 @app.route(join_route_url('leaderboard'), methods=['GET'])
@@ -734,6 +774,7 @@ if __name__ == '__main__':
     new_server = wcg_server()
 
     saver = SaveToDatabase()
+
     saver.start()
 
     new_server.start_rest_api()

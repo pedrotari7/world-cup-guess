@@ -334,6 +334,10 @@ function get_my_predictions(user_id, predictions_user_name) {
                         if(!game_info['score']['finished'])
                             date_score_td.innerHTML += '<blink>  &#9679;   </blink>'
                         date_score_td.innerHTML += game_info['score']['home'] + ' x ' + game_info['score']['away'];
+
+                        if(game_info['score']['home_penalties'] && game_info['score']['away_penalties']) {
+                            date_score_td.innerHTML += ' (' + game_info['score']['home_penalties'] + ' - ' + game_info['score']['away_penalties'] + ')';
+                        }
                         date_score_td.style.fontSize = '20px';
                     } else {
                         var date = new Date(game_info['date']);

@@ -74,6 +74,9 @@ function get_game(user_id, game_num) {
                     if(!game_info['info']['score']['finished'])
                         date_score_td.innerHTML += '<blink>  &#9679;   </blink>'
                     date_score_td.innerHTML += game_info['info']['score']['home'] + ' x ' + game_info['info']['score']['away'];
+                    if(game_info['info']['score']['home_penalties'] && game_info['info']['score']['away_penalties']) {
+                        date_score_td.innerHTML += ' (' + game_info['info']['score']['home_penalties'] + ' - ' + game_info['info']['score']['away_penalties'] + ')';
+                    }
                 } else {
                     date_score_td.innerText += ' x '
                 }

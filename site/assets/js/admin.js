@@ -115,8 +115,6 @@ function get_admin(user_id) {
                     }
                     var closure = closureMaker(user_id, g);
                     home_team_result_input.addEventListener('change', closure, false);
-                    home_team_result_td.appendChild(home_team_result_input);
-
 
                     if (!games[g]['has_started']) {
                         home_team_result_input.style.borderColor = 'transparent';
@@ -127,7 +125,33 @@ function get_admin(user_id) {
                     if (games[g]['score']) {
                         home_team_result_input.value = games[g]['score']['home'];
                     }
+                    home_team_result_td.appendChild(home_team_result_input);
+
+                    if (games[g]['stage'] != 'Groups Stage' && games[g]['score'] && games[g]['score']['home'] == games[g]['score']['away']) {
+                        var home_team_penalties_input = document.createElement('input');
+                        home_team_penalties_input.className = 'guess_input';
+                        home_team_penalties_input.id = 'home_penalties_' + g;
+                        home_team_penalties_input.type = "number";
+
+                        var closureMaker = function(user_id, game_number) {
+                            return function(){send_results(user_id, game_number)};
+                        }
+                        var closure = closureMaker(user_id, g);
+                        home_team_penalties_input.addEventListener('change', closure, false);
+
+                        if (!games[g]['has_started']) {
+                            home_team_penalties_input.style.borderColor = 'transparent';
+                            home_team_penalties_input.disabled = true;
+                        } else {
+                            home_team_penalties_input.style.borderColor = "rgb(255, 255, 255, 0.3)";
+                        }
+                        if (games[g]['score']) {
+                            home_team_penalties_input.value = games[g]['score']['home_penalties'];
+                        }
+                        home_team_result_td.appendChild(home_team_penalties_input);
+                    }
                 }
+
 
 
                 var date_score_td = document.createElement('td');
@@ -161,6 +185,32 @@ function get_admin(user_id) {
                     }
 
                     away_team_result_td.appendChild(away_team_result_input);
+
+                    if (games[g]['stage'] != 'Groups Stage' && games[g]['score'] && games[g]['score']['home'] == games[g]['score']['away']) {
+                        var away_team_penalties_input = document.createElement('input');
+                        away_team_penalties_input.className = 'guess_input';
+                        away_team_penalties_input.id = 'away_penalties_' + g;
+                        away_team_penalties_input.type = "number";
+
+                        var closureMaker = function(user_id, game_number) {
+                            return function(){send_results(user_id, game_number)};
+                        }
+                        var closure = closureMaker(user_id, g);
+                        away_team_penalties_input.addEventListener('change', closure, false);
+
+                        if (!games[g]['has_started']) {
+                            away_team_penalties_input.style.borderColor = 'transparent';
+                            away_team_penalties_input.disabled = true;
+                        } else {
+                            away_team_penalties_input.style.borderColor = "rgb(255, 255, 255, 0.3)";
+                        }
+                        if (games[g]['score']) {
+                            away_team_penalties_input.value = games[g]['score']['away_penalties'];
+                        }
+                        away_team_result_td.appendChild(away_team_penalties_input);
+                    }
+
+
                 }
 
                 var away_team_flag_td = document.createElement('td');
@@ -199,13 +249,6 @@ function get_admin(user_id) {
                     game_finished.checked = games[g]['score']['finished'];
                 }
 
-                if (games[g]['score']['finished']) {
-                    home_team_result_input.style.borderColor = 'transparent';
-                    home_team_result_input.disabled = true;
-                    away_team_result_input.style.borderColor = 'transparent';
-                    away_team_result_input.disabled = true;
-                }
-
                 var closureMaker = function(user_id, game_number) {
                     return function(){send_results(user_id, game_number)};
                 }
@@ -214,6 +257,20 @@ function get_admin(user_id) {
 
                 game_finished_td.appendChild(game_finished);
 
+                if (games[g]['score']['finished']) {
+                    home_team_result_input.style.borderColor = 'transparent';
+                    home_team_result_input.disabled = true;
+                    away_team_result_input.style.borderColor = 'transparent';
+                    away_team_result_input.disabled = true;
+                    if (typeof(home_team_penalties_input) !== 'undefined') {
+                        home_team_penalties_input.style.borderColor = 'transparent';
+                        home_team_penalties_input.disabled = true;
+                    }
+                    if (typeof(away_team_penalties_input) !== 'undefined') {
+                        away_team_penalties_input.style.borderColor = 'transparent';
+                        away_team_penalties_input.disabled = true;
+                    }
+                }
 
                 schedule_row.appendChild(game_number_td);
                 schedule_row.appendChild(home_team_td);
@@ -242,6 +299,8 @@ function send_results(user_id, game_number) {
 
     home_guess = document.getElementById('home_guess_' + game_number);
     away_guess = document.getElementById('away_guess_' + game_number);
+    home_penalties = document.getElementById('home_penalties_' + game_number);
+    away_penalties = document.getElementById('away_penalties_' + game_number);
     finished = document.getElementById('checkbox_' + game_number);
 
     if (home_guess != null) {
@@ -256,6 +315,7 @@ function send_results(user_id, game_number) {
     } else {
         home_guess = '';
     }
+
     if (away_guess != null) {
         if (finished.checked) {
             away_guess.style.borderColor= 'transparent';
@@ -269,7 +329,37 @@ function send_results(user_id, game_number) {
         away_guess = '';
     }
 
-    results[game_number] = {'home':home_guess, 'away':away_guess, 'finished':finished.checked};
+    if (home_penalties != null) {
+        if (finished.checked) {
+            home_penalties.style.borderColor= 'transparent';
+            home_penalties.disabled = true;
+        } else {
+            home_penalties.style.borderColor= "rgb(255 , 255, 255, 0.3)";
+            home_penalties.disabled = false;
+        }
+        home_penalties = home_penalties.value;
+    } else {
+        home_penalties = '';
+    }
+
+    if (away_penalties != null) {
+        if (finished.checked) {
+            away_penalties.style.borderColor= 'transparent';
+            away_penalties.disabled = true;
+        } else {
+            away_penalties.style.borderColor= "rgb(255, 255, 255, 0.3)";
+            away_penalties.disabled = false;
+        }
+        away_penalties = away_penalties.value;
+    } else {
+        away_penalties = '';
+    }
+
+    results[game_number] = {'home':home_guess,
+                            'away':away_guess,
+                            'home_penalties':home_penalties,
+                            'away_penalties':away_penalties,
+                            'finished':finished.checked};
 
     if ((home_guess != '') && (away_guess != '')) {
         finished.style.visibility = 'visible';
