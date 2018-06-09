@@ -99,6 +99,8 @@ function get_admin(user_id) {
                 }
                 var closure = closureMaker(user_id, games[g]['home_team']);
                 home_team_flag_td.addEventListener('click', closure, false);
+                home_team_td.addEventListener('click', closure, false);
+
 
                 var home_team_result_td = document.createElement('td');
                 if (games[g]['home_team'] in teams && games[g]['away_team'] in teams) {
@@ -161,8 +163,6 @@ function get_admin(user_id) {
                     away_team_result_td.appendChild(away_team_result_input);
                 }
 
-
-
                 var away_team_flag_td = document.createElement('td');
                 away_team_flag_td.className = 'team_flag';
                 if (games[g]['away_team'] in teams) {
@@ -181,10 +181,11 @@ function get_admin(user_id) {
                 var closure = closureMaker(user_id, games[g]['away_team']);
                 away_team_flag_td.addEventListener('click', closure, false);
 
-
                 var away_team_td = document.createElement('td');
                 away_team_td.className = 'game_team';
                 away_team_td.innerText = games[g]['away_team'];
+
+                away_team_td.addEventListener('click', closure, false);
 
                 var game_finished_td = document.createElement('td');
                 game_finished_td.className = 'game_finished_checkbox';
@@ -196,6 +197,13 @@ function get_admin(user_id) {
                 if (games[g]['score'] && games[g]['score']['home'] && games[g]['score']['away']) {
                     game_finished.style.visibility = 'visible';
                     game_finished.checked = games[g]['score']['finished'];
+                }
+
+                if (games[g]['score']['finished']) {
+                    home_team_result_input.style.borderColor = 'transparent';
+                    home_team_result_input.disabled = true;
+                    away_team_result_input.style.borderColor = 'transparent';
+                    away_team_result_input.disabled = true;
                 }
 
                 var closureMaker = function(user_id, game_number) {

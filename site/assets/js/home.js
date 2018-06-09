@@ -50,7 +50,12 @@ function get_next_game(user_id) {
     xhr.onload = function () {
         var next_game = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            get_game(user_id, next_game['next_game'])
+
+            if (next_game['next_game'] != null) {
+                get_game(user_id, next_game['next_game']);
+            } else {
+                get_leaderboard(user_id);
+            }
         } else {
             console.error(result);
         }

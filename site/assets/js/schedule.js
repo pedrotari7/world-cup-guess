@@ -138,6 +138,7 @@ function get_schedule(user_id, group_filter) {
                 }
                 var closure = closureMaker(user_id, games[g]['home_team']);
                 home_team_flag_td.addEventListener('click', closure, false);
+                home_team_td.addEventListener('click', closure, false);
 
                 var date_score_td = document.createElement('td');
                 date_score_td.className = 'game_date_score';
@@ -145,9 +146,11 @@ function get_schedule(user_id, group_filter) {
 
                 if (games[g]['has_started']) {
                     if (games[g]['score'] && games[g]['score']['home'] && games[g]['score']['away']) {
-                        date_score_td.innerText = games[g]['score']['home'] + ' x ' + games[g]['score']['away'];
+                        if(!games[g]['score']['finished'])
+                            date_score_td.innerHTML += '<blink>  &#9679;   </blink>'
+                        date_score_td.innerHTML += games[g]['score']['home'] + ' x ' + games[g]['score']['away'];
                     } else {
-                        date_score_td.innerText = ' x '
+                        date_score_td.innerHTML += ' x '
                     }
                     date_score_td.style.fontSize = '20px';
                 } else {
@@ -178,6 +181,7 @@ function get_schedule(user_id, group_filter) {
                 away_team_td.className = 'game_team';
                 away_team_td.innerText = games[g]['away_team'];
 
+                away_team_td.addEventListener('click', closure, false);
 
                 schedule_row.appendChild(game_number_td);
                 schedule_row.appendChild(home_team_td);

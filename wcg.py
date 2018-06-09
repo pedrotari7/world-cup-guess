@@ -34,8 +34,8 @@ points = {
             'player_mvp' : 5,
          }
 
-# freezer = freeze_time("2018-06-14 14:59:00")
-# freezer.start()
+freezer = freeze_time("2018-07-16 23:59:00")
+freezer.start()
 
 ###################################################################################################
 #                                         Database                                                #
@@ -183,7 +183,7 @@ def sort_by_phase_and_group(games, teams):
 
     for game in map(str,sorted(map(int,games.keys()))):
         games[game]['has_started'] = has_game_started(games[game])
-        if games[game]['home_team'] in teams and games[game]['away_team'] in teams:
+        if games[game]['stage'] == 'Groups Stage':
             sorted_games[teams[games[game]['home_team']]['groups']].append({'game_number':game,'game':games[game]})
         else:
             sorted_games[games[game]['stage']].append({'game_number':game,'game':games[game]})
@@ -207,7 +207,10 @@ def get_time_sorted_games(games, mode='all'):
     return [_[1] for _ in sorted(game_times)]
 
 def get_next_game_number(games):
-    return get_time_sorted_games(games, mode='not_finished')[0]
+    not_finished_games = get_time_sorted_games(games, mode='not_finished')
+
+    if not_finished_games:
+        return not_finished_games[0]
 
 def create_group_table(group):
     return {team:{'team':team,'g':0,'w':0,'d':0,'l':0,'gs':0,'gc':0,'pts':0} for team in info['teams'] if info['teams'][team]['groups'] == group}
@@ -273,6 +276,12 @@ def calculate_predicted_groups_order(groups, user, is_my_predictions):
 def have_all_games_from_group_started(group):
     for game in info['games']:
         if info['games'][game]['group'] == group and not info['games'][game]['has_started']:
+            return False
+    return True
+
+def have_all_games_from_group_finished(group):
+    for game in info['games']:
+        if info['games'][game]['group'] == group and not info['games'][game]['score']['finished']:
             return False
     return True
 
@@ -393,7 +402,51 @@ def get_updated_predictions(predictions):
 
 def update_knockout_stages():
 
-    groups = ['A','B','C','D','E','F','G','H']
+    finished_groups = [group for group in ['A','B','C','D','E','F','G','H'] if have_all_games_from_group_finished(group)]
+
+    for game in info['games']:
+
+        if info['games'][game]['stage'] == 'Round of 16':
+            group = info['games'][game]['away_team_original'].split()[1]
+            position = info['games'][game]['away_team_original'].split()[0]
+            if group in finished_groups:
+                if position == 'Winners':
+                    info['games'][game]['away_team'] = info['groups_table'][group][0]['team']
+                elif position == 'Runners-up':
+                    info['games'][game]['away_team'] = info['groups_table'][group][1]['team']
+
+            group = info['games'][game]['home_team_original'].split()[1]
+            position = info['games'][game]['home_team_original'].split()[0]
+            if group in finished_groups:
+                position = info['games'][game]['home_team_original'].split()[0]
+                if position == 'Winners':
+                    info['games'][game]['home_team'] = info['groups_table'][group][0]['team']
+                elif position == 'Runners-up':
+                    info['games'][game]['home_team'] = info['groups_table'][group][1]['team']
+        elif info['games'][game]['stage'] in ['Quarter-finals', 'Semi-finals', 'Final']:
+            previous_game = info['games'][game]['home_team_original'].split()[1]
+            if info['games'][previous_game]['score']['finished']:
+                info['games'][game]['home_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+            previous_game = info['games'][game]['away_team_original'].split()[1]
+            if info['games'][previous_game]['score']['finished']:
+                info['games'][game]['away_team'] = info['games'][previous_game][info['games'][previous_game]['score']['outcome'] + '_team']
+        elif info['games'][game]['stage'] == 'Third place play-off':
+            previous_game = info['games'][game]['home_team_original'].split()[1]
+            if info['games'][previous_game]['score']['outcome'] == 'away':
+                info['games'][game]['home_team'] = info['games'][previous_game]['home_team']
+            else:
+                info['games'][game]['home_team'] = info['games'][previous_game]['away_team']
+            previous_game = info['games'][game]['away_team_original'].split()[1]
+            if info['games'][previous_game]['score']['outcome'] == 'away':
+                info['games'][game]['away_team'] = info['games'][previous_game]['home_team']
+            else:
+                info['games'][game]['away_team'] = info['games'][previous_game]['away_team']
+
+
+    print('Group', group, 'finished')
+
+    # info['groups_table'][group]
+
 
 
 
@@ -491,9 +544,6 @@ def get_predictions(user_id, predictions_user_name):
     mvp = users[predictions_user_name]['mvp']
     top_scorer = users[predictions_user_name]['top_scorer']
 
-    print('mvp', mvp, predictions_user_name)
-    print('top_scorer', mvp, predictions_user_name)
-
     if datetime.datetime.now() <  datetime.datetime.strptime(info['games']['1']['date'], "%Y-%m-%d %H:%M:%S"):
         if predictions_user_name != users_ids[user_id]:
             if mvp != 'Not selected':
@@ -544,11 +594,15 @@ def set_results(user_id):
 
     groups_to_update = set()
     for game in request.json['results']:
-        groups_to_update.add(get_game_group_from_number(game))
+        group_to_update = get_game_group_from_number(game)
+        if group_to_update:
+            groups_to_update.add(group_to_update)
         info['games'][game]['score'] = request.json['results'][game]
         info['games'][game]['score']['outcome'] = calculate_game_outcome(info['games'][game]['score'])
 
-    update_groups_order(info['games'], groups_to_update)
+    if groups_to_update:
+        print(groups_to_update)
+        update_groups_order(info['games'], groups_to_update)
 
     update_leaderboard_info(info['games'])
 

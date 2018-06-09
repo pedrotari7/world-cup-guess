@@ -57,17 +57,29 @@ function get_game(user_id, game_num) {
                 }
             }
 
+            var closureMaker = function(user_id, team) {
+                return function(){get_players(user_id, team)};
+            }
+            var closure = closureMaker(user_id, game_info['info']['home_team']);
+            home_team_flag_td.addEventListener('click', closure, false);
+            home_team_td.addEventListener('click', closure, false);
+
+
             var date_score_td = document.createElement('td');
             date_score_td.className = 'game_date_score';
 
 
             if (game_info['has_started']) {
                 if (game_info['info']['score'] && game_info['info']['score']['home'] && game_info['info']['score']['away']) {
-                    date_score_td.innerText = game_info['info']['score']['home'] + ' x ' + game_info['info']['score']['away'];
+                    if(!game_info['info']['score']['finished'])
+                        date_score_td.innerHTML += '<blink>  &#9679;   </blink>'
+                    date_score_td.innerHTML += game_info['info']['score']['home'] + ' x ' + game_info['info']['score']['away'];
                 } else {
-                    date_score_td.innerText = ' x '
+                    date_score_td.innerText += ' x '
                 }
+
                 date_score_td.style.fontSize = '20px';
+
             } else {
                 var date = new Date(game_info['info']['date']);
                 var current_date = new Date(game_info['current_time']);
@@ -94,9 +106,18 @@ function get_game(user_id, game_num) {
                 }
             }
 
+            var closureMaker = function(user_id, team) {
+                return function(){get_players(user_id, team)};
+            }
+            var closure = closureMaker(user_id, game_info['info']['away_team']);
+            away_team_flag_td.addEventListener('click', closure, false);
+
+
             var away_team_td = document.createElement('td');
             away_team_td.className = 'game_team';
             away_team_td.innerText = game_info['info']['away_team'];
+
+            away_team_td.addEventListener('click', closure, false);
 
             game_row.appendChild(home_team_td);
             game_row.appendChild(home_team_flag_td);

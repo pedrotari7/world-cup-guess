@@ -1,7 +1,3 @@
-
-
-
-
 .team_flag_img {
     height: 60%;
     width: 60%;
@@ -78,3 +74,24 @@
 .its_me td{
     border-color: rgb(252, 221, 200);
 }
+
+blink {
+    color: #8B0000;
+    -webkit-animation: blink 3s steps(3, start) infinite;
+    -moz-animation:    blink 3s steps(3, start) infinite;
+    -o-animation:      blink 3s steps(3, start) infinite;
+    animation:         blink 3s steps(3, start) infinite;
+  }
+
+  @-webkit-keyframes blink {
+    to { visibility: hidden; }
+  }
+  @-moz-keyframes blink {
+    to { visibility: hidden; }
+  }
+  @-o-keyframes blink {
+    to { visibility: hidden; }
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
