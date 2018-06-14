@@ -14,6 +14,9 @@ function get_rules() {
         nav_elements[i].className = '';
     }
 
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
+
     banner.scrollTop = 0;
 
     var rules_banner_nav = document.getElementById('rules_banner');
@@ -51,7 +54,7 @@ function get_rules() {
             Groups
         </div>
         <div class="stage_div textBox" style="color:black;background-color: #E6DB74">
-            You will be awarded 1 point per each succesfull guess on a team's final position in the group stage.
+            You will be awarded 1 point per each succesful guess on a team's final position in the group stage.
         </div>
 
         <div class="stage_div textBox"> </div>

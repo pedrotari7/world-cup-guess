@@ -35,8 +35,8 @@ points = {
             'player_golden_glove': 5
          }
 
-freezer = freeze_time("2018-06-30 21:59:00")
-freezer.start()
+# freezer = freeze_time("2018-07-30 21:59:00")
+# freezer.start()
 
 ###################################################################################################
 #                                         Database                                                #
@@ -222,7 +222,7 @@ def update_group_table_info(teams, home_team, away_team, score):
         teams[home_team]['gs'] += int(score['home'])
         teams[home_team]['gc'] += int(score['away'])
         teams[away_team]['gs'] += int(score['away'])
-        teams[away_team]['gc'] =  int(score['home'])
+        teams[away_team]['gc'] += int(score['home'])
         outcome = calculate_game_outcome(score)
         if outcome == 'home':
             teams[home_team]['w'] += 1
@@ -475,7 +475,7 @@ def update_knockout_stages():
                         info['games'][game]['away_team'] = info['games']['home_team']
 
 def update_penalties_points():
-    for user in users:
+    for user in sorted(users.keys()):
         users[user]['results']['penalties_winner'] = 0
         for game in users[user]['predictions']:
             if info['games'][game]['stage'] != 'Groups Stage':

@@ -68,8 +68,14 @@ td:last-child{
     width: 5%;
 }
 
-.user_name {
+#user_name {
+    color: white;
     width: 20%;
+}
+
+#user {
+    color: white;
+    width: 100%;
 }
 
 .user_pointsr:not(.label_th) {

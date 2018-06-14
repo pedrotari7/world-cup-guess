@@ -1,4 +1,4 @@
-function get_game(user_id, game_num) {
+function get_game(user_id, game_num, extra_text) {
     document.title = "Game " + game_num;
 
     var url = "http://www.worldcupguess.win:5000/api/v1.0/game";
@@ -26,6 +26,13 @@ function get_game(user_id, game_num) {
 
             while (banner.firstChild) {
                 banner.removeChild(banner.firstChild);
+            }
+
+            if(extra_text) {
+                var next_game = document.createElement('div');
+                next_game.className = 'stage_div textBox';
+                next_game.innerText = 'Next Game...';
+                banner.appendChild(next_game);
             }
 
             var game_table = document.createElement('table');
@@ -84,17 +91,29 @@ function get_game(user_id, game_num) {
                 date_score_td.style.fontSize = '20px';
 
             } else {
-                var date = new Date(game_info['info']['date']);
+                var date = new Date(game_info['info']['date'].replace(' ','T'));
+
                 var current_date = new Date(game_info['current_time']);
+
 
                 var time_diff = (date.getTime() - current_date.getTime() + 2*60*60*1000) / 1000;
                 var one_day = 60*60*24;
+
+
+                var isSafari = window.safari !== undefined;
+
+
+		if(isSafari)
+		    time_diff -= 2*60*60;
 
                 if(time_diff < one_day) {
                     date_score_td.style.fontSize = '20px';
                     startTimer(time_diff, date_score_td, user_id, game_num)
                 } else {
-                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                    var hours = date.getHours();
+                    if (isSafari)
+                        hours -= 2;
+                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + hours;
                 }
             }
             var away_team_flag_td = document.createElement('td');
@@ -133,8 +152,6 @@ function get_game(user_id, game_num) {
             var game_prediction_table = document.createElement('table');
             game_prediction_table.id = 'game_prediction_table';
 
-            console.log(game_info['predictions'])
-
             for (var p = 0; p <  game_info['predictions'].length; p++) {
                 var user = game_info['predictions'][p][0];
                 var prediction = game_info['predictions'][p][1];
@@ -167,7 +184,7 @@ function get_game(user_id, game_num) {
                 game_prediction_score.innerText = home_prediction + ' - ' + away_prediction;
 
 
-                if (prediction.hasOwnProperty('prediction') && prediction.prediction.hasOwnProperty('result')) {
+                if (prediction.hasOwnProperty('prediction') && prediction['prediction'].hasOwnProperty('result')) {
                     user_row.className += ' game_result_' + prediction['prediction']['result'];
                 }
 
@@ -181,7 +198,7 @@ function get_game(user_id, game_num) {
                 var closure = closureMaker(user_id, user);
                 user_row.addEventListener('click', closure, false);
 
-                if (user == document.getElementById('user_name').innerHTML) {
+                if (user == document.getElementById('user').innerHTML) {
                     user_row.className += ' its_me';
                 } else {
                     user_row.style.backgroundColor = "#474748";

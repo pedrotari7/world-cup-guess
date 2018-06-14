@@ -14,6 +14,9 @@ function get_players(user_id, team_name, mode) {
         nav_elements[i].className = '';
     }
 
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
+
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
     xhr.onload = function () {
@@ -203,7 +206,7 @@ function set_award(user_id, player_name, mode) {
     xhr.onload = function () {
         var teams = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            get_my_predictions(user_id, document.getElementById('user_name').innerHTML);
+            get_my_predictions(user_id, document.getElementById('user').innerHTML);
         } else {
             console.error(info);
         }

@@ -107,14 +107,6 @@ window.onload = function() {
     var closure = closureMaker();
     rules.addEventListener('click', closure, false);
 
-    var home_text = document.getElementById("user_name");
-
-    var closureMaker = function() {
-        return function(){location.reload();;};
-    }
-    var closure = closureMaker();
-    home_text.addEventListener('click', closure, false);
-
 }
 
 

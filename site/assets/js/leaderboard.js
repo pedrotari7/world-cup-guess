@@ -14,6 +14,9 @@ function get_leaderboard(user_id) {
         nav_elements[i].className = '';
     }
 
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
+
     var leaderboard_nav = document.getElementById('leaderboard');
     leaderboard.className = 'selected';
 
@@ -87,7 +90,7 @@ function get_leaderboard(user_id) {
                 var user_row = document.createElement('tr');
                 user_row.className = 'user_row';
 
-                if (leaderboard[i].name == document.getElementById('user_name').innerHTML) {
+                if (leaderboard[i].name == document.getElementById('user').innerHTML) {
                     user_row.style.backgroundColor = "#A6E22E";
                     user_row.style.color = "black";
                 } else {

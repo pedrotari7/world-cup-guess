@@ -16,6 +16,9 @@ function get_schedule(user_id, group_filter) {
         nav_elements[i].className = '';
     }
 
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
+
     var schedule_nav = document.getElementById('schedule');
     schedule.className = 'selected';
 
@@ -157,8 +160,12 @@ function get_schedule(user_id, group_filter) {
                     }
                     date_score_td.style.fontSize = '20px';
                 } else {
-                    var date = new Date(games[g]['date']);
-                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                    var date = new Date(games[g]['date'].replace(' ','T'));
+                    var hours = date.getHours();
+                    var isSafari = window.safari !== undefined;
+                    if (isSafari)
+                        hours -= 2;
+                    date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + hours;
                 }
 
                 var away_team_flag_td = document.createElement('td');

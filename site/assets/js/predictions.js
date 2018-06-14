@@ -14,7 +14,7 @@ function get_my_predictions(user_id, predictions_user_name) {
         nav_elements[i].className = '';
     }
 
-    var is_my_predictions = predictions_user_name == document.getElementById('user_name').innerHTML;
+    var is_my_predictions = predictions_user_name == document.getElementById('user').innerHTML;
 
     if (is_my_predictions) {
         var my_predictions_nav = document.getElementById('my_predictions');
@@ -23,6 +23,9 @@ function get_my_predictions(user_id, predictions_user_name) {
     } else {
         document.title = predictions_user_name;
     }
+
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
 
     xhr.onload = function () {
         var banner = document.getElementById('banner');
@@ -89,6 +92,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                 } else {
                     mvp_div.innerText += 'Click to predict...';
                 }
+                mvp_div.style.color = "#A6E22E";
                 var closureMaker = function(user_id, mode) {
                     return function(){get_teams(user_id, mode)};
                 }
@@ -110,6 +114,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                 } else {
                     top_scorer_div.innerText += 'Click to predict...';
                 }
+                top_scorer_div.style.color = "#A6E22E";
                 var closureMaker = function(user_id, mode) {
                     return function(){get_teams(user_id, mode)};
                 }
@@ -131,6 +136,7 @@ function get_my_predictions(user_id, predictions_user_name) {
                 } else {
                     golden_glove_div.innerText += 'Click to predict...';
                 }
+                golden_glove_div.style.color = "#A6E22E";
                 var closureMaker = function(user_id, mode) {
                     return function(){get_teams(user_id, mode)};
                 }
@@ -340,8 +346,12 @@ function get_my_predictions(user_id, predictions_user_name) {
                         }
                         date_score_td.style.fontSize = '20px';
                     } else {
-                        var date = new Date(game_info['date']);
-                        date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                        var date = new Date(game_info['date'].replace(' ','T'));
+                        var hours = date.getHours();
+                        var isSafari = window.safari !== undefined;
+                        if (isSafari)
+                            hours -= 2;
+                        date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + hours;
                     }
 
 
@@ -473,23 +483,24 @@ function send_predictions(user_id, game_number, teams) {
 function set_predictions_default(predictions) {
 
     for (game_number in predictions) {
-
         var home_team_guess_input = document.getElementById('home_score_' + game_number)
-        home_team_guess_input.defaultValue = predictions[game_number]['home'];
+        if (home_team_guess_input != null) {
+            home_team_guess_input.defaultValue = predictions[game_number]['home'];
+            if (home_team_guess_input.value == '') {
+                home_team_guess_input.style.borderColor = "#8B0000";
+            } else {
+                home_team_guess_input.style.borderColor = "#A6E22E";
+            }
+        }
         var away_team_guess_input = document.getElementById('away_score_' + game_number)
-        away_team_guess_input.defaultValue = predictions[game_number]['away'];
-
-        if (home_team_guess_input.value == '') {
-            home_team_guess_input.style.borderColor = "#8B0000";
-        } else {
-            home_team_guess_input.style.borderColor = "#A6E22E";
+        if (away_team_guess_input != null) {
+            away_team_guess_input.defaultValue = predictions[game_number]['away'];
+            if (away_team_guess_input.value == '') {
+                away_team_guess_input.style.borderColor = "#8B0000";
+            } else {
+                away_team_guess_input.style.borderColor = "#A6E22E";
+            }
         }
-        if (away_team_guess_input.value == '') {
-            away_team_guess_input.style.borderColor = "#8B0000";
-        } else {
-            away_team_guess_input.style.borderColor = "#A6E22E";
-        }
-
     }
 }
 

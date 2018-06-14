@@ -50,9 +50,24 @@ function get_next_game(user_id) {
     xhr.onload = function () {
         var next_game = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
+            user_name = document.getElementById('user_name');
+            user_name.style.color = "#A6E22E";
+            document.getElementById('user').style.color = "#A6E22E";
+            profile_picture_img = document.getElementById('profile_picture_img');
 
             if (next_game['next_game'] != null) {
-                get_game(user_id, next_game['next_game']);
+
+                var closureMaker = function(a, b, e) {
+                    return function(){
+                        user_name = document.getElementById('user');
+                        user_name.style.color = "#A6E22E";
+                        get_game(a, b, e);};
+                }
+                var closure = closureMaker(user_id, next_game['next_game'], 'next');
+                user_name.addEventListener('click', closure, false);
+                profile_picture_img.addEventListener('click', closure, false);
+
+                get_game(user_id, next_game['next_game'], 'next');
             } else {
                 get_leaderboard(user_id);
             }
@@ -77,8 +92,12 @@ function get_user_info(user_id) {
     xhr.onload = function () {
         var result = JSON.parse(xhr.responseText);
         if (xhr.readyState == 4 && xhr.status == "200") {
-            document.getElementById('user_name').innerHTML = result["name"];
-            document.getElementById('profile_picture_img').src = result["picture"];
+
+            user_name = document.getElementById('user_name');
+            user_name.innerHTML = '<span id="user">' + result["name"] + '</span>' + ' &#8962;';
+
+            profile_picture_img = document.getElementById('profile_picture_img');
+            profile_picture_img.src = result["picture"];
 
             var my_predictions = document.getElementById("my_predictions");
             my_predictions.innerText = 'My Predictions';

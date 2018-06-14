@@ -16,6 +16,9 @@ function get_admin(user_id) {
         nav_elements[i].className = '';
     }
 
+    user_name = document.getElementById('user');
+    user_name.style.color = "white";
+
     xhr.onload = function () {
         var banner = document.getElementById('banner');
         banner.scrollTop = 0;
@@ -157,8 +160,12 @@ function get_admin(user_id) {
                 var date_score_td = document.createElement('td');
                 date_score_td.className = 'game_date_score';
 
-                var date = new Date(games[g]['date']);
-                date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + date.getHours();
+                var date = new Date(games[g]['date'].replace(' ','T'));
+                var hours = date.getHours();
+                var isSafari = window.safari !== undefined;
+                if (isSafari)
+                    hours -= 2;
+                date_score_td.innerText = date.getDate() + ' ' + monthNames[date.getMonth()] + ' @ ' + hours;
 
                 var away_team_result_td = document.createElement('td');
                 if (games[g]['away_team'] in teams && games[g]['away_team'] in teams) {
